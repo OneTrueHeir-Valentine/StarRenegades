@@ -1,0 +1,29 @@
+name: Bug report
+description: Report a problem with the mod or a combat forecast.
+title: ""
+body:
+  - type: input
+    id: version
+    attributes:
+      label: Game and mod versions
+      placeholder: Steam 1.5.1.5, mod 0.1.0
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: What happened?
+      description: Include what you expected and what actually happened.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: How can it be reproduced?
+      description: For forecasts, include characters, enemies, attacks, equipment and active effects if you remember them. Screenshots are welcome.
+  - type: textarea
+    id: log
+    attributes:
+      label: Mod log
+      description: Paste SRBugfix/bugfix.log from the game folder. Remove any personal paths before posting.
+      render: text

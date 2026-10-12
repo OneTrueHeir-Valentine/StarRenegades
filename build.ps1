@@ -9,7 +9,7 @@ if($sdkLine -notmatch '^([^ ]+) \[(.+)\]$'){throw 'Install a .NET SDK to build t
 $compiler=Join-Path (Join-Path $Matches[2] $Matches[1]) 'Roslyn/bincore/csc.dll'
 $manifestHash=(Get-FileHash -LiteralPath (Join-Path $source 'fixes.json')).Hash.ToLowerInvariant()
 [IO.File]::WriteAllText((Join-Path $source 'BuiltManifest.cs'),'namespace SRBugfix { internal static class BuiltManifest { internal const string Sha256="'+$manifestHash+'"; } }')
-$options=@('/nologo','/nostdlib+','/langversion:7.3','/optimize+','/deterministic+')
+$options=@(('/pathmap:"'+$PSScriptRoot+'=/src"'),'/nologo','/nostdlib+','/langversion:7.3','/optimize+','/deterministic+')
 foreach($name in @('mscorlib.dll','System.dll','System.Core.dll','Assembly-CSharp.dll','UnityEngine.CoreModule.dll','Newtonsoft.Json.dll')){$options+=('/reference:"'+(Join-Path $managed $name)+'"')}
 if(Test-Path -LiteralPath $harmony){$options+=('/reference:"'+$harmony+'"');Copy-Item -LiteralPath $harmony -Destination (Join-Path $bin '0Harmony.dll') -Force}
 if($Tests -eq 'Core'){

@@ -1,5 +1,6 @@
+param([string]$SupportPath=(Join-Path $PSScriptRoot '../Installer/Support.ps1'))
 $ErrorActionPreference='Stop'
-. (Join-Path $PSScriptRoot '../Installer/Support.ps1')
+. $SupportPath
 $script:ExpectedGame=@{'Star Renegades.exe'='';'Star Renegades_Data/Managed/Assembly-CSharp.dll'='';'Star Renegades_Data/data.unity3d'=''}
 $script:SkipProcessForFixtures=$true
 $base=Join-Path ([IO.Path]::GetTempPath()) ('SRBugfix-tests-'+[Guid]::NewGuid().ToString('N'))

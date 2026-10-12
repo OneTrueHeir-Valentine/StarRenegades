@@ -1,0 +1,24 @@
+# Building and testing
+
+Players should use the player ZIP. These steps are for contributors.
+
+Requirements: Windows, Python 3, a .NET SDK, Windows PowerShell 5.1, and the supported Steam game installed locally.
+
+```powershell
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File ./setup-dependencies.ps1
+./build.ps1 -GamePath 'C:\path\to\Star Renegades'
+./build.ps1 -Tests Core -GamePath 'C:\path\to\Star Renegades'
+./build.ps1 -Tests Preview -GamePath 'C:\path\to\Star Renegades'
+./build.ps1 -Tests Prediction -GamePath 'C:\path\to\Star Renegades'
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File ./Tests/Installer.Tests.ps1
+python ./package.py --output ./artifacts
+python ./Tests/PackageTests.py ./artifacts
+```
+
+`Source/fixes.json` is the pinned minimal manifest. `make_manifest.py` regenerates it from the two source definitions. `build.ps1` binds its SHA-256 into the loader. The compiler uses the game's local Mono reference assemblies; it does not copy them into the release.
+
+The source package includes the same build and test inputs as the repository. To check reproducibility, build in two different folders using the same SDK, dependencies, game and manifest; the resulting DLL hashes should match. Packaging uses explicit file lists.
+
+The optional `SRBugfix/verify.flag` enables an in-memory engine probe on startup. It checks equipment construction and saved-roll loading, Paragon modifier stacking, card text and getter output. It creates no squad or run and writes no saves. The flag is excluded from releases.
+
+Before marking a release stable, check a normal Steam launch, direct attack inspection versus the full-turn preview, armor after reflected attacks, a resisted stagger near the round boundary, card rank labels, and install/uninstall on an ordinary Steam library. The automated tests do not replace those rendered-UI checks.
