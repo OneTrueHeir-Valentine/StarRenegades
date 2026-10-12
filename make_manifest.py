@@ -13,7 +13,7 @@ changes = core + affixes["tagChanges"]
 assert len({(c["table"], c["id"], c["field"]) for c in changes}) == 346
 assert len({a["id"] for a in affixes["poolAdditions"]}) == 36
 manifest = {
-    "version": "0.1.0",
+    "version": "0.1.1",
     "fingerprints": {
         "data.unity3d": "4c405e4f179f475a67e8561a5163bddb55e7e6340de83bb876ebb1f94c44275d",
         "Assembly-CSharp.dll": "a9d49075bab3953b7748b7e91d94829d325580e870297df8ebdc8d43f55427d0",

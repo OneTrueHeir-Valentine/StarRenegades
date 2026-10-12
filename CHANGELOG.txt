@@ -1,0 +1,37 @@
+Changelog
+
+0.1.1
+
+Corrects two additional combat forecast discrepancies:
+
+- Effects such as Marked applied by an earlier planned attack were absent
+  from later vulnerability checks. The forecast now tracks projected
+  target effects and relevant CRIT-defense changes without changing the
+  live unit. Effect expiry and removal affecting other characters remain
+  outside these corrections.
+- Reflection estimates omitted the incoming attack's CRIT bonus. Both
+  the reaction display and the full-turn forecast now include it.
+
+Retries earned counter achievements after Steam becomes ready or a
+submission fails. Existing local counters determine eligibility; this
+does not add progress or unlock unearned achievements.
+
+Retries are limited to three attempts per earned achievement in each
+Steam-ready session, at least ten seconds apart. New readiness sessions
+permit another attempt. Ordered delayed store callbacks retain their
+submission owner across profile changes and component reactivation.
+
+Repository and release documentation now uses plain-text files.
+Loading, controller and cutscene softlocks remain outside this update.
+
+0.1.0
+
+First test release. Includes the item-reference, Paragon shield-steal, Aegis text, relationship-preview, missing-affix-pool and blaster-tag repairs listed in the README.
+
+Corrects three combat forecast defects:
+
+- Reflected damage could reduce the attacker's armor in the forecast even though execution leaves it intact. Later attacks could consequently show too much health damage.
+- Direct attack inspection passed damage as a positive resource change to the HUD, making damage look like healing. Its armor delta also used maximum armor instead of the estimated remaining armor.
+- Resisted delay rounded fractions to the nearest second in the forecast while execution discarded the fraction. Two 15-second staggers against 50% resistance could forecast a 45-second attack at 61 seconds when it actually executes at 59.
+
+The corrections change estimates and display inputs. They do not change executed damage, delay or round boundaries.

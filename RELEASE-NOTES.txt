@@ -1,0 +1,20 @@
+Star Renegades Bugfix Mod 0.1.1
+
+Test release for Windows x64, Steam build 1.5.1.5.
+
+This update adds forecast corrections for target effects applied earlier
+in the planned turn and reflected damage from CRIT attacks. It also retries
+earned counter achievements after missed or failed Steam submissions.
+All fixes from 0.1.0 remain included.
+
+Download Star-Renegades-Bugfix-Mod-v0.1.1.zip, extract it into a new folder,
+close the game and run Install.cmd. Existing 0.1.0 installations can be
+updated directly. Launch through Steam as usual. Run Uninstall.cmd from
+the extracted release to remove the mod.
+
+The update preserves base-game balance and existing item rolls. It does
+not edit save files or add achievement progress. README.txt and
+CHANGELOG.txt describe the changes and remaining testing needs.
+
+The separate source ZIP contains the mod source, tests and dependency
+notices. Neither ZIP includes game assemblies, full game tables or saves.

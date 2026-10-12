@@ -2,15 +2,16 @@
 import argparse, hashlib, json, zipfile
 from pathlib import Path
 ROOT=Path(__file__).resolve().parent
-VERSION='0.1.0'
-DOCS=['README.md','BUILD.md','CHANGELOG.md','RELEASE-NOTES.md','THIRD-PARTY-NOTICES.md','LICENSE']
+VERSION='0.1.1'
+DOCS=['README.txt','BUILD.txt','CHANGELOG.txt','RELEASE-NOTES.txt','THIRD-PARTY-NOTICES.txt','LICENSE']
 THIRD=['ThirdParty/Doorstop-LICENSE.txt','ThirdParty/Harmony-LICENSE.txt','ThirdParty/MonoMod-LICENSE.txt','ThirdParty/Mono.Cecil-LICENSE.txt','ThirdParty/SR-Tweaker-LICENSE.txt','ThirdParty/UnityDoorstop-v4.0.0-source.zip']
-CODE=['Bootstrap','Overlay','BuiltManifest','Activation','PreviewFix','ReflectionPreviewFix','DamageInspectionFix','Entrypoint','RuntimeProbe']
+CODE=['Bootstrap','Overlay','BuiltManifest','Activation','PreviewFix','ReflectionPreviewFix','DamageInspectionFix','ProjectedEffectFix','AchievementFix','Entrypoint','RuntimeProbe']
 INSTALL=['Installer/Support.ps1','Installer/Install.ps1','Installer/Uninstall.ps1']
 SOURCE=DOCS+THIRD+INSTALL+['Source/'+n+'.cs' for n in CODE]+[
  'Source/fixes.json','Source/core-fixes.json','Source/affix-fixes.json',
  'Installer/Install.cmd','Installer/Uninstall.cmd','Installer/doorstop_config.ini',
- 'Tests/CoreTests.cs','Tests/PreviewTests.cs','Tests/PredictionTests.cs','Tests/card-preview-cases.json','Tests/Installer.Tests.ps1','Tests/PackageTests.py',
+ 'Tests/CoreTests.cs','Tests/PreviewTests.cs','Tests/PredictionTests.cs','Tests/ForecastFollowupTests.cs','Tests/AchievementTests.cs','Tests/ActivationTests.cs',
+ 'Tests/run-forecast-followup.ps1','Tests/RunAchievementTests.ps1','Tests/card-preview-cases.json','Tests/Installer.Tests.ps1','Tests/PackageTests.py',
  '.github/ISSUE_TEMPLATE/bug_report.yml','.gitignore','build.ps1','setup-dependencies.ps1','make_manifest.py','package.py']
 PAYLOAD={'winhttp.dll':'dependencies/winhttp.dll','doorstop_config.ini':'Installer/doorstop_config.ini','SRBugfix/SRBugfix.dll':'bin/SRBugfix.dll','SRBugfix/0Harmony.dll':'dependencies/0Harmony.dll','SRBugfix/fixes.json':'Source/fixes.json'}
 PINNED={'dependencies/winhttp.dll':'7e90398dd7154b41f76e0524aedb795a7bcbe2ed9a14e4ceee214235aa04e442','dependencies/0Harmony.dll':'9611251f080e4855cd9d5fa54b5e56034df25b70b374c49ba09550b08a1bf875'}

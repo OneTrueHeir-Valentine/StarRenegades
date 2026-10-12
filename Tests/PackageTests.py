@@ -1,9 +1,9 @@
 from pathlib import Path
 import sys, zipfile, hashlib, json, re
 root=Path(sys.argv[1])
-player=root/'Star-Renegades-Bugfix-Mod-v0.1.0.zip'
-source=root/'Star-Renegades-Bugfix-Mod-v0.1.0-source.zip'
-common={'README.md','BUILD.md','CHANGELOG.md','RELEASE-NOTES.md','THIRD-PARTY-NOTICES.md','LICENSE',
+player=root/'Star-Renegades-Bugfix-Mod-v0.1.1.zip'
+source=root/'Star-Renegades-Bugfix-Mod-v0.1.1-source.zip'
+common={'README.txt','BUILD.txt','CHANGELOG.txt','RELEASE-NOTES.txt','THIRD-PARTY-NOTICES.txt','LICENSE',
         'ThirdParty/Doorstop-LICENSE.txt','ThirdParty/Harmony-LICENSE.txt','ThirdParty/MonoMod-LICENSE.txt',
         'ThirdParty/Mono.Cecil-LICENSE.txt','ThirdParty/SR-Tweaker-LICENSE.txt','ThirdParty/UnityDoorstop-v4.0.0-source.zip',
         'Installer/Support.ps1','Installer/Install.ps1','Installer/Uninstall.ps1'}
@@ -11,10 +11,11 @@ expected={
     'player':common|{'Install.cmd','Uninstall.cmd','package.json','winhttp.dll','doorstop_config.ini',
                      'SRBugfix/SRBugfix.dll','SRBugfix/0Harmony.dll','SRBugfix/fixes.json'},
     'source':common|{'Source/'+n+'.cs' for n in ['Bootstrap','Overlay','BuiltManifest','Activation','PreviewFix',
-                     'ReflectionPreviewFix','DamageInspectionFix','Entrypoint','RuntimeProbe']}|
+                     'ReflectionPreviewFix','DamageInspectionFix','ProjectedEffectFix','AchievementFix','Entrypoint','RuntimeProbe']}|
              {'Source/fixes.json','Source/core-fixes.json','Source/affix-fixes.json',
               'Installer/Install.cmd','Installer/Uninstall.cmd','Installer/doorstop_config.ini',
-              'Tests/CoreTests.cs','Tests/PreviewTests.cs','Tests/PredictionTests.cs','Tests/card-preview-cases.json',
+              'Tests/CoreTests.cs','Tests/PreviewTests.cs','Tests/PredictionTests.cs','Tests/ForecastFollowupTests.cs','Tests/AchievementTests.cs','Tests/ActivationTests.cs',
+              'Tests/run-forecast-followup.ps1','Tests/RunAchievementTests.ps1','Tests/card-preview-cases.json',
               'Tests/Installer.Tests.ps1','Tests/PackageTests.py','.github/ISSUE_TEMPLATE/bug_report.yml',
               '.gitignore','build.ps1','setup-dependencies.ps1','make_manifest.py','package.py'}
 }
@@ -22,11 +23,12 @@ def scan(z, kind):
     names=z.namelist()
     assert len(names)==len(set(names)), 'Duplicate archive paths'
     assert set(names)==expected[kind], 'Archive entries differ from the complete public allowlist'
+    assert not any(name.lower().endswith('.md') for name in names), 'Use plain-text documentation in this release'
     forbidden=['assembly-csharp.dll','data.unity3d','verify.flag','rebalance.json','receipt.json','.git/','.superpowers/','decompiled','rollback','bugfix.log','probe-values','__pycache__']
     for name in names:
         assert not name.startswith('/') and '..' not in Path(name).parts, 'Archive traversal'
         assert not any(f in name.lower() for f in forbidden), 'Private or game file: '+name
-        if name.endswith(('.cs','.py','.ps1','.md','.yml','.json','.cmd')):
+        if name.endswith(('.cs','.py','.ps1','.txt','.yml','.json','.cmd')):
             data=z.read(name).decode('utf-8-sig')
             assert not re.search(r'C:[/\\]Users[/\\](payto|[^/\\]+[/\\]Documents)',data,re.I), 'Private path: '+name
             assert '\u2014' not in data and '\u2013' not in data, 'Prose dash: '+name

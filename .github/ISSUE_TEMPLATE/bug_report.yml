@@ -6,7 +6,7 @@ body:
     id: version
     attributes:
       label: Game and mod versions
-      placeholder: Steam 1.5.1.5, mod 0.1.0
+      placeholder: Steam 1.5.1.5, mod 0.1.1
     validations:
       required: true
   - type: textarea

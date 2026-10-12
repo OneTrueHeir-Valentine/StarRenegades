@@ -1,9 +1,9 @@
-param([string]$SupportPath=(Join-Path $PSScriptRoot '../Installer/Support.ps1'))
+param([string]$SupportPath=(Join-Path $PSScriptRoot '../Installer/Support.ps1'),[string]$FixtureRoot=([IO.Path]::GetTempPath()))
 $ErrorActionPreference='Stop'
 . $SupportPath
 $script:ExpectedGame=@{'Star Renegades.exe'='';'Star Renegades_Data/Managed/Assembly-CSharp.dll'='';'Star Renegades_Data/data.unity3d'=''}
 $script:SkipProcessForFixtures=$true
-$base=Join-Path ([IO.Path]::GetTempPath()) ('SRBugfix-tests-'+[Guid]::NewGuid().ToString('N'))
+$base=Join-Path ([IO.Path]::GetFullPath($FixtureRoot)) ('SRBugfix-tests-'+[Guid]::NewGuid().ToString('N'))
 New-Item -ItemType Directory -Path $base | Out-Null
 $passed=0;$failed=0
 function Assert($condition,$message){if(-not $condition){throw $message}}

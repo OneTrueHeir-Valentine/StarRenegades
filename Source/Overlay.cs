@@ -30,7 +30,7 @@ namespace SRBugfix
         public static StageResult Stage(GameData data,JObject manifest)
         {
             if(data==null||manifest==null)throw new InvalidDataException("missing data");
-            if((string)manifest["version"]!="0.1.0")throw new InvalidDataException("unsupported version");
+            if((string)manifest["version"]!="0.1.1")throw new InvalidDataException("unsupported version");
             var changes=manifest["changes"] as JArray;var additions=manifest["additions"] as JArray;
             if(changes==null||additions==null)throw new InvalidDataException("missing changes or additions");
             var result=new StageResult{Original=new Dictionary<string,IDictionary>(),Replacement=new Dictionary<string,IDictionary>()};

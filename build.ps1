@@ -12,15 +12,17 @@ $manifestHash=(Get-FileHash -LiteralPath (Join-Path $source 'fixes.json')).Hash.
 $options=@(('/pathmap:"'+$PSScriptRoot+'=/src"'),'/nologo','/nostdlib+','/langversion:7.3','/optimize+','/deterministic+')
 foreach($name in @('mscorlib.dll','System.dll','System.Core.dll','Assembly-CSharp.dll','UnityEngine.CoreModule.dll','Newtonsoft.Json.dll')){$options+=('/reference:"'+(Join-Path $managed $name)+'"')}
 if(Test-Path -LiteralPath $harmony){$options+=('/reference:"'+$harmony+'"');Copy-Item -LiteralPath $harmony -Destination (Join-Path $bin '0Harmony.dll') -Force}
-if($Tests -eq 'Core'){
- $out=Join-Path $bin 'CoreTests.exe';$options+=@('/target:exe',('/out:"'+$out+'"'));$files=@((Join-Path $source 'Overlay.cs'),(Join-Path $source 'Bootstrap.cs'),(Join-Path $source 'BuiltManifest.cs'),(Join-Path $PSScriptRoot 'Tests/CoreTests.cs'))
-}elseif($Tests -eq 'Preview'){
- $out=Join-Path $bin 'PreviewTests.exe';$options+=@('/target:exe','/main:PreviewTests',('/out:"'+$out+'"'));$files=@('Source/Overlay.cs','Source/Bootstrap.cs','Source/BuiltManifest.cs','Source/PreviewFix.cs','Source/ReflectionPreviewFix.cs','Source/DamageInspectionFix.cs','Source/Activation.cs','Source/RuntimeProbe.cs','Source/Entrypoint.cs','Tests/CoreTests.cs','Tests/PreviewTests.cs')|ForEach-Object{Join-Path $PSScriptRoot $_}
-}elseif(-not $Tests){
+if(-not $Tests){
  $out=Join-Path $bin 'SRBugfix.dll';$options+=@('/target:library',('/out:"'+$out+'"'));$files=@(Get-ChildItem -LiteralPath $source -Filter '*.cs' | ForEach-Object FullName)
-}elseif($Tests -eq 'Prediction'){
- $out=Join-Path $bin 'PredictionTests.exe';$options+=@('/target:exe','/main:PredictionTests',('/out:"'+$out+'"'));$files=@('Source/ReflectionPreviewFix.cs','Source/DamageInspectionFix.cs','Tests/PredictionTests.cs')|ForEach-Object{Join-Path $PSScriptRoot $_}
-}else{throw 'Choose -Tests Core, Preview or Prediction.'}
+}else{
+ $mains=@{Core='CoreTests';Preview='PreviewTests';Prediction='PredictionTests';Forecast='ForecastFollowupTests';Achievements='AchievementTests';Activation='ActivationTests'}
+ if(-not $mains.ContainsKey($Tests)){throw 'Choose -Tests Core, Preview, Prediction, Forecast, Achievements or Activation.'}
+ $main=$mains[$Tests];$out=Join-Path $bin ($main+'.exe');$options+=@('/target:exe',('/main:'+$main),('/out:"'+$out+'"'))
+ if($Tests -eq 'Forecast'){$options+='/define:FOLLOWUP_FIX'}
+ $files=@(Get-ChildItem -LiteralPath $source -Filter '*.cs' | ForEach-Object FullName)
+ $files+=Join-Path $PSScriptRoot ('Tests/'+$main+'.cs')
+ if($Tests -eq 'Preview' -or $Tests -eq 'Activation'){$files+=Join-Path $PSScriptRoot 'Tests/CoreTests.cs'}
+}
 foreach($file in $files){$options+=('"'+$file+'"')}
 $rsp=Join-Path $bin 'compile.rsp';[IO.File]::WriteAllLines($rsp,$options)
 & dotnet $compiler ('@'+$rsp)

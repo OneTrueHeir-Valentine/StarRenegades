@@ -1,0 +1,23 @@
+Third-party notices
+
+Unity Doorstop 4.0.0
+
+The unmodified Windows x64 winhttp.dll comes from Unity Doorstop 4.0.0 (https://github.com/NeighTools/UnityDoorstop/releases/tag/v4.0.0).
+
+License: GNU Lesser General Public License 2.1. See ThirdParty/Doorstop-LICENSE.txt. The complete corresponding source for this version, including its build scripts and vendored files, is supplied as ThirdParty/UnityDoorstop-v4.0.0-source.zip in both release archives. The Windows target has no separately linked third-party libraries beyond the operating system libraries. Its build script obtains xmake; the build tool is not linked into the DLL.
+
+You may replace the Doorstop DLL with your own compatible build. The installer requires the hashes recorded in package.json; update that package file for your replacement. The managed loader independently checks the game and its fix manifest, not the Doorstop DLL.
+
+Harmony 2.2.2
+
+The unmodified net35 0Harmony.dll comes from Harmony 2.2.2 (https://github.com/pardeike/Harmony/releases/tag/v2.2.2.0). Copyright Andreas Pardeike. License: MIT, in ThirdParty/Harmony-LICENSE.txt.
+
+The release DLL embeds MonoMod.Common 22.6.3.1 and Mono.Cecil. Their MIT notices are in ThirdParty/MonoMod-LICENSE.txt and ThirdParty/Mono.Cecil-LICENSE.txt. MonoMod.Common's package identifies Copyright 2022 0x0ade; its upstream notice also credits 2019 to 2020 0x0ade. Both are retained here.
+
+Original modding project
+
+SR Tweaker Mod (https://gitlab.com/Scriptopathe/sr-tweaker-mod), Copyright 2022 Scriptopathe & Contributors, provided the original modding reference. Its MIT notice is retained in ThirdParty/SR-Tweaker-LICENSE.txt.
+
+Game
+
+Star Renegades game code and assets are not distributed with this mod. They remain the property of their respective owners.
