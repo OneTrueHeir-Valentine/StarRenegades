@@ -110,7 +110,7 @@ internal static class CoreTests
     static JObject Manifest(){return JObject.Parse(File.ReadAllText(Path.Combine(sourceRoot,"fixes.json")));}
     static JObject CoreManifest(){var m=Manifest();m["changes"]=new JArray(((JArray)m["changes"]).Where(e=>(string)e["table"]!="TraitData").Select(e=>e.DeepClone()));m["additions"]=new JArray();return m;}
     static string Temporary(string name){string p=Path.Combine(AppDomain.CurrentDomain.BaseDirectory,"core-fixtures/"+name);Directory.CreateDirectory(p);return p;}
-    static GameData Fixture(JObject manifest)
+    internal static GameData Fixture(JObject manifest)
     {
         var d=(GameData)FormatterServices.GetUninitializedObject(typeof(GameData));
         Set(d,"EquipmentData",new Dictionary<string,EquipmentData>());Set(d,"PowerModifierData",new Dictionary<string,PowerModifierData>());Set(d,"CamaraderieStringData",new Dictionary<string,LocalizedStringData>());Set(d,"TraitData",new Dictionary<string,TraitData>());Set(d,"TagGroupData",new Dictionary<string,TagGroupData>());Set(d,"PowerData",new Dictionary<string,PowerData>());

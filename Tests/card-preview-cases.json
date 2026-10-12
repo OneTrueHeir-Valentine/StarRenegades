@@ -1,0 +1,182 @@
+[
+  {
+    "id": "valCard2",
+    "targetType": "AnyOther",
+    "requiredAffection": 25,
+    "normallyGranted": true
+  },
+  {
+    "id": "valCard5",
+    "targetType": "AnyOther",
+    "requiredAffection": 50,
+    "normallyGranted": false
+  },
+  {
+    "id": "arcCard3",
+    "targetType": "AnyOther",
+    "requiredAffection": 25,
+    "normallyGranted": true
+  },
+  {
+    "id": "arcCard5",
+    "targetType": "AnyOther",
+    "requiredAffection": 50,
+    "normallyGranted": false
+  },
+  {
+    "id": "sabCard3",
+    "targetType": "AnyOther",
+    "requiredAffection": 25,
+    "normallyGranted": true
+  },
+  {
+    "id": "sabCard5",
+    "targetType": "AnyOther",
+    "requiredAffection": 50,
+    "normallyGranted": false
+  },
+  {
+    "id": "enfCard3",
+    "targetType": "AnyOther",
+    "requiredAffection": 25,
+    "normallyGranted": true
+  },
+  {
+    "id": "enfCard5",
+    "targetType": "AnyOther",
+    "requiredAffection": 50,
+    "normallyGranted": false
+  },
+  {
+    "id": "aegCard3",
+    "targetType": "AnyOther",
+    "requiredAffection": 25,
+    "normallyGranted": true
+  },
+  {
+    "id": "aegCard5",
+    "targetType": "AnyOther",
+    "requiredAffection": 50,
+    "normallyGranted": false
+  },
+  {
+    "id": "empCard3",
+    "targetType": "AnyOther",
+    "requiredAffection": 25,
+    "normallyGranted": true
+  },
+  {
+    "id": "empCard5",
+    "targetType": "AnyOther",
+    "requiredAffection": 50,
+    "normallyGranted": false
+  },
+  {
+    "id": "comCard3",
+    "targetType": "AnyOther",
+    "requiredAffection": 25,
+    "normallyGranted": true
+  },
+  {
+    "id": "comCard5",
+    "targetType": "AnyOther",
+    "requiredAffection": 50,
+    "normallyGranted": false
+  },
+  {
+    "id": "marCard3",
+    "targetType": "AnyOther",
+    "requiredAffection": 25,
+    "normallyGranted": true
+  },
+  {
+    "id": "marCard5",
+    "targetType": "AnyOther",
+    "requiredAffection": 50,
+    "normallyGranted": false
+  },
+  {
+    "id": "jugCard3",
+    "targetType": "AnyOther",
+    "requiredAffection": 25,
+    "normallyGranted": true
+  },
+  {
+    "id": "jugCard5",
+    "targetType": "AnyOther",
+    "requiredAffection": 50,
+    "normallyGranted": false
+  },
+  {
+    "id": "varCard3",
+    "targetType": "AnyOther",
+    "requiredAffection": 25,
+    "normallyGranted": true
+  },
+  {
+    "id": "varCard5",
+    "targetType": "AnyOther",
+    "requiredAffection": 50,
+    "normallyGranted": false
+  },
+  {
+    "id": "gunCard3",
+    "targetType": "AnyOther",
+    "requiredAffection": 25,
+    "normallyGranted": true
+  },
+  {
+    "id": "gunCard5",
+    "targetType": "AnyOther",
+    "requiredAffection": 50,
+    "normallyGranted": false
+  },
+  {
+    "id": "speCard3",
+    "targetType": "AnyOther",
+    "requiredAffection": 25,
+    "normallyGranted": true
+  },
+  {
+    "id": "speCard5",
+    "targetType": "AnyOther",
+    "requiredAffection": 50,
+    "normallyGranted": false
+  },
+  {
+    "id": "parCard3",
+    "targetType": "AnyOther",
+    "requiredAffection": 25,
+    "normallyGranted": true
+  },
+  {
+    "id": "parCard5",
+    "targetType": "AnyOther",
+    "requiredAffection": 50,
+    "normallyGranted": false
+  },
+  {
+    "id": "vanCard5",
+    "targetType": "AnyOther",
+    "requiredAffection": 25,
+    "normallyGranted": true
+  },
+  {
+    "id": "grdCard2",
+    "targetType": "AnyOther",
+    "requiredAffection": 25,
+    "normallyGranted": true
+  },
+  {
+    "id": "grdCard3",
+    "targetType": "AnyOther",
+    "requiredAffection": 50,
+    "normallyGranted": true
+  },
+  {
+    "id": "darCard4",
+    "targetType": "AnyOther",
+    "requiredAffection": 50,
+    "normallyGranted": true
+  }
+]
