@@ -1,0 +1,7 @@
+.superpowers/
+bin/
+artifacts/
+dependencies/
+*.rsp
+*.log
+__pycache__/
