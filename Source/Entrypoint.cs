@@ -61,6 +61,7 @@ namespace Doorstop
             {
                 var applied=Activation.Apply(__instance,manifest,installHooks,removeHooks);PreviewFix.Enabled=true;ReflectionPreviewFix.Enabled=true;DamageInspectionFix.Enabled=true;
                 Log("Applied version 0.1.0: "+applied.ChangedFields+" fields, "+applied.AddedRecords+" affix pools.");
+                if(File.Exists(Path.Combine(root,"verify.flag"))){try{RuntimeProbe.Run(__instance,manifest);}catch(Exception e){Log("ACCEPTANCE FAILED: "+e);}}
             }
             catch(Exception e){Log("Fixes not applied; original data retained: "+e);}
         }
