@@ -15,10 +15,12 @@ if(Test-Path -LiteralPath $harmony){$options+=('/reference:"'+$harmony+'"');Copy
 if($Tests -eq 'Core'){
  $out=Join-Path $bin 'CoreTests.exe';$options+=@('/target:exe',('/out:"'+$out+'"'));$files=@((Join-Path $source 'Overlay.cs'),(Join-Path $source 'Bootstrap.cs'),(Join-Path $source 'BuiltManifest.cs'),(Join-Path $PSScriptRoot 'Tests/CoreTests.cs'))
 }elseif($Tests -eq 'Preview'){
- $out=Join-Path $bin 'PreviewTests.exe';$options+=@('/target:exe','/main:PreviewTests',('/out:"'+$out+'"'));$files=@('Source/Overlay.cs','Source/Bootstrap.cs','Source/BuiltManifest.cs','Source/PreviewFix.cs','Source/Activation.cs','Source/Entrypoint.cs','Tests/CoreTests.cs','Tests/PreviewTests.cs')|ForEach-Object{Join-Path $PSScriptRoot $_}
+ $out=Join-Path $bin 'PreviewTests.exe';$options+=@('/target:exe','/main:PreviewTests',('/out:"'+$out+'"'));$files=@('Source/Overlay.cs','Source/Bootstrap.cs','Source/BuiltManifest.cs','Source/PreviewFix.cs','Source/ReflectionPreviewFix.cs','Source/DamageInspectionFix.cs','Source/Activation.cs','Source/Entrypoint.cs','Tests/CoreTests.cs','Tests/PreviewTests.cs')|ForEach-Object{Join-Path $PSScriptRoot $_}
 }elseif(-not $Tests){
  $out=Join-Path $bin 'SRBugfix.dll';$options+=@('/target:library',('/out:"'+$out+'"'));$files=@(Get-ChildItem -LiteralPath $source -Filter '*.cs' | ForEach-Object FullName)
-}else{throw 'Choose -Tests Core or -Tests Preview.'}
+}elseif($Tests -eq 'Prediction'){
+ $out=Join-Path $bin 'PredictionTests.exe';$options+=@('/target:exe','/main:PredictionTests',('/out:"'+$out+'"'));$files=@('Source/ReflectionPreviewFix.cs','Source/DamageInspectionFix.cs','Tests/PredictionTests.cs')|ForEach-Object{Join-Path $PSScriptRoot $_}
+}else{throw 'Choose -Tests Core, Preview or Prediction.'}
 foreach($file in $files){$options+=('"'+$file+'"')}
 $rsp=Join-Path $bin 'compile.rsp';[IO.File]::WriteAllLines($rsp,$options)
 & dotnet $compiler ('@'+$rsp)

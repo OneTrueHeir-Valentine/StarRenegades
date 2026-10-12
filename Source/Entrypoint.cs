@@ -3,6 +3,7 @@ using System.IO;
 using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Threading;
+using System.Linq;
 using HarmonyLib;
 using Mdi.SRRW.Data;
 using Newtonsoft.Json.Linq;
@@ -36,12 +37,17 @@ namespace Doorstop
             manifest=Bootstrap.Read(gameRoot,root);
             if(GameData.Instance!=null)throw new InvalidDataException("Game data is already loaded. Restart the game.");
             var targets=PreviewFix.ResolveTargets();var harmony=new Harmony(HookId);
+            var estimate=ReflectionPreviewFix.ResolveTarget();var inspection=DamageInspectionFix.ResolveTarget();
+            ReflectionPreviewFix.Transpile(PatchProcessor.GetOriginalInstructions(estimate)).ToArray();
+            DamageInspectionFix.Transpile(PatchProcessor.GetOriginalInstructions(inspection)).ToArray();
             var flags=BindingFlags.Static|BindingFlags.NonPublic;
             installHooks=new Action[]{
                 ()=>harmony.Patch(targets[0],postfix:new HarmonyMethod(typeof(PreviewFix).GetMethod("BasePostfix",flags))),
-                ()=>harmony.Patch(targets[1],postfix:new HarmonyMethod(typeof(PreviewFix).GetMethod("RewardPostfix",flags)))
+                ()=>harmony.Patch(targets[1],postfix:new HarmonyMethod(typeof(PreviewFix).GetMethod("RewardPostfix",flags))),
+                ()=>harmony.Patch(estimate,transpiler:new HarmonyMethod(typeof(ReflectionPreviewFix).GetMethod("Transpile",flags))),
+                ()=>harmony.Patch(inspection,transpiler:new HarmonyMethod(typeof(DamageInspectionFix).GetMethod("Transpile",flags)))
             };
-            removeHooks=()=>{PreviewFix.Enabled=false;harmony.UnpatchAll(HookId);};
+            removeHooks=()=>{PreviewFix.Enabled=false;ReflectionPreviewFix.Enabled=false;DamageInspectionFix.Enabled=false;harmony.UnpatchAll(HookId);};
             var load=typeof(GameData).GetMethod("LoadData",BindingFlags.Instance|BindingFlags.NonPublic);
             if(load==null)throw new InvalidDataException("Supported game-data loader was not found.");
             try{harmony.Patch(load,postfix:new HarmonyMethod(typeof(Entrypoint).GetMethod("AfterDataLoad",flags)));}
@@ -53,7 +59,7 @@ namespace Doorstop
             if(Interlocked.Increment(ref applications)!=1){Log("Repeated data loading is unsupported. Restart the game.");return;}
             try
             {
-                var applied=Activation.Apply(__instance,manifest,installHooks,removeHooks);PreviewFix.Enabled=true;
+                var applied=Activation.Apply(__instance,manifest,installHooks,removeHooks);PreviewFix.Enabled=true;ReflectionPreviewFix.Enabled=true;DamageInspectionFix.Enabled=true;
                 Log("Applied version 0.1.0: "+applied.ChangedFields+" fields, "+applied.AddedRecords+" affix pools.");
             }
             catch(Exception e){Log("Fixes not applied; original data retained: "+e);}
