@@ -7,7 +7,9 @@
   "dictionary_counts": {
     "EquipmentData": 3366,
     "PowerModifierData": 2443,
-    "CamaraderieStringData": 240
+    "CamaraderieStringData": 240,
+    "TraitData": 3261,
+    "TagGroupData": 274
   },
   "changes": [
     {
@@ -4412,7 +4414,591 @@
       "field": "EN",
       "before": "Auto Shield Regen (10 per round)\nLasts 2 combats",
       "after": "Heals 10 health per round.\nLasts 2 combats."
+    },
+    {
+      "table": "TraitData",
+      "id": "eqtRemoveBuffsLight",
+      "field": "equipmentGenerationTags",
+      "before": [
+        "eqp",
+        "offense",
+        "sword",
+        "blasteer",
+        "kinetic",
+        "rifle",
+        "generalb"
+      ],
+      "after": [
+        "eqp",
+        "offense",
+        "sword",
+        "blaster",
+        "kinetic",
+        "rifle",
+        "generalb"
+      ]
+    },
+    {
+      "table": "TraitData",
+      "id": "eqtRemoveBuffsNormal",
+      "field": "equipmentGenerationTags",
+      "before": [
+        "eqp",
+        "offense",
+        "sword",
+        "blasteer",
+        "kinetic",
+        "rifle",
+        "generalb"
+      ],
+      "after": [
+        "eqp",
+        "offense",
+        "sword",
+        "blaster",
+        "kinetic",
+        "rifle",
+        "generalb"
+      ]
+    },
+    {
+      "table": "TraitData",
+      "id": "eqtRemoveBuffsHeavy",
+      "field": "equipmentGenerationTags",
+      "before": [
+        "eqp",
+        "offense",
+        "sword",
+        "blasteer",
+        "kinetic",
+        "rifle",
+        "generalb"
+      ],
+      "after": [
+        "eqp",
+        "offense",
+        "sword",
+        "blaster",
+        "kinetic",
+        "rifle",
+        "generalb"
+      ]
+    },
+    {
+      "table": "TraitData",
+      "id": "eqtRemoveBuffsFlurry",
+      "field": "equipmentGenerationTags",
+      "before": [
+        "eqp",
+        "offense",
+        "sword",
+        "blasteer",
+        "kinetic",
+        "rifle",
+        "generalb"
+      ],
+      "after": [
+        "eqp",
+        "offense",
+        "sword",
+        "blaster",
+        "kinetic",
+        "rifle",
+        "generalb"
+      ]
+    },
+    {
+      "table": "TraitData",
+      "id": "eqtRemoveBuffsAOE",
+      "field": "equipmentGenerationTags",
+      "before": [
+        "eqp",
+        "offense",
+        "sword",
+        "blasteer",
+        "kinetic",
+        "rifle",
+        "generalb"
+      ],
+      "after": [
+        "eqp",
+        "offense",
+        "sword",
+        "blaster",
+        "kinetic",
+        "rifle",
+        "generalb"
+      ]
     }
   ],
-  "additions": []
+  "additions": [
+    {
+      "table": "TagGroupData",
+      "id": "tagBlasterElementalA3",
+      "template": "tagSwordElementalA3",
+      "fields": {
+        "id": "tagBlasterElementalA3",
+        "tags": [
+          "eqp",
+          "blaster",
+          "lvl3"
+        ]
+      }
+    },
+    {
+      "table": "TagGroupData",
+      "id": "tagBlasterElementalA4",
+      "template": "tagSwordElementalA4",
+      "fields": {
+        "id": "tagBlasterElementalA4",
+        "tags": [
+          "eqp",
+          "blaster",
+          "lvl4"
+        ]
+      }
+    },
+    {
+      "table": "TagGroupData",
+      "id": "tagBlasterElementalA5",
+      "template": "tagSwordElementalA5",
+      "fields": {
+        "id": "tagBlasterElementalA5",
+        "tags": [
+          "eqp",
+          "blaster",
+          "lvl5"
+        ]
+      }
+    },
+    {
+      "table": "TagGroupData",
+      "id": "tagBlasterElementalA6",
+      "template": "tagSwordElementalA6",
+      "fields": {
+        "id": "tagBlasterElementalA6",
+        "tags": [
+          "eqp",
+          "blaster",
+          "lvl6"
+        ]
+      }
+    },
+    {
+      "table": "TagGroupData",
+      "id": "tagBlasterElementalB5",
+      "template": "tagSwordElementalB5",
+      "fields": {
+        "id": "tagBlasterElementalB5",
+        "tags": [
+          "eqp",
+          "blaster",
+          "lvl5"
+        ]
+      }
+    },
+    {
+      "table": "TagGroupData",
+      "id": "tagBlasterElementalB6",
+      "template": "tagSwordElementalB6",
+      "fields": {
+        "id": "tagBlasterElementalB6",
+        "tags": [
+          "eqp",
+          "blaster",
+          "lvl6"
+        ]
+      }
+    },
+    {
+      "table": "TagGroupData",
+      "id": "tagBlasterElementalB7",
+      "template": "tagSwordElementalB7",
+      "fields": {
+        "id": "tagBlasterElementalB7",
+        "tags": [
+          "eqp",
+          "blaster",
+          "lvl7"
+        ]
+      }
+    },
+    {
+      "table": "TagGroupData",
+      "id": "tagBlasterElementalB8",
+      "template": "tagSwordElementalB8",
+      "fields": {
+        "id": "tagBlasterElementalB8",
+        "tags": [
+          "eqp",
+          "blaster",
+          "lvl8"
+        ]
+      }
+    },
+    {
+      "table": "TagGroupData",
+      "id": "tagBlasterElementalC10",
+      "template": "tagSwordElementalC10",
+      "fields": {
+        "id": "tagBlasterElementalC10",
+        "tags": [
+          "eqp",
+          "blaster",
+          "lvl10"
+        ]
+      }
+    },
+    {
+      "table": "TagGroupData",
+      "id": "tagBlasterElementalC7",
+      "template": "tagSwordElementalC7",
+      "fields": {
+        "id": "tagBlasterElementalC7",
+        "tags": [
+          "eqp",
+          "blaster",
+          "lvl7"
+        ]
+      }
+    },
+    {
+      "table": "TagGroupData",
+      "id": "tagBlasterElementalC8",
+      "template": "tagSwordElementalC8",
+      "fields": {
+        "id": "tagBlasterElementalC8",
+        "tags": [
+          "eqp",
+          "blaster",
+          "lvl8"
+        ]
+      }
+    },
+    {
+      "table": "TagGroupData",
+      "id": "tagBlasterElementalC9",
+      "template": "tagSwordElementalC9",
+      "fields": {
+        "id": "tagBlasterElementalC9",
+        "tags": [
+          "eqp",
+          "blaster",
+          "lvl9"
+        ]
+      }
+    },
+    {
+      "table": "TagGroupData",
+      "id": "tagKineticElementalA3",
+      "template": "tagSwordElementalA3",
+      "fields": {
+        "id": "tagKineticElementalA3",
+        "tags": [
+          "eqp",
+          "kinetic",
+          "lvl3"
+        ]
+      }
+    },
+    {
+      "table": "TagGroupData",
+      "id": "tagKineticElementalA4",
+      "template": "tagSwordElementalA4",
+      "fields": {
+        "id": "tagKineticElementalA4",
+        "tags": [
+          "eqp",
+          "kinetic",
+          "lvl4"
+        ]
+      }
+    },
+    {
+      "table": "TagGroupData",
+      "id": "tagKineticElementalA5",
+      "template": "tagSwordElementalA5",
+      "fields": {
+        "id": "tagKineticElementalA5",
+        "tags": [
+          "eqp",
+          "kinetic",
+          "lvl5"
+        ]
+      }
+    },
+    {
+      "table": "TagGroupData",
+      "id": "tagKineticElementalA6",
+      "template": "tagSwordElementalA6",
+      "fields": {
+        "id": "tagKineticElementalA6",
+        "tags": [
+          "eqp",
+          "kinetic",
+          "lvl6"
+        ]
+      }
+    },
+    {
+      "table": "TagGroupData",
+      "id": "tagKineticElementalB5",
+      "template": "tagSwordElementalB5",
+      "fields": {
+        "id": "tagKineticElementalB5",
+        "tags": [
+          "eqp",
+          "kinetic",
+          "lvl5"
+        ]
+      }
+    },
+    {
+      "table": "TagGroupData",
+      "id": "tagKineticElementalB6",
+      "template": "tagSwordElementalB6",
+      "fields": {
+        "id": "tagKineticElementalB6",
+        "tags": [
+          "eqp",
+          "kinetic",
+          "lvl6"
+        ]
+      }
+    },
+    {
+      "table": "TagGroupData",
+      "id": "tagKineticElementalB7",
+      "template": "tagSwordElementalB7",
+      "fields": {
+        "id": "tagKineticElementalB7",
+        "tags": [
+          "eqp",
+          "kinetic",
+          "lvl7"
+        ]
+      }
+    },
+    {
+      "table": "TagGroupData",
+      "id": "tagKineticElementalB8",
+      "template": "tagSwordElementalB8",
+      "fields": {
+        "id": "tagKineticElementalB8",
+        "tags": [
+          "eqp",
+          "kinetic",
+          "lvl8"
+        ]
+      }
+    },
+    {
+      "table": "TagGroupData",
+      "id": "tagKineticElementalC10",
+      "template": "tagSwordElementalC10",
+      "fields": {
+        "id": "tagKineticElementalC10",
+        "tags": [
+          "eqp",
+          "kinetic",
+          "lvl10"
+        ]
+      }
+    },
+    {
+      "table": "TagGroupData",
+      "id": "tagKineticElementalC7",
+      "template": "tagSwordElementalC7",
+      "fields": {
+        "id": "tagKineticElementalC7",
+        "tags": [
+          "eqp",
+          "kinetic",
+          "lvl7"
+        ]
+      }
+    },
+    {
+      "table": "TagGroupData",
+      "id": "tagKineticElementalC8",
+      "template": "tagSwordElementalC8",
+      "fields": {
+        "id": "tagKineticElementalC8",
+        "tags": [
+          "eqp",
+          "kinetic",
+          "lvl8"
+        ]
+      }
+    },
+    {
+      "table": "TagGroupData",
+      "id": "tagKineticElementalC9",
+      "template": "tagSwordElementalC9",
+      "fields": {
+        "id": "tagKineticElementalC9",
+        "tags": [
+          "eqp",
+          "kinetic",
+          "lvl9"
+        ]
+      }
+    },
+    {
+      "table": "TagGroupData",
+      "id": "tagRifleElementalA3",
+      "template": "tagSwordElementalA3",
+      "fields": {
+        "id": "tagRifleElementalA3",
+        "tags": [
+          "eqp",
+          "rifle",
+          "lvl3"
+        ]
+      }
+    },
+    {
+      "table": "TagGroupData",
+      "id": "tagRifleElementalA4",
+      "template": "tagSwordElementalA4",
+      "fields": {
+        "id": "tagRifleElementalA4",
+        "tags": [
+          "eqp",
+          "rifle",
+          "lvl4"
+        ]
+      }
+    },
+    {
+      "table": "TagGroupData",
+      "id": "tagRifleElementalA5",
+      "template": "tagSwordElementalA5",
+      "fields": {
+        "id": "tagRifleElementalA5",
+        "tags": [
+          "eqp",
+          "rifle",
+          "lvl5"
+        ]
+      }
+    },
+    {
+      "table": "TagGroupData",
+      "id": "tagRifleElementalA6",
+      "template": "tagSwordElementalA6",
+      "fields": {
+        "id": "tagRifleElementalA6",
+        "tags": [
+          "eqp",
+          "rifle",
+          "lvl6"
+        ]
+      }
+    },
+    {
+      "table": "TagGroupData",
+      "id": "tagRifleElementalB5",
+      "template": "tagSwordElementalB5",
+      "fields": {
+        "id": "tagRifleElementalB5",
+        "tags": [
+          "eqp",
+          "rifle",
+          "lvl5"
+        ]
+      }
+    },
+    {
+      "table": "TagGroupData",
+      "id": "tagRifleElementalB6",
+      "template": "tagSwordElementalB6",
+      "fields": {
+        "id": "tagRifleElementalB6",
+        "tags": [
+          "eqp",
+          "rifle",
+          "lvl6"
+        ]
+      }
+    },
+    {
+      "table": "TagGroupData",
+      "id": "tagRifleElementalB7",
+      "template": "tagSwordElementalB7",
+      "fields": {
+        "id": "tagRifleElementalB7",
+        "tags": [
+          "eqp",
+          "rifle",
+          "lvl7"
+        ]
+      }
+    },
+    {
+      "table": "TagGroupData",
+      "id": "tagRifleElementalB8",
+      "template": "tagSwordElementalB8",
+      "fields": {
+        "id": "tagRifleElementalB8",
+        "tags": [
+          "eqp",
+          "rifle",
+          "lvl8"
+        ]
+      }
+    },
+    {
+      "table": "TagGroupData",
+      "id": "tagRifleElementalC10",
+      "template": "tagSwordElementalC10",
+      "fields": {
+        "id": "tagRifleElementalC10",
+        "tags": [
+          "eqp",
+          "rifle",
+          "lvl10"
+        ]
+      }
+    },
+    {
+      "table": "TagGroupData",
+      "id": "tagRifleElementalC7",
+      "template": "tagSwordElementalC7",
+      "fields": {
+        "id": "tagRifleElementalC7",
+        "tags": [
+          "eqp",
+          "rifle",
+          "lvl7"
+        ]
+      }
+    },
+    {
+      "table": "TagGroupData",
+      "id": "tagRifleElementalC8",
+      "template": "tagSwordElementalC8",
+      "fields": {
+        "id": "tagRifleElementalC8",
+        "tags": [
+          "eqp",
+          "rifle",
+          "lvl8"
+        ]
+      }
+    },
+    {
+      "table": "TagGroupData",
+      "id": "tagRifleElementalC9",
+      "template": "tagSwordElementalC9",
+      "fields": {
+        "id": "tagRifleElementalC9",
+        "tags": [
+          "eqp",
+          "rifle",
+          "lvl9"
+        ]
+      }
+    }
+  ]
 }
