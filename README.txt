@@ -42,7 +42,8 @@ FIXES
 - Achievements: retry earned counter achievements when Steam becomes
   ready or a submission fails. The mod does not add kills or progress.
 
-Character stats, skill costs and executed combat damage are unchanged.
+Base character stats and skill costs are unchanged. Forecast corrections
+do not change executed damage. Item repairs restore the intended bonuses.
 Existing item rolls are retained, including items with empty rolls.
 Corrected item bonuses are read again when saved equipment is loaded.
 The mod does not edit save files or unlock characters.
