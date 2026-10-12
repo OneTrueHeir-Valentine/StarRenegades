@@ -1,0 +1,4418 @@
+{
+  "version": "0.1.0",
+  "fingerprints": {
+    "data.unity3d": "4c405e4f179f475a67e8561a5163bddb55e7e6340de83bb876ebb1f94c44275d",
+    "Assembly-CSharp.dll": "a9d49075bab3953b7748b7e91d94829d325580e870297df8ebdc8d43f55427d0"
+  },
+  "dictionary_counts": {
+    "EquipmentData": 3366,
+    "PowerModifierData": 2443,
+    "CamaraderieStringData": 240
+  },
+  "changes": [
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardHealthDmgLt1co",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageLightA1",
+        "eqtBonusHealthDmgLightB"
+      ],
+      "after": [
+        "eqtBonusLightDamageA1",
+        "eqtBonusHealthDmgLightB"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardHealthDmgLt2co",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageLightA2",
+        "eqtBonusHealthDmgLightB"
+      ],
+      "after": [
+        "eqtBonusLightDamageA2",
+        "eqtBonusHealthDmgLightB"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardHealthDmgLt3co",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageLightA3",
+        "eqtBonusHealthDmgLightB"
+      ],
+      "after": [
+        "eqtBonusLightDamageA3",
+        "eqtBonusHealthDmgLightB"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardHealthDmgLt4co",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageLightA4",
+        "eqtBonusHealthDmgLightB"
+      ],
+      "after": [
+        "eqtBonusLightDamageA4",
+        "eqtBonusHealthDmgLightB"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardHealthDmgLt3uc",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageLightB3",
+        "eqtBonusHealthDmgLightC"
+      ],
+      "after": [
+        "eqtBonusLightDamageB3",
+        "eqtBonusHealthDmgLightC"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardHealthDmgLt4uc",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageLightB4",
+        "eqtBonusHealthDmgLightC"
+      ],
+      "after": [
+        "eqtBonusLightDamageB4",
+        "eqtBonusHealthDmgLightC"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardHealthDmgLt5uc",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageLightB5",
+        "eqtBonusHealthDmgLightC"
+      ],
+      "after": [
+        "eqtBonusLightDamageB5",
+        "eqtBonusHealthDmgLightC"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardHealthDmgLt6uc",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageLightB6",
+        "eqtBonusHealthDmgLightC"
+      ],
+      "after": [
+        "eqtBonusLightDamageB6",
+        "eqtBonusHealthDmgLightC"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardHealthDmgLt3ucb",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageLightB3",
+        "eqtBonusHealthDmgLightC"
+      ],
+      "after": [
+        "eqtBonusLightDamageB3",
+        "eqtBonusHealthDmgLightC"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardHealthDmgLt4ucb",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageLightB4",
+        "eqtBonusHealthDmgLightC"
+      ],
+      "after": [
+        "eqtBonusLightDamageB4",
+        "eqtBonusHealthDmgLightC"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardHealthDmgLt5ucb",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageLightB5",
+        "eqtBonusHealthDmgLightC"
+      ],
+      "after": [
+        "eqtBonusLightDamageB5",
+        "eqtBonusHealthDmgLightC"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardHealthDmgLt6ucb",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageLightB6",
+        "eqtBonusHealthDmgLightC"
+      ],
+      "after": [
+        "eqtBonusLightDamageB6",
+        "eqtBonusHealthDmgLightC"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardHealthDmgLt5rac",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageLightC5",
+        "eqtBonusHealthDmgLightD"
+      ],
+      "after": [
+        "eqtBonusLightDamageC5",
+        "eqtBonusHealthDmgLightD"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardHealthDmgLt6rac",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageLightC6",
+        "eqtBonusHealthDmgLightD"
+      ],
+      "after": [
+        "eqtBonusLightDamageC6",
+        "eqtBonusHealthDmgLightD"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardHealthDmgLt7rac",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageLightC7",
+        "eqtBonusHealthDmgLightD"
+      ],
+      "after": [
+        "eqtBonusLightDamageC7",
+        "eqtBonusHealthDmgLightD"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardHealthDmgLt8rac",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageLightC8",
+        "eqtBonusHealthDmgLightD"
+      ],
+      "after": [
+        "eqtBonusLightDamageC8",
+        "eqtBonusHealthDmgLightD"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardHealthDmgLt5rad",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageLightC5",
+        "eqtBonusHealthDmgLightD"
+      ],
+      "after": [
+        "eqtBonusLightDamageC5",
+        "eqtBonusHealthDmgLightD"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardHealthDmgLt6rad",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageLightC6",
+        "eqtBonusHealthDmgLightD"
+      ],
+      "after": [
+        "eqtBonusLightDamageC6",
+        "eqtBonusHealthDmgLightD"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardHealthDmgLt7rad",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageLightC7",
+        "eqtBonusHealthDmgLightD"
+      ],
+      "after": [
+        "eqtBonusLightDamageC7",
+        "eqtBonusHealthDmgLightD"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardHealthDmgLt8rad",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageLightC8",
+        "eqtBonusHealthDmgLightD"
+      ],
+      "after": [
+        "eqtBonusLightDamageC8",
+        "eqtBonusHealthDmgLightD"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardHealthDmgLt7epe",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageLightD7",
+        "eqtBonusHealthDmgLightE"
+      ],
+      "after": [
+        "eqtBonusLightDamageD7",
+        "eqtBonusHealthDmgLightE"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardHealthDmgLt8epe",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageLightD8",
+        "eqtBonusHealthDmgLightE"
+      ],
+      "after": [
+        "eqtBonusLightDamageD8",
+        "eqtBonusHealthDmgLightE"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardHealthDmgLt9epe",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageLightD9",
+        "eqtBonusHealthDmgLightE"
+      ],
+      "after": [
+        "eqtBonusLightDamageD9",
+        "eqtBonusHealthDmgLightE"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardHealthDmgLt10epe",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageLightD10",
+        "eqtBonusHealthDmgLightE"
+      ],
+      "after": [
+        "eqtBonusLightDamageD10",
+        "eqtBonusHealthDmgLightE"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardHealthDmgLt7epf",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageLightD7",
+        "eqtBonusHealthDmgLightE"
+      ],
+      "after": [
+        "eqtBonusLightDamageD7",
+        "eqtBonusHealthDmgLightE"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardHealthDmgLt8epf",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageLightD8",
+        "eqtBonusHealthDmgLightE"
+      ],
+      "after": [
+        "eqtBonusLightDamageD8",
+        "eqtBonusHealthDmgLightE"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardHealthDmgLt9epf",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageLightD9",
+        "eqtBonusHealthDmgLightE"
+      ],
+      "after": [
+        "eqtBonusLightDamageD9",
+        "eqtBonusHealthDmgLightE"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardHealthDmgLt10epf",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageLightD10",
+        "eqtBonusHealthDmgLightE"
+      ],
+      "after": [
+        "eqtBonusLightDamageD10",
+        "eqtBonusHealthDmgLightE"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardHealthDmgNr1co",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageNormalA1",
+        "eqtBonusHealthDmgNormalB"
+      ],
+      "after": [
+        "eqtBonusNormalDamageA1",
+        "eqtBonusHealthDmgNormalB"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardHealthDmgNr2co",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageNormalA2",
+        "eqtBonusHealthDmgNormalB"
+      ],
+      "after": [
+        "eqtBonusNormalDamageA2",
+        "eqtBonusHealthDmgNormalB"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardHealthDmgNr3co",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageNormalA3",
+        "eqtBonusHealthDmgNormalB"
+      ],
+      "after": [
+        "eqtBonusNormalDamageA3",
+        "eqtBonusHealthDmgNormalB"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardHealthDmgNr4co",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageNormalA4",
+        "eqtBonusHealthDmgNormalB"
+      ],
+      "after": [
+        "eqtBonusNormalDamageA4",
+        "eqtBonusHealthDmgNormalB"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardHealthDmgNr3uc",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageNormalB3",
+        "eqtBonusHealthDmgNormalC"
+      ],
+      "after": [
+        "eqtBonusNormalDamageB3",
+        "eqtBonusHealthDmgNormalC"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardHealthDmgNr4uc",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageNormalB4",
+        "eqtBonusHealthDmgNormalC"
+      ],
+      "after": [
+        "eqtBonusNormalDamageB4",
+        "eqtBonusHealthDmgNormalC"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardHealthDmgNr5uc",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageNormalB5",
+        "eqtBonusHealthDmgNormalC"
+      ],
+      "after": [
+        "eqtBonusNormalDamageB5",
+        "eqtBonusHealthDmgNormalC"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardHealthDmgNr6uc",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageNormalB6",
+        "eqtBonusHealthDmgNormalC"
+      ],
+      "after": [
+        "eqtBonusNormalDamageB6",
+        "eqtBonusHealthDmgNormalC"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardHealthDmgNr3ucb",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageNormalB3",
+        "eqtBonusHealthDmgNormalC"
+      ],
+      "after": [
+        "eqtBonusNormalDamageB3",
+        "eqtBonusHealthDmgNormalC"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardHealthDmgNr4ucb",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageNormalB4",
+        "eqtBonusHealthDmgNormalC"
+      ],
+      "after": [
+        "eqtBonusNormalDamageB4",
+        "eqtBonusHealthDmgNormalC"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardHealthDmgNr5ucb",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageNormalB5",
+        "eqtBonusHealthDmgNormalC"
+      ],
+      "after": [
+        "eqtBonusNormalDamageB5",
+        "eqtBonusHealthDmgNormalC"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardHealthDmgNr6ucb",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageNormalB6",
+        "eqtBonusHealthDmgNormalC"
+      ],
+      "after": [
+        "eqtBonusNormalDamageB6",
+        "eqtBonusHealthDmgNormalC"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardHealthDmgNr5rac",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageNormalC5",
+        "eqtBonusHealthDmgNormalD"
+      ],
+      "after": [
+        "eqtBonusNormalDamageC5",
+        "eqtBonusHealthDmgNormalD"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardHealthDmgNr6rac",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageNormalC6",
+        "eqtBonusHealthDmgNormalD"
+      ],
+      "after": [
+        "eqtBonusNormalDamageC6",
+        "eqtBonusHealthDmgNormalD"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardHealthDmgNr7rac",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageNormalC7",
+        "eqtBonusHealthDmgNormalD"
+      ],
+      "after": [
+        "eqtBonusNormalDamageC7",
+        "eqtBonusHealthDmgNormalD"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardHealthDmgNr8rac",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageNormalC8",
+        "eqtBonusHealthDmgNormalD"
+      ],
+      "after": [
+        "eqtBonusNormalDamageC8",
+        "eqtBonusHealthDmgNormalD"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardHealthDmgNr5rad",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageNormalC5",
+        "eqtBonusHealthDmgNormalD"
+      ],
+      "after": [
+        "eqtBonusNormalDamageC5",
+        "eqtBonusHealthDmgNormalD"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardHealthDmgNr6rad",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageNormalC6",
+        "eqtBonusHealthDmgNormalD"
+      ],
+      "after": [
+        "eqtBonusNormalDamageC6",
+        "eqtBonusHealthDmgNormalD"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardHealthDmgNr7rad",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageNormalC7",
+        "eqtBonusHealthDmgNormalD"
+      ],
+      "after": [
+        "eqtBonusNormalDamageC7",
+        "eqtBonusHealthDmgNormalD"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardHealthDmgNr8rad",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageNormalC8",
+        "eqtBonusHealthDmgNormalD"
+      ],
+      "after": [
+        "eqtBonusNormalDamageC8",
+        "eqtBonusHealthDmgNormalD"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardHealthDmgNr7epe",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageNormalD7",
+        "eqtBonusHealthDmgNormalE"
+      ],
+      "after": [
+        "eqtBonusNormalDamageD7",
+        "eqtBonusHealthDmgNormalE"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardHealthDmgNr8epe",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageNormalD8",
+        "eqtBonusHealthDmgNormalE"
+      ],
+      "after": [
+        "eqtBonusNormalDamageD8",
+        "eqtBonusHealthDmgNormalE"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardHealthDmgNr9epe",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageNormalD9",
+        "eqtBonusHealthDmgNormalE"
+      ],
+      "after": [
+        "eqtBonusNormalDamageD9",
+        "eqtBonusHealthDmgNormalE"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardHealthDmgNr10epe",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageNormalD10",
+        "eqtBonusHealthDmgNormalE"
+      ],
+      "after": [
+        "eqtBonusNormalDamageD10",
+        "eqtBonusHealthDmgNormalE"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardHealthDmgNr7epf",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageNormalD7",
+        "eqtBonusHealthDmgNormalE"
+      ],
+      "after": [
+        "eqtBonusNormalDamageD7",
+        "eqtBonusHealthDmgNormalE"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardHealthDmgNr8epf",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageNormalD8",
+        "eqtBonusHealthDmgNormalE"
+      ],
+      "after": [
+        "eqtBonusNormalDamageD8",
+        "eqtBonusHealthDmgNormalE"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardHealthDmgNr9epf",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageNormalD9",
+        "eqtBonusHealthDmgNormalE"
+      ],
+      "after": [
+        "eqtBonusNormalDamageD9",
+        "eqtBonusHealthDmgNormalE"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardHealthDmgNr10epf",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageNormalD10",
+        "eqtBonusHealthDmgNormalE"
+      ],
+      "after": [
+        "eqtBonusNormalDamageD10",
+        "eqtBonusHealthDmgNormalE"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardHealthDmgHv1co",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageHeavyA1",
+        "eqtBonusHealthDmgHeavyB"
+      ],
+      "after": [
+        "eqtBonusHeavyDamageA1",
+        "eqtBonusHealthDmgHeavyB"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardHealthDmgHv2co",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageHeavyA2",
+        "eqtBonusHealthDmgHeavyB"
+      ],
+      "after": [
+        "eqtBonusHeavyDamageA2",
+        "eqtBonusHealthDmgHeavyB"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardHealthDmgHv3co",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageHeavyA3",
+        "eqtBonusHealthDmgHeavyB"
+      ],
+      "after": [
+        "eqtBonusHeavyDamageA3",
+        "eqtBonusHealthDmgHeavyB"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardHealthDmgHv4co",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageHeavyA4",
+        "eqtBonusHealthDmgHeavyB"
+      ],
+      "after": [
+        "eqtBonusHeavyDamageA4",
+        "eqtBonusHealthDmgHeavyB"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardHealthDmgHv3uc",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageHeavyB3",
+        "eqtBonusHealthDmgHeavyC"
+      ],
+      "after": [
+        "eqtBonusHeavyDamageB3",
+        "eqtBonusHealthDmgHeavyC"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardHealthDmgHv4uc",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageHeavyB4",
+        "eqtBonusHealthDmgHeavyC"
+      ],
+      "after": [
+        "eqtBonusHeavyDamageB4",
+        "eqtBonusHealthDmgHeavyC"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardHealthDmgHv5uc",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageHeavyB5",
+        "eqtBonusHealthDmgHeavyC"
+      ],
+      "after": [
+        "eqtBonusHeavyDamageB5",
+        "eqtBonusHealthDmgHeavyC"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardHealthDmgHv6uc",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageHeavyB6",
+        "eqtBonusHealthDmgHeavyC"
+      ],
+      "after": [
+        "eqtBonusHeavyDamageB6",
+        "eqtBonusHealthDmgHeavyC"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardHealthDmgHv3ucb",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageHeavyB3",
+        "eqtBonusHealthDmgHeavyC"
+      ],
+      "after": [
+        "eqtBonusHeavyDamageB3",
+        "eqtBonusHealthDmgHeavyC"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardHealthDmgHv4ucb",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageHeavyB4",
+        "eqtBonusHealthDmgHeavyC"
+      ],
+      "after": [
+        "eqtBonusHeavyDamageB4",
+        "eqtBonusHealthDmgHeavyC"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardHealthDmgHv5ucb",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageHeavyB5",
+        "eqtBonusHealthDmgHeavyC"
+      ],
+      "after": [
+        "eqtBonusHeavyDamageB5",
+        "eqtBonusHealthDmgHeavyC"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardHealthDmgHv6ucb",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageHeavyB6",
+        "eqtBonusHealthDmgHeavyC"
+      ],
+      "after": [
+        "eqtBonusHeavyDamageB6",
+        "eqtBonusHealthDmgHeavyC"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardHealthDmgHv5rac",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageHeavyC5",
+        "eqtBonusHealthDmgHeavyD"
+      ],
+      "after": [
+        "eqtBonusHeavyDamageC5",
+        "eqtBonusHealthDmgHeavyD"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardHealthDmgHv6rac",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageHeavyC6",
+        "eqtBonusHealthDmgHeavyD"
+      ],
+      "after": [
+        "eqtBonusHeavyDamageC6",
+        "eqtBonusHealthDmgHeavyD"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardHealthDmgHv7rac",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageHeavyC7",
+        "eqtBonusHealthDmgHeavyD"
+      ],
+      "after": [
+        "eqtBonusHeavyDamageC7",
+        "eqtBonusHealthDmgHeavyD"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardHealthDmgHv8rac",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageHeavyC8",
+        "eqtBonusHealthDmgHeavyD"
+      ],
+      "after": [
+        "eqtBonusHeavyDamageC8",
+        "eqtBonusHealthDmgHeavyD"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardHealthDmgHv5rad",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageHeavyC5",
+        "eqtBonusHealthDmgHeavyD"
+      ],
+      "after": [
+        "eqtBonusHeavyDamageC5",
+        "eqtBonusHealthDmgHeavyD"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardHealthDmgHv6rad",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageHeavyC6",
+        "eqtBonusHealthDmgHeavyD"
+      ],
+      "after": [
+        "eqtBonusHeavyDamageC6",
+        "eqtBonusHealthDmgHeavyD"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardHealthDmgHv7rad",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageHeavyC7",
+        "eqtBonusHealthDmgHeavyD"
+      ],
+      "after": [
+        "eqtBonusHeavyDamageC7",
+        "eqtBonusHealthDmgHeavyD"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardHealthDmgHv8rad",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageHeavyC8",
+        "eqtBonusHealthDmgHeavyD"
+      ],
+      "after": [
+        "eqtBonusHeavyDamageC8",
+        "eqtBonusHealthDmgHeavyD"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardHealthDmgHv7epe",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageHeavyD7",
+        "eqtBonusHealthDmgHeavyE"
+      ],
+      "after": [
+        "eqtBonusHeavyDamageD7",
+        "eqtBonusHealthDmgHeavyE"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardHealthDmgHv8epe",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageHeavyD8",
+        "eqtBonusHealthDmgHeavyE"
+      ],
+      "after": [
+        "eqtBonusHeavyDamageD8",
+        "eqtBonusHealthDmgHeavyE"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardHealthDmgHv9epe",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageHeavyD9",
+        "eqtBonusHealthDmgHeavyE"
+      ],
+      "after": [
+        "eqtBonusHeavyDamageD9",
+        "eqtBonusHealthDmgHeavyE"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardHealthDmgHv10epe",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageHeavyD10",
+        "eqtBonusHealthDmgHeavyE"
+      ],
+      "after": [
+        "eqtBonusHeavyDamageD10",
+        "eqtBonusHealthDmgHeavyE"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardHealthDmgHv7epf",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageHeavyD7",
+        "eqtBonusHealthDmgHeavyE"
+      ],
+      "after": [
+        "eqtBonusHeavyDamageD7",
+        "eqtBonusHealthDmgHeavyE"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardHealthDmgHv8epf",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageHeavyD8",
+        "eqtBonusHealthDmgHeavyE"
+      ],
+      "after": [
+        "eqtBonusHeavyDamageD8",
+        "eqtBonusHealthDmgHeavyE"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardHealthDmgHv9epf",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageHeavyD9",
+        "eqtBonusHealthDmgHeavyE"
+      ],
+      "after": [
+        "eqtBonusHeavyDamageD9",
+        "eqtBonusHealthDmgHeavyE"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardHealthDmgHv10epf",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageHeavyD10",
+        "eqtBonusHealthDmgHeavyE"
+      ],
+      "after": [
+        "eqtBonusHeavyDamageD10",
+        "eqtBonusHealthDmgHeavyE"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardHealthDmgFl1co",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageFlurryA1",
+        "eqtBonusHealthDmgFlurryB"
+      ],
+      "after": [
+        "eqtBonusFlurryDamageA1",
+        "eqtBonusHealthDmgFlurryB"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardHealthDmgFl2co",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageFlurryA2",
+        "eqtBonusHealthDmgFlurryB"
+      ],
+      "after": [
+        "eqtBonusFlurryDamageA2",
+        "eqtBonusHealthDmgFlurryB"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardHealthDmgFl3co",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageFlurryA3",
+        "eqtBonusHealthDmgFlurryB"
+      ],
+      "after": [
+        "eqtBonusFlurryDamageA3",
+        "eqtBonusHealthDmgFlurryB"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardHealthDmgFl4co",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageFlurryA4",
+        "eqtBonusHealthDmgFlurryB"
+      ],
+      "after": [
+        "eqtBonusFlurryDamageA4",
+        "eqtBonusHealthDmgFlurryB"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardHealthDmgFl3uc",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageFlurryB3",
+        "eqtBonusHealthDmgFlurryC"
+      ],
+      "after": [
+        "eqtBonusFlurryDamageB3",
+        "eqtBonusHealthDmgFlurryC"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardHealthDmgFl4uc",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageFlurryB4",
+        "eqtBonusHealthDmgFlurryC"
+      ],
+      "after": [
+        "eqtBonusFlurryDamageB4",
+        "eqtBonusHealthDmgFlurryC"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardHealthDmgFl5uc",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageFlurryB5",
+        "eqtBonusHealthDmgFlurryC"
+      ],
+      "after": [
+        "eqtBonusFlurryDamageB5",
+        "eqtBonusHealthDmgFlurryC"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardHealthDmgFl6uc",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageFlurryB6",
+        "eqtBonusHealthDmgFlurryC"
+      ],
+      "after": [
+        "eqtBonusFlurryDamageB6",
+        "eqtBonusHealthDmgFlurryC"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardHealthDmgFl3ucb",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageFlurryB3",
+        "eqtBonusHealthDmgFlurryC"
+      ],
+      "after": [
+        "eqtBonusFlurryDamageB3",
+        "eqtBonusHealthDmgFlurryC"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardHealthDmgFl4ucb",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageFlurryB4",
+        "eqtBonusHealthDmgFlurryC"
+      ],
+      "after": [
+        "eqtBonusFlurryDamageB4",
+        "eqtBonusHealthDmgFlurryC"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardHealthDmgFl5ucb",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageFlurryB5",
+        "eqtBonusHealthDmgFlurryC"
+      ],
+      "after": [
+        "eqtBonusFlurryDamageB5",
+        "eqtBonusHealthDmgFlurryC"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardHealthDmgFl6ucb",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageFlurryB6",
+        "eqtBonusHealthDmgFlurryC"
+      ],
+      "after": [
+        "eqtBonusFlurryDamageB6",
+        "eqtBonusHealthDmgFlurryC"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardHealthDmgFl5rac",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageFlurryC5",
+        "eqtBonusHealthDmgFlurryD"
+      ],
+      "after": [
+        "eqtBonusFlurryDamageC5",
+        "eqtBonusHealthDmgFlurryD"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardHealthDmgFl6rac",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageFlurryC6",
+        "eqtBonusHealthDmgFlurryD"
+      ],
+      "after": [
+        "eqtBonusFlurryDamageC6",
+        "eqtBonusHealthDmgFlurryD"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardHealthDmgFl7rac",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageFlurryC7",
+        "eqtBonusHealthDmgFlurryD"
+      ],
+      "after": [
+        "eqtBonusFlurryDamageC7",
+        "eqtBonusHealthDmgFlurryD"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardHealthDmgFl8rac",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageFlurryC8",
+        "eqtBonusHealthDmgFlurryD"
+      ],
+      "after": [
+        "eqtBonusFlurryDamageC8",
+        "eqtBonusHealthDmgFlurryD"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardHealthDmgFl5rad",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageFlurryC5",
+        "eqtBonusHealthDmgFlurryD"
+      ],
+      "after": [
+        "eqtBonusFlurryDamageC5",
+        "eqtBonusHealthDmgFlurryD"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardHealthDmgFl6rad",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageFlurryC6",
+        "eqtBonusHealthDmgFlurryD"
+      ],
+      "after": [
+        "eqtBonusFlurryDamageC6",
+        "eqtBonusHealthDmgFlurryD"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardHealthDmgFl7rad",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageFlurryC7",
+        "eqtBonusHealthDmgFlurryD"
+      ],
+      "after": [
+        "eqtBonusFlurryDamageC7",
+        "eqtBonusHealthDmgFlurryD"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardHealthDmgFl8rad",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageFlurryC8",
+        "eqtBonusHealthDmgFlurryD"
+      ],
+      "after": [
+        "eqtBonusFlurryDamageC8",
+        "eqtBonusHealthDmgFlurryD"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardHealthDmgFl7epe",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageFlurryD7",
+        "eqtBonusHealthDmgFlurryE"
+      ],
+      "after": [
+        "eqtBonusFlurryDamageD7",
+        "eqtBonusHealthDmgFlurryE"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardHealthDmgFl8epe",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageFlurryD8",
+        "eqtBonusHealthDmgFlurryE"
+      ],
+      "after": [
+        "eqtBonusFlurryDamageD8",
+        "eqtBonusHealthDmgFlurryE"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardHealthDmgFl9epe",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageFlurryD9",
+        "eqtBonusHealthDmgFlurryE"
+      ],
+      "after": [
+        "eqtBonusFlurryDamageD9",
+        "eqtBonusHealthDmgFlurryE"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardHealthDmgFl10epe",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageFlurryD10",
+        "eqtBonusHealthDmgFlurryE"
+      ],
+      "after": [
+        "eqtBonusFlurryDamageD10",
+        "eqtBonusHealthDmgFlurryE"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardHealthDmgFl7epf",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageFlurryD7",
+        "eqtBonusHealthDmgFlurryE"
+      ],
+      "after": [
+        "eqtBonusFlurryDamageD7",
+        "eqtBonusHealthDmgFlurryE"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardHealthDmgFl8epf",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageFlurryD8",
+        "eqtBonusHealthDmgFlurryE"
+      ],
+      "after": [
+        "eqtBonusFlurryDamageD8",
+        "eqtBonusHealthDmgFlurryE"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardHealthDmgFl9epf",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageFlurryD9",
+        "eqtBonusHealthDmgFlurryE"
+      ],
+      "after": [
+        "eqtBonusFlurryDamageD9",
+        "eqtBonusHealthDmgFlurryE"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardHealthDmgFl10epf",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageFlurryD10",
+        "eqtBonusHealthDmgFlurryE"
+      ],
+      "after": [
+        "eqtBonusFlurryDamageD10",
+        "eqtBonusHealthDmgFlurryE"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardHealthDmgCo1co",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageCounterA1",
+        "eqtBonusHealthDmgCounterB"
+      ],
+      "after": [
+        "eqtBonusCounterDamageA1",
+        "eqtBonusHealthDmgCounterB"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardHealthDmgCo2co",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageCounterA2",
+        "eqtBonusHealthDmgCounterB"
+      ],
+      "after": [
+        "eqtBonusCounterDamageA2",
+        "eqtBonusHealthDmgCounterB"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardHealthDmgCo3co",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageCounterA3",
+        "eqtBonusHealthDmgCounterB"
+      ],
+      "after": [
+        "eqtBonusCounterDamageA3",
+        "eqtBonusHealthDmgCounterB"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardHealthDmgCo4co",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageCounterA4",
+        "eqtBonusHealthDmgCounterB"
+      ],
+      "after": [
+        "eqtBonusCounterDamageA4",
+        "eqtBonusHealthDmgCounterB"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardHealthDmgCo3uc",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageCounterB3",
+        "eqtBonusHealthDmgCounterC"
+      ],
+      "after": [
+        "eqtBonusCounterDamageB3",
+        "eqtBonusHealthDmgCounterC"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardHealthDmgCo4uc",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageCounterB4",
+        "eqtBonusHealthDmgCounterC"
+      ],
+      "after": [
+        "eqtBonusCounterDamageB4",
+        "eqtBonusHealthDmgCounterC"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardHealthDmgCo5uc",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageCounterB5",
+        "eqtBonusHealthDmgCounterC"
+      ],
+      "after": [
+        "eqtBonusCounterDamageB5",
+        "eqtBonusHealthDmgCounterC"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardHealthDmgCo6uc",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageCounterB6",
+        "eqtBonusHealthDmgCounterC"
+      ],
+      "after": [
+        "eqtBonusCounterDamageB6",
+        "eqtBonusHealthDmgCounterC"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardHealthDmgCo3ucb",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageCounterB3",
+        "eqtBonusHealthDmgCounterC"
+      ],
+      "after": [
+        "eqtBonusCounterDamageB3",
+        "eqtBonusHealthDmgCounterC"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardHealthDmgCo4ucb",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageCounterB4",
+        "eqtBonusHealthDmgCounterC"
+      ],
+      "after": [
+        "eqtBonusCounterDamageB4",
+        "eqtBonusHealthDmgCounterC"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardHealthDmgCo5ucb",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageCounterB5",
+        "eqtBonusHealthDmgCounterC"
+      ],
+      "after": [
+        "eqtBonusCounterDamageB5",
+        "eqtBonusHealthDmgCounterC"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardHealthDmgCo6ucb",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageCounterB6",
+        "eqtBonusHealthDmgCounterC"
+      ],
+      "after": [
+        "eqtBonusCounterDamageB6",
+        "eqtBonusHealthDmgCounterC"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardHealthDmgCo5rac",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageCounterC5",
+        "eqtBonusHealthDmgCounterD"
+      ],
+      "after": [
+        "eqtBonusCounterDamageC5",
+        "eqtBonusHealthDmgCounterD"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardHealthDmgCo6rac",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageCounterC6",
+        "eqtBonusHealthDmgCounterD"
+      ],
+      "after": [
+        "eqtBonusCounterDamageC6",
+        "eqtBonusHealthDmgCounterD"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardHealthDmgCo7rac",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageCounterC7",
+        "eqtBonusHealthDmgCounterD"
+      ],
+      "after": [
+        "eqtBonusCounterDamageC7",
+        "eqtBonusHealthDmgCounterD"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardHealthDmgCo8rac",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageCounterC8",
+        "eqtBonusHealthDmgCounterD"
+      ],
+      "after": [
+        "eqtBonusCounterDamageC8",
+        "eqtBonusHealthDmgCounterD"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardHealthDmgCo5rad",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageCounterC5",
+        "eqtBonusHealthDmgCounterD"
+      ],
+      "after": [
+        "eqtBonusCounterDamageC5",
+        "eqtBonusHealthDmgCounterD"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardHealthDmgCo6rad",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageCounterC6",
+        "eqtBonusHealthDmgCounterD"
+      ],
+      "after": [
+        "eqtBonusCounterDamageC6",
+        "eqtBonusHealthDmgCounterD"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardHealthDmgCo7rad",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageCounterC7",
+        "eqtBonusHealthDmgCounterD"
+      ],
+      "after": [
+        "eqtBonusCounterDamageC7",
+        "eqtBonusHealthDmgCounterD"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardHealthDmgCo8rad",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageCounterC8",
+        "eqtBonusHealthDmgCounterD"
+      ],
+      "after": [
+        "eqtBonusCounterDamageC8",
+        "eqtBonusHealthDmgCounterD"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardHealthDmgCo7epe",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageCounterD7",
+        "eqtBonusHealthDmgCounterE"
+      ],
+      "after": [
+        "eqtBonusCounterDamageD7",
+        "eqtBonusHealthDmgCounterE"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardHealthDmgCo8epe",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageCounterD8",
+        "eqtBonusHealthDmgCounterE"
+      ],
+      "after": [
+        "eqtBonusCounterDamageD8",
+        "eqtBonusHealthDmgCounterE"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardHealthDmgCo9epe",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageCounterD9",
+        "eqtBonusHealthDmgCounterE"
+      ],
+      "after": [
+        "eqtBonusCounterDamageD9",
+        "eqtBonusHealthDmgCounterE"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardHealthDmgCo10epe",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageCounterD10",
+        "eqtBonusHealthDmgCounterE"
+      ],
+      "after": [
+        "eqtBonusCounterDamageD10",
+        "eqtBonusHealthDmgCounterE"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardHealthDmgCo7epf",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageCounterD7",
+        "eqtBonusHealthDmgCounterE"
+      ],
+      "after": [
+        "eqtBonusCounterDamageD7",
+        "eqtBonusHealthDmgCounterE"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardHealthDmgCo8epf",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageCounterD8",
+        "eqtBonusHealthDmgCounterE"
+      ],
+      "after": [
+        "eqtBonusCounterDamageD8",
+        "eqtBonusHealthDmgCounterE"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardHealthDmgCo9epf",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageCounterD9",
+        "eqtBonusHealthDmgCounterE"
+      ],
+      "after": [
+        "eqtBonusCounterDamageD9",
+        "eqtBonusHealthDmgCounterE"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardHealthDmgCo10epf",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageCounterD10",
+        "eqtBonusHealthDmgCounterE"
+      ],
+      "after": [
+        "eqtBonusCounterDamageD10",
+        "eqtBonusHealthDmgCounterE"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardHealthDmgAOE1co",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageAOEA1",
+        "eqtBonusHealthDmgAOEB"
+      ],
+      "after": [
+        "eqtBonusAOEDamageA1",
+        "eqtBonusHealthDmgAOEB"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardHealthDmgAOE2co",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageAOEA2",
+        "eqtBonusHealthDmgAOEB"
+      ],
+      "after": [
+        "eqtBonusAOEDamageA2",
+        "eqtBonusHealthDmgAOEB"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardHealthDmgAOE3co",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageAOEA3",
+        "eqtBonusHealthDmgAOEB"
+      ],
+      "after": [
+        "eqtBonusAOEDamageA3",
+        "eqtBonusHealthDmgAOEB"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardHealthDmgAOE4co",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageAOEA4",
+        "eqtBonusHealthDmgAOEB"
+      ],
+      "after": [
+        "eqtBonusAOEDamageA4",
+        "eqtBonusHealthDmgAOEB"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardHealthDmgAOE3uc",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageAOEB3",
+        "eqtBonusHealthDmgAOEC"
+      ],
+      "after": [
+        "eqtBonusAOEDamageB3",
+        "eqtBonusHealthDmgAOEC"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardHealthDmgAOE4uc",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageAOEB4",
+        "eqtBonusHealthDmgAOEC"
+      ],
+      "after": [
+        "eqtBonusAOEDamageB4",
+        "eqtBonusHealthDmgAOEC"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardHealthDmgAOE5uc",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageAOEB5",
+        "eqtBonusHealthDmgAOEC"
+      ],
+      "after": [
+        "eqtBonusAOEDamageB5",
+        "eqtBonusHealthDmgAOEC"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardHealthDmgAOE6uc",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageAOEB6",
+        "eqtBonusHealthDmgAOEC"
+      ],
+      "after": [
+        "eqtBonusAOEDamageB6",
+        "eqtBonusHealthDmgAOEC"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardHealthDmgAOE3ucb",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageAOEB3",
+        "eqtBonusHealthDmgAOEC"
+      ],
+      "after": [
+        "eqtBonusAOEDamageB3",
+        "eqtBonusHealthDmgAOEC"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardHealthDmgAOE4ucb",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageAOEB4",
+        "eqtBonusHealthDmgAOEC"
+      ],
+      "after": [
+        "eqtBonusAOEDamageB4",
+        "eqtBonusHealthDmgAOEC"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardHealthDmgAOE5ucb",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageAOEB5",
+        "eqtBonusHealthDmgAOEC"
+      ],
+      "after": [
+        "eqtBonusAOEDamageB5",
+        "eqtBonusHealthDmgAOEC"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardHealthDmgAOE6ucb",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageAOEB6",
+        "eqtBonusHealthDmgAOEC"
+      ],
+      "after": [
+        "eqtBonusAOEDamageB6",
+        "eqtBonusHealthDmgAOEC"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardHealthDmgAOE5rac",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageAOEC5",
+        "eqtBonusHealthDmgAOED"
+      ],
+      "after": [
+        "eqtBonusAOEDamageC5",
+        "eqtBonusHealthDmgAOED"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardHealthDmgAOE6rac",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageAOEC6",
+        "eqtBonusHealthDmgAOED"
+      ],
+      "after": [
+        "eqtBonusAOEDamageC6",
+        "eqtBonusHealthDmgAOED"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardHealthDmgAOE7rac",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageAOEC7",
+        "eqtBonusHealthDmgAOED"
+      ],
+      "after": [
+        "eqtBonusAOEDamageC7",
+        "eqtBonusHealthDmgAOED"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardHealthDmgAOE8rac",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageAOEC8",
+        "eqtBonusHealthDmgAOED"
+      ],
+      "after": [
+        "eqtBonusAOEDamageC8",
+        "eqtBonusHealthDmgAOED"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardHealthDmgAOE5rad",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageAOEC5",
+        "eqtBonusHealthDmgAOED"
+      ],
+      "after": [
+        "eqtBonusAOEDamageC5",
+        "eqtBonusHealthDmgAOED"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardHealthDmgAOE6rad",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageAOEC6",
+        "eqtBonusHealthDmgAOED"
+      ],
+      "after": [
+        "eqtBonusAOEDamageC6",
+        "eqtBonusHealthDmgAOED"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardHealthDmgAOE7rad",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageAOEC7",
+        "eqtBonusHealthDmgAOED"
+      ],
+      "after": [
+        "eqtBonusAOEDamageC7",
+        "eqtBonusHealthDmgAOED"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardHealthDmgAOE8rad",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageAOEC8",
+        "eqtBonusHealthDmgAOED"
+      ],
+      "after": [
+        "eqtBonusAOEDamageC8",
+        "eqtBonusHealthDmgAOED"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardHealthDmgAOE7epe",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageAOED7",
+        "eqtBonusHealthDmgAOEE"
+      ],
+      "after": [
+        "eqtBonusAOEDamageD7",
+        "eqtBonusHealthDmgAOEE"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardHealthDmgAOE8epe",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageAOED8",
+        "eqtBonusHealthDmgAOEE"
+      ],
+      "after": [
+        "eqtBonusAOEDamageD8",
+        "eqtBonusHealthDmgAOEE"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardHealthDmgAOE9epe",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageAOED9",
+        "eqtBonusHealthDmgAOEE"
+      ],
+      "after": [
+        "eqtBonusAOEDamageD9",
+        "eqtBonusHealthDmgAOEE"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardHealthDmgAOE10epe",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageAOED10",
+        "eqtBonusHealthDmgAOEE"
+      ],
+      "after": [
+        "eqtBonusAOEDamageD10",
+        "eqtBonusHealthDmgAOEE"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardHealthDmgAOE7epf",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageAOED7",
+        "eqtBonusHealthDmgAOEE"
+      ],
+      "after": [
+        "eqtBonusAOEDamageD7",
+        "eqtBonusHealthDmgAOEE"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardHealthDmgAOE8epf",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageAOED8",
+        "eqtBonusHealthDmgAOEE"
+      ],
+      "after": [
+        "eqtBonusAOEDamageD8",
+        "eqtBonusHealthDmgAOEE"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardHealthDmgAOE9epf",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageAOED9",
+        "eqtBonusHealthDmgAOEE"
+      ],
+      "after": [
+        "eqtBonusAOEDamageD9",
+        "eqtBonusHealthDmgAOEE"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardHealthDmgAOE10epf",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageAOED10",
+        "eqtBonusHealthDmgAOEE"
+      ],
+      "after": [
+        "eqtBonusAOEDamageD10",
+        "eqtBonusHealthDmgAOEE"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardShieldsDmgLt1co",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageLightA1",
+        "eqtBonusShieldDmgLightB"
+      ],
+      "after": [
+        "eqtBonusLightDamageA1",
+        "eqtBonusShieldDmgLightB"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardShieldsDmgLt2co",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageLightA2",
+        "eqtBonusShieldDmgLightB"
+      ],
+      "after": [
+        "eqtBonusLightDamageA2",
+        "eqtBonusShieldDmgLightB"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardShieldsDmgLt3co",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageLightA3",
+        "eqtBonusShieldDmgLightB"
+      ],
+      "after": [
+        "eqtBonusLightDamageA3",
+        "eqtBonusShieldDmgLightB"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardShieldsDmgLt4co",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageLightA4",
+        "eqtBonusShieldDmgLightB"
+      ],
+      "after": [
+        "eqtBonusLightDamageA4",
+        "eqtBonusShieldDmgLightB"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardShieldsDmgLt3uc",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageLightB3",
+        "eqtBonusShieldDmgLightC"
+      ],
+      "after": [
+        "eqtBonusLightDamageB3",
+        "eqtBonusShieldDmgLightC"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardShieldsDmgLt4uc",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageLightB4",
+        "eqtBonusShieldDmgLightC"
+      ],
+      "after": [
+        "eqtBonusLightDamageB4",
+        "eqtBonusShieldDmgLightC"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardShieldsDmgLt5uc",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageLightB5",
+        "eqtBonusShieldDmgLightC"
+      ],
+      "after": [
+        "eqtBonusLightDamageB5",
+        "eqtBonusShieldDmgLightC"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardShieldsDmgLt6uc",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageLightB6",
+        "eqtBonusShieldDmgLightC"
+      ],
+      "after": [
+        "eqtBonusLightDamageB6",
+        "eqtBonusShieldDmgLightC"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardShieldsDmgLt3ucb",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageLightB3",
+        "eqtBonusShieldDmgLightC"
+      ],
+      "after": [
+        "eqtBonusLightDamageB3",
+        "eqtBonusShieldDmgLightC"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardShieldsDmgLt4ucb",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageLightB4",
+        "eqtBonusShieldDmgLightC"
+      ],
+      "after": [
+        "eqtBonusLightDamageB4",
+        "eqtBonusShieldDmgLightC"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardShieldsDmgLt5ucb",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageLightB5",
+        "eqtBonusShieldDmgLightC"
+      ],
+      "after": [
+        "eqtBonusLightDamageB5",
+        "eqtBonusShieldDmgLightC"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardShieldsDmgLt6ucb",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageLightB6",
+        "eqtBonusShieldDmgLightC"
+      ],
+      "after": [
+        "eqtBonusLightDamageB6",
+        "eqtBonusShieldDmgLightC"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardShieldsDmgLt5rac",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageLightC5",
+        "eqtBonusShieldDmgLightD"
+      ],
+      "after": [
+        "eqtBonusLightDamageC5",
+        "eqtBonusShieldDmgLightD"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardShieldsDmgLt6rac",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageLightC6",
+        "eqtBonusShieldDmgLightD"
+      ],
+      "after": [
+        "eqtBonusLightDamageC6",
+        "eqtBonusShieldDmgLightD"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardShieldsDmgLt7rac",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageLightC7",
+        "eqtBonusShieldDmgLightD"
+      ],
+      "after": [
+        "eqtBonusLightDamageC7",
+        "eqtBonusShieldDmgLightD"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardShieldsDmgLt8rac",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageLightC8",
+        "eqtBonusShieldDmgLightD"
+      ],
+      "after": [
+        "eqtBonusLightDamageC8",
+        "eqtBonusShieldDmgLightD"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardShieldsDmgLt5rad",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageLightC5",
+        "eqtBonusShieldDmgLightD"
+      ],
+      "after": [
+        "eqtBonusLightDamageC5",
+        "eqtBonusShieldDmgLightD"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardShieldsDmgLt6rad",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageLightC6",
+        "eqtBonusShieldDmgLightD"
+      ],
+      "after": [
+        "eqtBonusLightDamageC6",
+        "eqtBonusShieldDmgLightD"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardShieldsDmgLt7rad",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageLightC7",
+        "eqtBonusShieldDmgLightD"
+      ],
+      "after": [
+        "eqtBonusLightDamageC7",
+        "eqtBonusShieldDmgLightD"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardShieldsDmgLt8rad",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageLightC8",
+        "eqtBonusShieldDmgLightD"
+      ],
+      "after": [
+        "eqtBonusLightDamageC8",
+        "eqtBonusShieldDmgLightD"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardShieldsDmgLt7epe",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageLightD7",
+        "eqtBonusShieldDmgLightE"
+      ],
+      "after": [
+        "eqtBonusLightDamageD7",
+        "eqtBonusShieldDmgLightE"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardShieldsDmgLt8epe",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageLightD8",
+        "eqtBonusShieldDmgLightE"
+      ],
+      "after": [
+        "eqtBonusLightDamageD8",
+        "eqtBonusShieldDmgLightE"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardShieldsDmgLt9epe",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageLightD9",
+        "eqtBonusShieldDmgLightE"
+      ],
+      "after": [
+        "eqtBonusLightDamageD9",
+        "eqtBonusShieldDmgLightE"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardShieldsDmgLt10epe",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageLightD10",
+        "eqtBonusShieldDmgLightE"
+      ],
+      "after": [
+        "eqtBonusLightDamageD10",
+        "eqtBonusShieldDmgLightE"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardShieldsDmgLt7epf",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageLightD7",
+        "eqtBonusShieldDmgLightE"
+      ],
+      "after": [
+        "eqtBonusLightDamageD7",
+        "eqtBonusShieldDmgLightE"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardShieldsDmgLt8epf",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageLightD8",
+        "eqtBonusShieldDmgLightE"
+      ],
+      "after": [
+        "eqtBonusLightDamageD8",
+        "eqtBonusShieldDmgLightE"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardShieldsDmgLt9epf",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageLightD9",
+        "eqtBonusShieldDmgLightE"
+      ],
+      "after": [
+        "eqtBonusLightDamageD9",
+        "eqtBonusShieldDmgLightE"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardShieldsDmgLt10epf",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageLightD10",
+        "eqtBonusShieldDmgLightE"
+      ],
+      "after": [
+        "eqtBonusLightDamageD10",
+        "eqtBonusShieldDmgLightE"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardShieldsDmgNr1co",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageNormalA1",
+        "eqtBonusShieldDmgNormalB"
+      ],
+      "after": [
+        "eqtBonusNormalDamageA1",
+        "eqtBonusShieldDmgNormalB"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardShieldsDmgNr2co",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageNormalA2",
+        "eqtBonusShieldDmgNormalB"
+      ],
+      "after": [
+        "eqtBonusNormalDamageA2",
+        "eqtBonusShieldDmgNormalB"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardShieldsDmgNr3co",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageNormalA3",
+        "eqtBonusShieldDmgNormalB"
+      ],
+      "after": [
+        "eqtBonusNormalDamageA3",
+        "eqtBonusShieldDmgNormalB"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardShieldsDmgNr4co",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageNormalA4",
+        "eqtBonusShieldDmgNormalB"
+      ],
+      "after": [
+        "eqtBonusNormalDamageA4",
+        "eqtBonusShieldDmgNormalB"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardShieldsDmgNr3uc",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageNormalB3",
+        "eqtBonusShieldDmgNormalC"
+      ],
+      "after": [
+        "eqtBonusNormalDamageB3",
+        "eqtBonusShieldDmgNormalC"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardShieldsDmgNr4uc",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageNormalB4",
+        "eqtBonusShieldDmgNormalC"
+      ],
+      "after": [
+        "eqtBonusNormalDamageB4",
+        "eqtBonusShieldDmgNormalC"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardShieldsDmgNr5uc",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageNormalB5",
+        "eqtBonusShieldDmgNormalC"
+      ],
+      "after": [
+        "eqtBonusNormalDamageB5",
+        "eqtBonusShieldDmgNormalC"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardShieldsDmgNr6uc",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageNormalB6",
+        "eqtBonusShieldDmgNormalC"
+      ],
+      "after": [
+        "eqtBonusNormalDamageB6",
+        "eqtBonusShieldDmgNormalC"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardShieldsDmgNr3ucb",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageNormalB3",
+        "eqtBonusShieldDmgNormalC"
+      ],
+      "after": [
+        "eqtBonusNormalDamageB3",
+        "eqtBonusShieldDmgNormalC"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardShieldsDmgNr4ucb",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageNormalB4",
+        "eqtBonusShieldDmgNormalC"
+      ],
+      "after": [
+        "eqtBonusNormalDamageB4",
+        "eqtBonusShieldDmgNormalC"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardShieldsDmgNr5ucb",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageNormalB5",
+        "eqtBonusShieldDmgNormalC"
+      ],
+      "after": [
+        "eqtBonusNormalDamageB5",
+        "eqtBonusShieldDmgNormalC"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardShieldsDmgNr6ucb",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageNormalB6",
+        "eqtBonusShieldDmgNormalC"
+      ],
+      "after": [
+        "eqtBonusNormalDamageB6",
+        "eqtBonusShieldDmgNormalC"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardShieldsDmgNr5rac",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageNormalC5",
+        "eqtBonusShieldDmgNormalD"
+      ],
+      "after": [
+        "eqtBonusNormalDamageC5",
+        "eqtBonusShieldDmgNormalD"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardShieldsDmgNr6rac",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageNormalC6",
+        "eqtBonusShieldDmgNormalD"
+      ],
+      "after": [
+        "eqtBonusNormalDamageC6",
+        "eqtBonusShieldDmgNormalD"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardShieldsDmgNr7rac",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageNormalC7",
+        "eqtBonusShieldDmgNormalD"
+      ],
+      "after": [
+        "eqtBonusNormalDamageC7",
+        "eqtBonusShieldDmgNormalD"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardShieldsDmgNr8rac",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageNormalC8",
+        "eqtBonusShieldDmgNormalD"
+      ],
+      "after": [
+        "eqtBonusNormalDamageC8",
+        "eqtBonusShieldDmgNormalD"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardShieldsDmgNr5rad",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageNormalC5",
+        "eqtBonusShieldDmgNormalD"
+      ],
+      "after": [
+        "eqtBonusNormalDamageC5",
+        "eqtBonusShieldDmgNormalD"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardShieldsDmgNr6rad",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageNormalC6",
+        "eqtBonusShieldDmgNormalD"
+      ],
+      "after": [
+        "eqtBonusNormalDamageC6",
+        "eqtBonusShieldDmgNormalD"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardShieldsDmgNr7rad",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageNormalC7",
+        "eqtBonusShieldDmgNormalD"
+      ],
+      "after": [
+        "eqtBonusNormalDamageC7",
+        "eqtBonusShieldDmgNormalD"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardShieldsDmgNr8rad",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageNormalC8",
+        "eqtBonusShieldDmgNormalD"
+      ],
+      "after": [
+        "eqtBonusNormalDamageC8",
+        "eqtBonusShieldDmgNormalD"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardShieldsDmgNr7epe",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageNormalD7",
+        "eqtBonusShieldDmgNormalE"
+      ],
+      "after": [
+        "eqtBonusNormalDamageD7",
+        "eqtBonusShieldDmgNormalE"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardShieldsDmgNr8epe",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageNormalD8",
+        "eqtBonusShieldDmgNormalE"
+      ],
+      "after": [
+        "eqtBonusNormalDamageD8",
+        "eqtBonusShieldDmgNormalE"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardShieldsDmgNr9epe",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageNormalD9",
+        "eqtBonusShieldDmgNormalE"
+      ],
+      "after": [
+        "eqtBonusNormalDamageD9",
+        "eqtBonusShieldDmgNormalE"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardShieldsDmgNr10epe",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageNormalD10",
+        "eqtBonusShieldDmgNormalE"
+      ],
+      "after": [
+        "eqtBonusNormalDamageD10",
+        "eqtBonusShieldDmgNormalE"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardShieldsDmgNr7epf",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageNormalD7",
+        "eqtBonusShieldDmgNormalE"
+      ],
+      "after": [
+        "eqtBonusNormalDamageD7",
+        "eqtBonusShieldDmgNormalE"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardShieldsDmgNr8epf",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageNormalD8",
+        "eqtBonusShieldDmgNormalE"
+      ],
+      "after": [
+        "eqtBonusNormalDamageD8",
+        "eqtBonusShieldDmgNormalE"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardShieldsDmgNr9epf",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageNormalD9",
+        "eqtBonusShieldDmgNormalE"
+      ],
+      "after": [
+        "eqtBonusNormalDamageD9",
+        "eqtBonusShieldDmgNormalE"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardShieldsDmgNr10epf",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageNormalD10",
+        "eqtBonusShieldDmgNormalE"
+      ],
+      "after": [
+        "eqtBonusNormalDamageD10",
+        "eqtBonusShieldDmgNormalE"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardShieldsDmgHv1co",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageHeavyA1",
+        "eqtBonusShieldDmgHeavyB"
+      ],
+      "after": [
+        "eqtBonusHeavyDamageA1",
+        "eqtBonusShieldDmgHeavyB"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardShieldsDmgHv2co",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageHeavyA2",
+        "eqtBonusShieldDmgHeavyB"
+      ],
+      "after": [
+        "eqtBonusHeavyDamageA2",
+        "eqtBonusShieldDmgHeavyB"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardShieldsDmgHv3co",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageHeavyA3",
+        "eqtBonusShieldDmgHeavyB"
+      ],
+      "after": [
+        "eqtBonusHeavyDamageA3",
+        "eqtBonusShieldDmgHeavyB"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardShieldsDmgHv4co",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageHeavyA4",
+        "eqtBonusShieldDmgHeavyB"
+      ],
+      "after": [
+        "eqtBonusHeavyDamageA4",
+        "eqtBonusShieldDmgHeavyB"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardShieldsDmgHv3uc",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageHeavyB3",
+        "eqtBonusShieldDmgHeavyC"
+      ],
+      "after": [
+        "eqtBonusHeavyDamageB3",
+        "eqtBonusShieldDmgHeavyC"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardShieldsDmgHv4uc",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageHeavyB4",
+        "eqtBonusShieldDmgHeavyC"
+      ],
+      "after": [
+        "eqtBonusHeavyDamageB4",
+        "eqtBonusShieldDmgHeavyC"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardShieldsDmgHv5uc",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageHeavyB5",
+        "eqtBonusShieldDmgHeavyC"
+      ],
+      "after": [
+        "eqtBonusHeavyDamageB5",
+        "eqtBonusShieldDmgHeavyC"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardShieldsDmgHv6uc",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageHeavyB6",
+        "eqtBonusShieldDmgHeavyC"
+      ],
+      "after": [
+        "eqtBonusHeavyDamageB6",
+        "eqtBonusShieldDmgHeavyC"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardShieldsDmgHv3ucb",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageHeavyB3",
+        "eqtBonusShieldDmgHeavyC"
+      ],
+      "after": [
+        "eqtBonusHeavyDamageB3",
+        "eqtBonusShieldDmgHeavyC"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardShieldsDmgHv4ucb",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageHeavyB4",
+        "eqtBonusShieldDmgHeavyC"
+      ],
+      "after": [
+        "eqtBonusHeavyDamageB4",
+        "eqtBonusShieldDmgHeavyC"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardShieldsDmgHv5ucb",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageHeavyB5",
+        "eqtBonusShieldDmgHeavyC"
+      ],
+      "after": [
+        "eqtBonusHeavyDamageB5",
+        "eqtBonusShieldDmgHeavyC"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardShieldsDmgHv6ucb",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageHeavyB6",
+        "eqtBonusShieldDmgHeavyC"
+      ],
+      "after": [
+        "eqtBonusHeavyDamageB6",
+        "eqtBonusShieldDmgHeavyC"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardShieldsDmgHv5rac",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageHeavyC5",
+        "eqtBonusShieldDmgHeavyD"
+      ],
+      "after": [
+        "eqtBonusHeavyDamageC5",
+        "eqtBonusShieldDmgHeavyD"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardShieldsDmgHv6rac",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageHeavyC6",
+        "eqtBonusShieldDmgHeavyD"
+      ],
+      "after": [
+        "eqtBonusHeavyDamageC6",
+        "eqtBonusShieldDmgHeavyD"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardShieldsDmgHv7rac",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageHeavyC7",
+        "eqtBonusShieldDmgHeavyD"
+      ],
+      "after": [
+        "eqtBonusHeavyDamageC7",
+        "eqtBonusShieldDmgHeavyD"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardShieldsDmgHv8rac",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageHeavyC8",
+        "eqtBonusShieldDmgHeavyD"
+      ],
+      "after": [
+        "eqtBonusHeavyDamageC8",
+        "eqtBonusShieldDmgHeavyD"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardShieldsDmgHv5rad",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageHeavyC5",
+        "eqtBonusShieldDmgHeavyD"
+      ],
+      "after": [
+        "eqtBonusHeavyDamageC5",
+        "eqtBonusShieldDmgHeavyD"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardShieldsDmgHv6rad",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageHeavyC6",
+        "eqtBonusShieldDmgHeavyD"
+      ],
+      "after": [
+        "eqtBonusHeavyDamageC6",
+        "eqtBonusShieldDmgHeavyD"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardShieldsDmgHv7rad",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageHeavyC7",
+        "eqtBonusShieldDmgHeavyD"
+      ],
+      "after": [
+        "eqtBonusHeavyDamageC7",
+        "eqtBonusShieldDmgHeavyD"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardShieldsDmgHv8rad",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageHeavyC8",
+        "eqtBonusShieldDmgHeavyD"
+      ],
+      "after": [
+        "eqtBonusHeavyDamageC8",
+        "eqtBonusShieldDmgHeavyD"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardShieldsDmgHv7epe",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageHeavyD7",
+        "eqtBonusShieldDmgHeavyE"
+      ],
+      "after": [
+        "eqtBonusHeavyDamageD7",
+        "eqtBonusShieldDmgHeavyE"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardShieldsDmgHv8epe",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageHeavyD8",
+        "eqtBonusShieldDmgHeavyE"
+      ],
+      "after": [
+        "eqtBonusHeavyDamageD8",
+        "eqtBonusShieldDmgHeavyE"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardShieldsDmgHv9epe",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageHeavyD9",
+        "eqtBonusShieldDmgHeavyE"
+      ],
+      "after": [
+        "eqtBonusHeavyDamageD9",
+        "eqtBonusShieldDmgHeavyE"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardShieldsDmgHv10epe",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageHeavyD10",
+        "eqtBonusShieldDmgHeavyE"
+      ],
+      "after": [
+        "eqtBonusHeavyDamageD10",
+        "eqtBonusShieldDmgHeavyE"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardShieldsDmgHv7epf",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageHeavyD7",
+        "eqtBonusShieldDmgHeavyE"
+      ],
+      "after": [
+        "eqtBonusHeavyDamageD7",
+        "eqtBonusShieldDmgHeavyE"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardShieldsDmgHv8epf",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageHeavyD8",
+        "eqtBonusShieldDmgHeavyE"
+      ],
+      "after": [
+        "eqtBonusHeavyDamageD8",
+        "eqtBonusShieldDmgHeavyE"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardShieldsDmgHv9epf",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageHeavyD9",
+        "eqtBonusShieldDmgHeavyE"
+      ],
+      "after": [
+        "eqtBonusHeavyDamageD9",
+        "eqtBonusShieldDmgHeavyE"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardShieldsDmgHv10epf",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageHeavyD10",
+        "eqtBonusShieldDmgHeavyE"
+      ],
+      "after": [
+        "eqtBonusHeavyDamageD10",
+        "eqtBonusShieldDmgHeavyE"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardShieldsDmgFl1co",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageFlurryA1",
+        "eqtBonusShieldDmgFlurryB"
+      ],
+      "after": [
+        "eqtBonusFlurryDamageA1",
+        "eqtBonusShieldDmgFlurryB"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardShieldsDmgFl2co",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageFlurryA2",
+        "eqtBonusShieldDmgFlurryB"
+      ],
+      "after": [
+        "eqtBonusFlurryDamageA2",
+        "eqtBonusShieldDmgFlurryB"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardShieldsDmgFl3co",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageFlurryA3",
+        "eqtBonusShieldDmgFlurryB"
+      ],
+      "after": [
+        "eqtBonusFlurryDamageA3",
+        "eqtBonusShieldDmgFlurryB"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardShieldsDmgFl4co",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageFlurryA4",
+        "eqtBonusShieldDmgFlurryB"
+      ],
+      "after": [
+        "eqtBonusFlurryDamageA4",
+        "eqtBonusShieldDmgFlurryB"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardShieldsDmgFl3uc",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageFlurryB3",
+        "eqtBonusShieldDmgFlurryC"
+      ],
+      "after": [
+        "eqtBonusFlurryDamageB3",
+        "eqtBonusShieldDmgFlurryC"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardShieldsDmgFl4uc",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageFlurryB4",
+        "eqtBonusShieldDmgFlurryC"
+      ],
+      "after": [
+        "eqtBonusFlurryDamageB4",
+        "eqtBonusShieldDmgFlurryC"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardShieldsDmgFl5uc",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageFlurryB5",
+        "eqtBonusShieldDmgFlurryC"
+      ],
+      "after": [
+        "eqtBonusFlurryDamageB5",
+        "eqtBonusShieldDmgFlurryC"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardShieldsDmgFl6uc",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageFlurryB6",
+        "eqtBonusShieldDmgFlurryC"
+      ],
+      "after": [
+        "eqtBonusFlurryDamageB6",
+        "eqtBonusShieldDmgFlurryC"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardShieldsDmgFl3ucb",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageFlurryB3",
+        "eqtBonusShieldDmgFlurryC"
+      ],
+      "after": [
+        "eqtBonusFlurryDamageB3",
+        "eqtBonusShieldDmgFlurryC"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardShieldsDmgFl4ucb",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageFlurryB4",
+        "eqtBonusShieldDmgFlurryC"
+      ],
+      "after": [
+        "eqtBonusFlurryDamageB4",
+        "eqtBonusShieldDmgFlurryC"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardShieldsDmgFl5ucb",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageFlurryB5",
+        "eqtBonusShieldDmgFlurryC"
+      ],
+      "after": [
+        "eqtBonusFlurryDamageB5",
+        "eqtBonusShieldDmgFlurryC"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardShieldsDmgFl6ucb",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageFlurryB6",
+        "eqtBonusShieldDmgFlurryC"
+      ],
+      "after": [
+        "eqtBonusFlurryDamageB6",
+        "eqtBonusShieldDmgFlurryC"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardShieldsDmgFl5rac",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageFlurryC5",
+        "eqtBonusShieldDmgFlurryD"
+      ],
+      "after": [
+        "eqtBonusFlurryDamageC5",
+        "eqtBonusShieldDmgFlurryD"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardShieldsDmgFl6rac",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageFlurryC6",
+        "eqtBonusShieldDmgFlurryD"
+      ],
+      "after": [
+        "eqtBonusFlurryDamageC6",
+        "eqtBonusShieldDmgFlurryD"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardShieldsDmgFl7rac",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageFlurryC7",
+        "eqtBonusShieldDmgFlurryD"
+      ],
+      "after": [
+        "eqtBonusFlurryDamageC7",
+        "eqtBonusShieldDmgFlurryD"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardShieldsDmgFl8rac",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageFlurryC8",
+        "eqtBonusShieldDmgFlurryD"
+      ],
+      "after": [
+        "eqtBonusFlurryDamageC8",
+        "eqtBonusShieldDmgFlurryD"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardShieldsDmgFl5rad",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageFlurryC5",
+        "eqtBonusShieldDmgFlurryD"
+      ],
+      "after": [
+        "eqtBonusFlurryDamageC5",
+        "eqtBonusShieldDmgFlurryD"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardShieldsDmgFl6rad",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageFlurryC6",
+        "eqtBonusShieldDmgFlurryD"
+      ],
+      "after": [
+        "eqtBonusFlurryDamageC6",
+        "eqtBonusShieldDmgFlurryD"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardShieldsDmgFl7rad",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageFlurryC7",
+        "eqtBonusShieldDmgFlurryD"
+      ],
+      "after": [
+        "eqtBonusFlurryDamageC7",
+        "eqtBonusShieldDmgFlurryD"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardShieldsDmgFl8rad",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageFlurryC8",
+        "eqtBonusShieldDmgFlurryD"
+      ],
+      "after": [
+        "eqtBonusFlurryDamageC8",
+        "eqtBonusShieldDmgFlurryD"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardShieldsDmgFl7epe",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageFlurryD7",
+        "eqtBonusShieldDmgFlurryE"
+      ],
+      "after": [
+        "eqtBonusFlurryDamageD7",
+        "eqtBonusShieldDmgFlurryE"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardShieldsDmgFl8epe",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageFlurryD8",
+        "eqtBonusShieldDmgFlurryE"
+      ],
+      "after": [
+        "eqtBonusFlurryDamageD8",
+        "eqtBonusShieldDmgFlurryE"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardShieldsDmgFl9epe",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageFlurryD9",
+        "eqtBonusShieldDmgFlurryE"
+      ],
+      "after": [
+        "eqtBonusFlurryDamageD9",
+        "eqtBonusShieldDmgFlurryE"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardShieldsDmgFl10epe",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageFlurryD10",
+        "eqtBonusShieldDmgFlurryE"
+      ],
+      "after": [
+        "eqtBonusFlurryDamageD10",
+        "eqtBonusShieldDmgFlurryE"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardShieldsDmgFl7epf",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageFlurryD7",
+        "eqtBonusShieldDmgFlurryE"
+      ],
+      "after": [
+        "eqtBonusFlurryDamageD7",
+        "eqtBonusShieldDmgFlurryE"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardShieldsDmgFl8epf",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageFlurryD8",
+        "eqtBonusShieldDmgFlurryE"
+      ],
+      "after": [
+        "eqtBonusFlurryDamageD8",
+        "eqtBonusShieldDmgFlurryE"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardShieldsDmgFl9epf",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageFlurryD9",
+        "eqtBonusShieldDmgFlurryE"
+      ],
+      "after": [
+        "eqtBonusFlurryDamageD9",
+        "eqtBonusShieldDmgFlurryE"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardShieldsDmgFl10epf",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageFlurryD10",
+        "eqtBonusShieldDmgFlurryE"
+      ],
+      "after": [
+        "eqtBonusFlurryDamageD10",
+        "eqtBonusShieldDmgFlurryE"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardShieldsDmgCo1co",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageCounterA1",
+        "eqtBonusShieldDmgCounterB"
+      ],
+      "after": [
+        "eqtBonusCounterDamageA1",
+        "eqtBonusShieldDmgCounterB"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardShieldsDmgCo2co",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageCounterA2",
+        "eqtBonusShieldDmgCounterB"
+      ],
+      "after": [
+        "eqtBonusCounterDamageA2",
+        "eqtBonusShieldDmgCounterB"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardShieldsDmgCo3co",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageCounterA3",
+        "eqtBonusShieldDmgCounterB"
+      ],
+      "after": [
+        "eqtBonusCounterDamageA3",
+        "eqtBonusShieldDmgCounterB"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardShieldsDmgCo4co",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageCounterA4",
+        "eqtBonusShieldDmgCounterB"
+      ],
+      "after": [
+        "eqtBonusCounterDamageA4",
+        "eqtBonusShieldDmgCounterB"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardShieldsDmgCo3uc",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageCounterB3",
+        "eqtBonusShieldDmgCounterC"
+      ],
+      "after": [
+        "eqtBonusCounterDamageB3",
+        "eqtBonusShieldDmgCounterC"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardShieldsDmgCo4uc",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageCounterB4",
+        "eqtBonusShieldDmgCounterC"
+      ],
+      "after": [
+        "eqtBonusCounterDamageB4",
+        "eqtBonusShieldDmgCounterC"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardShieldsDmgCo5uc",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageCounterB5",
+        "eqtBonusShieldDmgCounterC"
+      ],
+      "after": [
+        "eqtBonusCounterDamageB5",
+        "eqtBonusShieldDmgCounterC"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardShieldsDmgCo6uc",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageCounterB6",
+        "eqtBonusShieldDmgCounterC"
+      ],
+      "after": [
+        "eqtBonusCounterDamageB6",
+        "eqtBonusShieldDmgCounterC"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardShieldsDmgCo3ucb",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageCounterB3",
+        "eqtBonusShieldDmgCounterC"
+      ],
+      "after": [
+        "eqtBonusCounterDamageB3",
+        "eqtBonusShieldDmgCounterC"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardShieldsDmgCo4ucb",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageCounterB4",
+        "eqtBonusShieldDmgCounterC"
+      ],
+      "after": [
+        "eqtBonusCounterDamageB4",
+        "eqtBonusShieldDmgCounterC"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardShieldsDmgCo5ucb",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageCounterB5",
+        "eqtBonusShieldDmgCounterC"
+      ],
+      "after": [
+        "eqtBonusCounterDamageB5",
+        "eqtBonusShieldDmgCounterC"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardShieldsDmgCo6ucb",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageCounterB6",
+        "eqtBonusShieldDmgCounterC"
+      ],
+      "after": [
+        "eqtBonusCounterDamageB6",
+        "eqtBonusShieldDmgCounterC"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardShieldsDmgCo5rac",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageCounterC5",
+        "eqtBonusShieldDmgCounterD"
+      ],
+      "after": [
+        "eqtBonusCounterDamageC5",
+        "eqtBonusShieldDmgCounterD"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardShieldsDmgCo6rac",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageCounterC6",
+        "eqtBonusShieldDmgCounterD"
+      ],
+      "after": [
+        "eqtBonusCounterDamageC6",
+        "eqtBonusShieldDmgCounterD"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardShieldsDmgCo7rac",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageCounterC7",
+        "eqtBonusShieldDmgCounterD"
+      ],
+      "after": [
+        "eqtBonusCounterDamageC7",
+        "eqtBonusShieldDmgCounterD"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardShieldsDmgCo8rac",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageCounterC8",
+        "eqtBonusShieldDmgCounterD"
+      ],
+      "after": [
+        "eqtBonusCounterDamageC8",
+        "eqtBonusShieldDmgCounterD"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardShieldsDmgCo5rad",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageCounterC5",
+        "eqtBonusShieldDmgCounterD"
+      ],
+      "after": [
+        "eqtBonusCounterDamageC5",
+        "eqtBonusShieldDmgCounterD"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardShieldsDmgCo6rad",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageCounterC6",
+        "eqtBonusShieldDmgCounterD"
+      ],
+      "after": [
+        "eqtBonusCounterDamageC6",
+        "eqtBonusShieldDmgCounterD"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardShieldsDmgCo7rad",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageCounterC7",
+        "eqtBonusShieldDmgCounterD"
+      ],
+      "after": [
+        "eqtBonusCounterDamageC7",
+        "eqtBonusShieldDmgCounterD"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardShieldsDmgCo8rad",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageCounterC8",
+        "eqtBonusShieldDmgCounterD"
+      ],
+      "after": [
+        "eqtBonusCounterDamageC8",
+        "eqtBonusShieldDmgCounterD"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardShieldsDmgCo7epe",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageCounterD7",
+        "eqtBonusShieldDmgCounterE"
+      ],
+      "after": [
+        "eqtBonusCounterDamageD7",
+        "eqtBonusShieldDmgCounterE"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardShieldsDmgCo8epe",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageCounterD8",
+        "eqtBonusShieldDmgCounterE"
+      ],
+      "after": [
+        "eqtBonusCounterDamageD8",
+        "eqtBonusShieldDmgCounterE"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardShieldsDmgCo9epe",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageCounterD9",
+        "eqtBonusShieldDmgCounterE"
+      ],
+      "after": [
+        "eqtBonusCounterDamageD9",
+        "eqtBonusShieldDmgCounterE"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardShieldsDmgCo10epe",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageCounterD10",
+        "eqtBonusShieldDmgCounterE"
+      ],
+      "after": [
+        "eqtBonusCounterDamageD10",
+        "eqtBonusShieldDmgCounterE"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardShieldsDmgCo7epf",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageCounterD7",
+        "eqtBonusShieldDmgCounterE"
+      ],
+      "after": [
+        "eqtBonusCounterDamageD7",
+        "eqtBonusShieldDmgCounterE"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardShieldsDmgCo8epf",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageCounterD8",
+        "eqtBonusShieldDmgCounterE"
+      ],
+      "after": [
+        "eqtBonusCounterDamageD8",
+        "eqtBonusShieldDmgCounterE"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardShieldsDmgCo9epf",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageCounterD9",
+        "eqtBonusShieldDmgCounterE"
+      ],
+      "after": [
+        "eqtBonusCounterDamageD9",
+        "eqtBonusShieldDmgCounterE"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardShieldsDmgCo10epf",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageCounterD10",
+        "eqtBonusShieldDmgCounterE"
+      ],
+      "after": [
+        "eqtBonusCounterDamageD10",
+        "eqtBonusShieldDmgCounterE"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardShieldsDmgAOE1co",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageAOEA1",
+        "eqtBonusShieldDmgAOEB"
+      ],
+      "after": [
+        "eqtBonusAOEDamageA1",
+        "eqtBonusShieldDmgAOEB"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardShieldsDmgAOE2co",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageAOEA2",
+        "eqtBonusShieldDmgAOEB"
+      ],
+      "after": [
+        "eqtBonusAOEDamageA2",
+        "eqtBonusShieldDmgAOEB"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardShieldsDmgAOE3co",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageAOEA3",
+        "eqtBonusShieldDmgAOEB"
+      ],
+      "after": [
+        "eqtBonusAOEDamageA3",
+        "eqtBonusShieldDmgAOEB"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardShieldsDmgAOE4co",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageAOEA4",
+        "eqtBonusShieldDmgAOEB"
+      ],
+      "after": [
+        "eqtBonusAOEDamageA4",
+        "eqtBonusShieldDmgAOEB"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardShieldsDmgAOE3uc",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageAOEB3",
+        "eqtBonusShieldDmgAOEC"
+      ],
+      "after": [
+        "eqtBonusAOEDamageB3",
+        "eqtBonusShieldDmgAOEC"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardShieldsDmgAOE4uc",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageAOEB4",
+        "eqtBonusShieldDmgAOEC"
+      ],
+      "after": [
+        "eqtBonusAOEDamageB4",
+        "eqtBonusShieldDmgAOEC"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardShieldsDmgAOE5uc",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageAOEB5",
+        "eqtBonusShieldDmgAOEC"
+      ],
+      "after": [
+        "eqtBonusAOEDamageB5",
+        "eqtBonusShieldDmgAOEC"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardShieldsDmgAOE6uc",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageAOEB6",
+        "eqtBonusShieldDmgAOEC"
+      ],
+      "after": [
+        "eqtBonusAOEDamageB6",
+        "eqtBonusShieldDmgAOEC"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardShieldsDmgAOE3ucb",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageAOEB3",
+        "eqtBonusShieldDmgAOEC"
+      ],
+      "after": [
+        "eqtBonusAOEDamageB3",
+        "eqtBonusShieldDmgAOEC"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardShieldsDmgAOE4ucb",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageAOEB4",
+        "eqtBonusShieldDmgAOEC"
+      ],
+      "after": [
+        "eqtBonusAOEDamageB4",
+        "eqtBonusShieldDmgAOEC"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardShieldsDmgAOE5ucb",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageAOEB5",
+        "eqtBonusShieldDmgAOEC"
+      ],
+      "after": [
+        "eqtBonusAOEDamageB5",
+        "eqtBonusShieldDmgAOEC"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardShieldsDmgAOE6ucb",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageAOEB6",
+        "eqtBonusShieldDmgAOEC"
+      ],
+      "after": [
+        "eqtBonusAOEDamageB6",
+        "eqtBonusShieldDmgAOEC"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardShieldsDmgAOE5rac",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageAOEC5",
+        "eqtBonusShieldDmgAOED"
+      ],
+      "after": [
+        "eqtBonusAOEDamageC5",
+        "eqtBonusShieldDmgAOED"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardShieldsDmgAOE6rac",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageAOEC6",
+        "eqtBonusShieldDmgAOED"
+      ],
+      "after": [
+        "eqtBonusAOEDamageC6",
+        "eqtBonusShieldDmgAOED"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardShieldsDmgAOE7rac",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageAOEC7",
+        "eqtBonusShieldDmgAOED"
+      ],
+      "after": [
+        "eqtBonusAOEDamageC7",
+        "eqtBonusShieldDmgAOED"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardShieldsDmgAOE8rac",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageAOEC8",
+        "eqtBonusShieldDmgAOED"
+      ],
+      "after": [
+        "eqtBonusAOEDamageC8",
+        "eqtBonusShieldDmgAOED"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardShieldsDmgAOE5rad",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageAOEC5",
+        "eqtBonusShieldDmgAOED"
+      ],
+      "after": [
+        "eqtBonusAOEDamageC5",
+        "eqtBonusShieldDmgAOED"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardShieldsDmgAOE6rad",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageAOEC6",
+        "eqtBonusShieldDmgAOED"
+      ],
+      "after": [
+        "eqtBonusAOEDamageC6",
+        "eqtBonusShieldDmgAOED"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardShieldsDmgAOE7rad",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageAOEC7",
+        "eqtBonusShieldDmgAOED"
+      ],
+      "after": [
+        "eqtBonusAOEDamageC7",
+        "eqtBonusShieldDmgAOED"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardShieldsDmgAOE8rad",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageAOEC8",
+        "eqtBonusShieldDmgAOED"
+      ],
+      "after": [
+        "eqtBonusAOEDamageC8",
+        "eqtBonusShieldDmgAOED"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardShieldsDmgAOE7epe",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageAOED7",
+        "eqtBonusShieldDmgAOEE"
+      ],
+      "after": [
+        "eqtBonusAOEDamageD7",
+        "eqtBonusShieldDmgAOEE"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardShieldsDmgAOE8epe",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageAOED8",
+        "eqtBonusShieldDmgAOEE"
+      ],
+      "after": [
+        "eqtBonusAOEDamageD8",
+        "eqtBonusShieldDmgAOEE"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardShieldsDmgAOE9epe",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageAOED9",
+        "eqtBonusShieldDmgAOEE"
+      ],
+      "after": [
+        "eqtBonusAOEDamageD9",
+        "eqtBonusShieldDmgAOEE"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardShieldsDmgAOE10epe",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageAOED10",
+        "eqtBonusShieldDmgAOEE"
+      ],
+      "after": [
+        "eqtBonusAOEDamageD10",
+        "eqtBonusShieldDmgAOEE"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardShieldsDmgAOE7epf",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageAOED7",
+        "eqtBonusShieldDmgAOEE"
+      ],
+      "after": [
+        "eqtBonusAOEDamageD7",
+        "eqtBonusShieldDmgAOEE"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardShieldsDmgAOE8epf",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageAOED8",
+        "eqtBonusShieldDmgAOEE"
+      ],
+      "after": [
+        "eqtBonusAOEDamageD8",
+        "eqtBonusShieldDmgAOEE"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardShieldsDmgAOE9epf",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageAOED9",
+        "eqtBonusShieldDmgAOEE"
+      ],
+      "after": [
+        "eqtBonusAOEDamageD9",
+        "eqtBonusShieldDmgAOEE"
+      ]
+    },
+    {
+      "table": "EquipmentData",
+      "id": "offenseStandardShieldsDmgAOE10epf",
+      "field": "traits",
+      "before": [
+        "eqtBonusDamageAOED10",
+        "eqtBonusShieldDmgAOEE"
+      ],
+      "after": [
+        "eqtBonusAOEDamageD10",
+        "eqtBonusShieldDmgAOEE"
+      ]
+    },
+    {
+      "table": "PowerModifierData",
+      "id": "camParTrait1",
+      "field": "setCriticalTransferShieldAbsolute",
+      "before": -5.0,
+      "after": 0.0
+    },
+    {
+      "table": "PowerModifierData",
+      "id": "camParTrait1",
+      "field": "modCriticalTransferShieldAbsolute",
+      "before": 0.0,
+      "after": -5.0
+    },
+    {
+      "table": "PowerModifierData",
+      "id": "camParTrait2",
+      "field": "setCriticalTransferShieldAbsolute",
+      "before": -10.0,
+      "after": 0.0
+    },
+    {
+      "table": "PowerModifierData",
+      "id": "camParTrait2",
+      "field": "modCriticalTransferShieldAbsolute",
+      "before": 0.0,
+      "after": -10.0
+    },
+    {
+      "table": "CamaraderieStringData",
+      "id": "aegCard4Desc",
+      "field": "EN",
+      "before": "Auto Shield Regen (10 per round)\nLasts 2 combats",
+      "after": "Heals 10 health per round.\nLasts 2 combats."
+    }
+  ],
+  "additions": []
+}
