@@ -31,12 +31,20 @@ function Assert-SRStopped([string]$Root){
 }
 function Read-SRJson([string]$Path){try{return [IO.File]::ReadAllText($Path)|ConvertFrom-Json}catch{throw "Cannot read $([IO.Path]::GetFileName($Path))."}}
 function Get-SRBytes([string]$Path){if(Test-Path -LiteralPath $Path -PathType Leaf){return ,([IO.File]::ReadAllBytes($Path))};if(Test-Path -LiteralPath $Path){throw 'A file path is occupied by a directory.'};return $null}
-function Set-SRBytes([string]$Path,$Bytes){
- if($null -eq $Bytes){if(Test-Path -LiteralPath $Path){Remove-Item -LiteralPath $Path -Force};return}
- [IO.Directory]::CreateDirectory([IO.Path]::GetDirectoryName($Path))|Out-Null
- [IO.File]::WriteAllBytes($Path,[byte[]]$Bytes)
+function Write-SRStage([string]$Path,[byte[]]$Bytes,[string]$Relative,[switch]$Inject){
+ if($Inject -and $script:WriteInjection){& $script:WriteInjection $Path $Bytes $Relative}
+ else{$stream=[IO.File]::Open($Path,[IO.FileMode]::Create,[IO.FileAccess]::Write,[IO.FileShare]::None);try{$stream.Write($Bytes,0,$Bytes.Length);$stream.Flush($true)}finally{$stream.Dispose()}}
+ if((Hash-Bytes ([IO.File]::ReadAllBytes($Path))) -ne (Hash-Bytes $Bytes)){throw 'Staged file failed verification.'}
 }
-function Write-SRAtomicJson([string]$Path,$Value){$tmp=$Path+'.new';[IO.File]::WriteAllText($tmp,($Value|ConvertTo-Json -Depth 20),[Text.UTF8Encoding]::new($false));Move-Item -LiteralPath $tmp -Destination $Path -Force}
+function Move-SRStage([string]$Stage,[string]$Destination){
+ [IO.Directory]::CreateDirectory([IO.Path]::GetDirectoryName($Destination))|Out-Null
+ if(Test-Path -LiteralPath $Destination){[IO.File]::Replace($Stage,$Destination,[NullString]::Value)}else{[IO.File]::Move($Stage,$Destination)}
+}
+function Set-SRBytes([string]$Path,$Bytes,[string]$Stage){
+ if($null -eq $Bytes){if(Test-Path -LiteralPath $Path){Remove-Item -LiteralPath $Path -Force};return}
+ Write-SRStage $Stage ([byte[]]$Bytes) '';Move-SRStage $Stage $Path
+}
+function Write-SRAtomicJson([string]$Path,$Value){$tmp=$Path+'.new';$bytes=[Text.Encoding]::UTF8.GetBytes(($Value|ConvertTo-Json -Depth 20));Write-SRStage $tmp $bytes '';[IO.File]::Move($tmp,$Path)}
 function Get-SRReceipt([string]$Root){
  $path=Get-SRPath $Root 'SRBugfix/receipt.json';if(-not(Test-Path -LiteralPath $path)){return $null}
  $receipt=Read-SRJson $path
@@ -51,12 +59,20 @@ function Get-SRReceipt([string]$Root){
 }
 function Clear-SRJournal([string]$Root){
  $dir=Get-SRPath $Root '.SRBugfix-transaction'
- if(Test-Path -LiteralPath $dir){foreach($file in @(Get-ChildItem -LiteralPath $dir -Force)){if($file.PSIsContainer){throw 'Unexpected transaction directory.'};Get-SRPath $Root ('.SRBugfix-transaction/'+$file.Name)|Out-Null;Remove-Item -LiteralPath $file.FullName -Force};Remove-Item -LiteralPath $dir -Force}
+ if(Test-Path -LiteralPath $dir){
+  $files=@(Get-ChildItem -LiteralPath $dir -Force)
+  foreach($file in $files){if($file.PSIsContainer -or $file.Name -notmatch '^(journal\.json(\.new)?|(stage|restore)-[0-5]\.bin)$'){throw 'Unexpected transaction contents; they have been preserved.'};Get-SRPath $Root ('.SRBugfix-transaction/'+$file.Name)|Out-Null}
+  foreach($file in $files|Where-Object Name -ne 'journal.json'){Remove-Item -LiteralPath $file.FullName -Force}
+  $journal=Join-Path $dir 'journal.json';if(Test-Path -LiteralPath $journal){Remove-Item -LiteralPath $journal -Force}
+  Remove-Item -LiteralPath $dir -Force
+ }
 }
 function Recover-SRTransaction([string]$Root){
  $dir=Get-SRPath $Root '.SRBugfix-transaction';if(-not(Test-Path -LiteralPath $dir)){return}
  $journalPath=Get-SRPath $Root '.SRBugfix-transaction/journal.json'
- if(-not(Test-Path -LiteralPath $journalPath)){throw 'An incomplete transaction has no journal. Preserve it and report the problem.'}
+ # No live destination is touched until the complete journal has been published.
+ # Missing journal therefore means pre-publication or completed-cleanup residue.
+ if(-not(Test-Path -LiteralPath $journalPath)){Clear-SRJournal $Root;return}
  $journal=Read-SRJson $journalPath
  if($journal.format -ne 1 -or @($journal.files).Count -ne 6){throw 'Invalid recovery journal.'}
  $seen=@{};$recovery=@()
@@ -67,7 +83,7 @@ function Recover-SRTransaction([string]$Root){
   if($hash -ne $beforeHash -and $hash -ne $file.afterHash){throw "Recovery stopped because $($file.path) was changed. Your file has been preserved."}
   $recovery+=@{path=$dest;bytes=$old}
  }
- foreach($file in $recovery){Set-SRBytes $file.path $file.bytes};Clear-SRJournal $Root
+ $index=0;foreach($file in $recovery){Set-SRBytes $file.path $file.bytes (Get-SRPath $Root ('.SRBugfix-transaction/restore-'+$index+'.bin'));$index++};Clear-SRJournal $Root
 }
 function Invoke-SRTransaction([string]$Root,$Changes){
  $files=@();foreach($change in $Changes){$dest=Get-SRPath $Root $change.path;$before=Get-SRBytes $dest;$files+=@{path=$change.path;before=if($null -eq $before){$null}else{[Convert]::ToBase64String($before)};afterHash=if($null -eq $change.bytes){'absent'}else{Hash-Bytes $change.bytes}}}
@@ -75,14 +91,16 @@ function Invoke-SRTransaction([string]$Root,$Changes){
  Write-SRAtomicJson (Join-Path $dir 'journal.json') @{format=1;files=$files}
  $count=0
  try{
+  $index=0;foreach($change in $Changes){if($null -ne $change.bytes){Write-SRStage (Get-SRPath $Root ('.SRBugfix-transaction/stage-'+$index+'.bin')) $change.bytes $change.path -Inject};$index++}
   foreach($change in $Changes){$dest=Get-SRPath $Root $change.path
-   if($script:WriteInjection -and $null -ne $change.bytes){[IO.Directory]::CreateDirectory([IO.Path]::GetDirectoryName($dest))|Out-Null;& $script:WriteInjection $dest $change.bytes}else{Set-SRBytes $dest $change.bytes}
+   if($null -eq $change.bytes){if(Test-Path -LiteralPath $dest){Remove-Item -LiteralPath $dest -Force}}
+   else{Move-SRStage (Get-SRPath $Root ('.SRBugfix-transaction/stage-'+$count+'.bin')) $dest}
    $actual=Get-SRBytes $dest;$expected=$files[$count].afterHash;$actualHash=if($null -eq $actual){'absent'}else{Hash-Bytes $actual};if($expected -ne $actualHash){throw 'Copied file failed verification.'}
    $count++;if($script:InterruptForFixtures -eq $count){throw 'Fixture interrupt'}
   }
   Clear-SRJournal $Root
  }catch{
-  if($script:InterruptForFixtures -eq 0){foreach($file in $files){$bytes=if($null -eq $file.before){$null}else{[Convert]::FromBase64String($file.before)};Set-SRBytes (Get-SRPath $Root $file.path) $bytes};Clear-SRJournal $Root}
+  if($script:InterruptForFixtures -eq 0){$index=0;foreach($file in $files){$bytes=if($null -eq $file.before){$null}else{[Convert]::FromBase64String($file.before)};Set-SRBytes (Get-SRPath $Root $file.path) $bytes (Get-SRPath $Root ('.SRBugfix-transaction/restore-'+$index+'.bin'));$index++};Clear-SRJournal $Root}
   throw
  }
 }

@@ -6,7 +6,7 @@ Version 0.1.0 is a test release. The data repairs, engine checks and installer t
 
 ## Install
 
-1. Download the player ZIP from [Releases](https://github.com/OneTrueHeir-Valentine/star-renegades-bugfix-mod/releases).
+1. Download the player ZIP from [Releases](https://github.com/OneTrueHeir-Valentine/StarRenegades/releases).
 2. Extract it into its own folder. Close the game.
 3. Double-click `Install.cmd`. The installer finds the Steam library, or asks you to select the folder containing `Star Renegades.exe`.
 4. Start the game normally through Steam.
