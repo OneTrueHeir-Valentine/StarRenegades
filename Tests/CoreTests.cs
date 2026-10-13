@@ -71,13 +71,13 @@ internal static class CoreTests
             var m=Manifest();var d=Fixture(m);Overlay.Stage(d,m).Commit(d);Reject(()=>Overlay.Stage(d,m),"mismatch");
         });
         Test("RejectsDuplicateJsonProperty",()=>{
-            string dir=Temporary("duplicate");File.WriteAllText(Path.Combine(dir,"fixes.json"),"{\"version\":\"0.1.1\",\"version\":\"0.1.1\"}");Reject(()=>Bootstrap.Read(gameRoot,dir),"duplicate");
+            string dir=Temporary("duplicate");File.WriteAllText(Path.Combine(dir,"fixes.json"),"{\"version\":\"0.1.2\",\"version\":\"0.1.2\"}");Reject(()=>Bootstrap.Read(gameRoot,dir),"duplicate");
         });
         Test("RejectsModifiedManifest",()=>{
             string dir=Temporary("modified");var m=Manifest();m["changes"][336]["after"]=5;File.WriteAllText(Path.Combine(dir,"fixes.json"),m.ToString());Reject(()=>Bootstrap.Read(gameRoot,dir),"checksum");
         });
         Test("RejectsMissingManifest",()=>Reject(()=>Bootstrap.Read(gameRoot,Temporary("missing")),"missing"));
-        Test("AcceptsPinnedManifestAndGame",()=>Equal((string)Bootstrap.Read(gameRoot,sourceRoot)["version"],"0.1.1"));
+        Test("AcceptsPinnedManifestAndGame",()=>Equal((string)Bootstrap.Read(gameRoot,sourceRoot)["version"],"0.1.2"));
         Test("AddsMirroredPoolWithFreshTagsHash",()=>{
             var m=CoreManifest();var d=Fixture(m);Set(d,"TagGroupData",new Dictionary<string,TagGroupData>());
             var template=new TagGroupData{id="tagSwordElementalA3",tags=new[]{"eqp","sword","lvl3"}};((UnityEngine.ISerializationCallbackReceiver)template).OnAfterDeserialize();
@@ -114,6 +114,14 @@ internal static class CoreTests
     {
         var d=(GameData)FormatterServices.GetUninitializedObject(typeof(GameData));
         Set(d,"EquipmentData",new Dictionary<string,EquipmentData>());Set(d,"PowerModifierData",new Dictionary<string,PowerModifierData>());Set(d,"CamaraderieStringData",new Dictionary<string,LocalizedStringData>());Set(d,"TraitData",new Dictionary<string,TraitData>());Set(d,"TagGroupData",new Dictionary<string,TagGroupData>());Set(d,"PowerData",new Dictionary<string,PowerData>());
+        Set(d,"UnitCombatActionData",new Dictionary<string,UnitCombatActionData>{
+            {"oVanSummonA",new UnitCombatActionData{id="oVanSummonA",nextAction=new[]{"oVanBSummonB"}}},
+            {"oVanSummonB",new UnitCombatActionData{id="oVanSummonB"}},
+            {"ePanActRepair",new UnitCombatActionData{id="ePanActRepair",nextAction=new[]{"ePanActScattershot","ePanActFlurry","ePanActAoeFlurry"}}},
+            {"ePanActScattershot",new UnitCombatActionData{id="ePanActScattershot"}},
+            {"ePanActFlurry",new UnitCombatActionData{id="ePanActFlurry"}},
+            {"ePanActAoeAttack",new UnitCombatActionData{id="ePanActAoeAttack"}}
+        });
         foreach(var e in (JArray)manifest["changes"])
         {
             string tn=(string)e["table"],id=(string)e["id"];var table=Table(d,tn);object row;

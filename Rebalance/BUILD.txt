@@ -1,0 +1,31 @@
+Building Rebalance
+
+Use the Rebalance source ZIP or the repository checkout. Both include the
+root correction source and the Rebalance project. Requirements are Windows,
+Python 3, a .NET SDK, Windows PowerShell 5.1 and the supported Steam game.
+Run these commands from the repository or extracted source root:
+
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File ./setup-dependencies.ps1
+python ./make_manifest.py
+python ./Rebalance/make_manifest.py
+./Rebalance/Tests/RunTests.ps1 -GamePath 'C:\path\to\Star Renegades'
+./Rebalance/build.ps1 -GamePath 'C:\path\to\Star Renegades'
+./build.ps1 -GamePath 'C:\path\to\Star Renegades'
+python ./package.py --profile all --output ./artifacts
+python ./Tests/PackageTests.py ./artifacts --all
+
+Also run the shared suites and installer tests listed in root BUILD.txt.
+The Rebalance suite checks the generator, 25 overlay cases and seven
+combined activation cases using native game types and minimal fixtures.
+It does not launch Unity or submit real Steam achievements.
+
+Source/rebalance.json is generated from balance-changes.json. Both game
+fingerprints and both manifest checksums are bound into SRRebalance.dll.
+The shared correction code is compiled from root Source/, with its own
+Doorstop entrypoint excluded. Dependencies remain in root dependencies/.
+No full baseline table extraction is required or included.
+
+The compiler is deterministic and maps source paths to /src. Build in two
+folders with the same inputs and SDK to compare DLL hashes. Packaging uses
+explicit file lists. Player archives contain only the selected mod's
+payload, installer, documentation and dependency notices.

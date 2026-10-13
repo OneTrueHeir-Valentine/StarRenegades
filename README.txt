@@ -1,11 +1,22 @@
 Star Renegades Bugfix Mod
 
 Fixes for the Windows x64 Steam version of Star Renegades 1.5.1.5.
-Version 0.1.1 is a test release.
+Version 0.1.2 is a test release.
+
+CHOOSING A MOD
+
+This repository also hosts Star Renegades Rebalance. Choose one download:
+
+- Bugfix Mod: game corrections without the character, combo and camping
+  balance changes.
+- Rebalance: the same fixes plus the approved balance changes. Its source
+  and documentation are in Rebalance/.
+
+The two mods cannot be installed together. Uninstall one before switching.
 
 INSTALL
 
-1. Download Star-Renegades-Bugfix-Mod-v0.1.1.zip from:
+1. Download Star-Renegades-Bugfix-Mod-v0.1.2.zip from:
    https://github.com/OneTrueHeir-Valentine/StarRenegades/releases
 2. Extract it into its own folder. Close the game.
 3. Double-click Install.cmd. The installer finds the Steam library, or
@@ -16,7 +27,7 @@ Windows may ask for administrator permission if Steam is installed under
 Program Files. No separate mod manager or framework download is needed.
 
 Keep the extracted folder. To remove the mod, close the game and run
-Uninstall.cmd. To update from 0.1.0, extract the new release into a new
+Uninstall.cmd. To update from 0.1.0 or 0.1.1, extract the new release into a new
 folder and run its Install.cmd. You do not need to uninstall first.
 
 The installer checks the game build and refuses another loader or the
@@ -39,8 +50,16 @@ FIXES
   during inspection, and rounding of resisted delay.
 - Combat forecasts: include projected target effects in vulnerability and
   CRIT-defense checks, and include incoming CRIT damage in reflection.
+- Enemy AI: honor weighted action lists instead of choosing equally after
+  discarding their weights.
+- Enemy sequences: restore the Dragoon Overseer summon continuation and
+  the Panzer repair continuation.
 - Achievements: retry earned counter achievements when Steam becomes
   ready or a submission fails. The mod does not add kills or progress.
+
+Enemy corrections can make encounters harder. Firewulf and Demolisher
+choices now follow their declared weights; repaired enemy continuations
+can execute actions that were previously skipped.
 
 Base character stats and skill costs are unchanged. Forecast corrections
 do not change executed damage. Item repairs restore the intended bonuses.

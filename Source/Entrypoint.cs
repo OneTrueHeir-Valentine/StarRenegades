@@ -3,7 +3,6 @@ using System.IO;
 using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Threading;
-using System.Linq;
 using HarmonyLib;
 using Mdi.SRRW.Data;
 using Newtonsoft.Json.Linq;
@@ -36,44 +35,23 @@ namespace Doorstop
         {
             manifest=Bootstrap.Read(gameRoot,root);
             if(GameData.Instance!=null)throw new InvalidDataException("Game data is already loaded. Restart the game.");
-            var targets=PreviewFix.ResolveTargets();var harmony=new Harmony(HookId);
-            AchievementFix.Report=Log;
-            var estimate=ReflectionPreviewFix.ResolveTarget();var inspection=DamageInspectionFix.ResolveTarget();
-            ReflectionPreviewFix.Transpile(PatchProcessor.GetOriginalInstructions(estimate)).ToArray();
-            DamageInspectionFix.Transpile(PatchProcessor.GetOriginalInstructions(inspection)).ToArray();
-            ProjectedEffectFix.ValidateTargets();ReflectionPreviewFix.ValidateReactionTargets();
-            var achievements=AchievementFix.ResolveTargets();
+            var harmony=new Harmony(HookId);
             var flags=BindingFlags.Static|BindingFlags.NonPublic;
-            installHooks=new Action[]{
-                ()=>harmony.Patch(targets[0],postfix:new HarmonyMethod(typeof(PreviewFix).GetMethod("BasePostfix",flags))),
-                ()=>harmony.Patch(targets[1],postfix:new HarmonyMethod(typeof(PreviewFix).GetMethod("RewardPostfix",flags))),
-                ()=>harmony.Patch(estimate,transpiler:new HarmonyMethod(typeof(ReflectionPreviewFix).GetMethod("Transpile",flags))),
-                ()=>harmony.Patch(inspection,transpiler:new HarmonyMethod(typeof(DamageInspectionFix).GetMethod("Transpile",flags))),
-                ()=>ProjectedEffectFix.Install(harmony),
-                ()=>ReflectionPreviewFix.InstallReactionHooks(harmony),
-                ()=>harmony.Patch(achievements[0],postfix:new HarmonyMethod(typeof(AchievementFix).GetMethod("InitializePostfix",flags))),
-                ()=>harmony.Patch(achievements[1],postfix:new HarmonyMethod(typeof(AchievementFix).GetMethod("RecordPostfix",flags))),
-                ()=>harmony.Patch(achievements[2],prefix:new HarmonyMethod(typeof(AchievementFix).GetMethod("AchievementPrefix",flags))),
-                ()=>harmony.Patch(achievements[3],prefix:new HarmonyMethod(typeof(AchievementFix).GetMethod("UpdatePrefix",flags)),postfix:new HarmonyMethod(typeof(AchievementFix).GetMethod("UpdatePostfix",flags))),
-                ()=>harmony.Patch(achievements[4],postfix:new HarmonyMethod(typeof(AchievementFix).GetMethod("ReceivedPostfix",flags))),
-                ()=>harmony.Patch(achievements[5],postfix:new HarmonyMethod(typeof(AchievementFix).GetMethod("StoredPostfix",flags))),
-                ()=>harmony.Patch(achievements[6],postfix:new HarmonyMethod(typeof(AchievementFix).GetMethod("EnablePostfix",flags))),
-                ()=>harmony.Patch(achievements[7],postfix:new HarmonyMethod(typeof(AchievementFix).GetMethod("DisablePostfix",flags)))
-            };
-            removeHooks=()=>{PreviewFix.Enabled=false;ReflectionPreviewFix.Enabled=false;DamageInspectionFix.Enabled=false;ProjectedEffectFix.Enabled=false;AchievementFix.Enabled=false;harmony.UnpatchAll(HookId);};
+            installHooks=RuntimeFixes.Prepare(harmony,Log);
+            removeHooks=()=>RuntimeFixes.Remove(harmony);
             var load=typeof(GameData).GetMethod("LoadData",BindingFlags.Instance|BindingFlags.NonPublic);
             if(load==null)throw new InvalidDataException("Supported game-data loader was not found.");
             try{harmony.Patch(load,postfix:new HarmonyMethod(typeof(Entrypoint).GetMethod("AfterDataLoad",flags)));}
             catch{removeHooks();throw;}
-            Log("Loader ready, version 0.1.1.");
+            Log("Loader ready, version 0.1.2.");
         }
         static void AfterDataLoad(GameData __instance)
         {
             if(Interlocked.Increment(ref applications)!=1){Log("Repeated data loading is unsupported. Restart the game.");return;}
             try
             {
-                var applied=Activation.Apply(__instance,manifest,installHooks,removeHooks);PreviewFix.Enabled=true;ReflectionPreviewFix.Enabled=true;DamageInspectionFix.Enabled=true;ProjectedEffectFix.Enabled=true;AchievementFix.Enabled=true;
-                Log("Applied version 0.1.1: "+applied.ChangedFields+" fields, "+applied.AddedRecords+" affix pools.");
+                var applied=Activation.Apply(__instance,manifest,installHooks,removeHooks);RuntimeFixes.SetEnabled(true);
+                Log("Applied version 0.1.2: "+applied.ChangedFields+" fields, "+applied.AddedRecords+" affix pools.");
                 if(File.Exists(Path.Combine(root,"verify.flag"))){try{RuntimeProbe.Run(__instance,manifest);}catch(Exception e){Log("ACCEPTANCE FAILED: "+e);}}
             }
             catch(Exception e){Log("Fixes not applied; original data retained: "+e);}

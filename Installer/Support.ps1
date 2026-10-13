@@ -1,9 +1,14 @@
+param([ValidateSet('SRBugfix','SRRebalance')][string]$ModId='SRBugfix')
 Set-StrictMode -Version 2
 $script:ExpectedGame=@{
  'Star Renegades_Data/Managed/Assembly-CSharp.dll'='a9d49075bab3953b7748b7e91d94829d325580e870297df8ebdc8d43f55427d0'
  'Star Renegades_Data/data.unity3d'='4c405e4f179f475a67e8561a5163bddb55e7e6340de83bb876ebb1f94c44275d'
 }
-$script:OwnedPaths=@('winhttp.dll','doorstop_config.ini','SRBugfix/SRBugfix.dll','SRBugfix/0Harmony.dll','SRBugfix/fixes.json')
+$script:ModId=$ModId
+$script:ReceiptPath=$ModId+'/receipt.json';$script:JournalDirectory='.'+$ModId+'-transaction'
+$script:ModName=if($ModId -eq 'SRBugfix'){'Bugfix Mod'}else{'Rebalance Mod'}
+$script:OwnedPaths=@('winhttp.dll','doorstop_config.ini',($ModId+'/'+$ModId+'.dll'),($ModId+'/0Harmony.dll'),($ModId+'/fixes.json'))
+if($ModId -eq 'SRRebalance'){$script:OwnedPaths+=@('SRRebalance/rebalance.json')}
 $script:WriteInjection=$null;$script:ProcessInjection=$null;$script:SkipProcessForFixtures=$false;$script:InterruptForFixtures=0
 function Hash-Bytes([byte[]]$Bytes){$sha=[Security.Cryptography.SHA256]::Create();try{return ([BitConverter]::ToString($sha.ComputeHash($Bytes))).Replace('-','').ToLowerInvariant()}finally{$sha.Dispose()}}
 function Get-SRRoot([string]$Path){
@@ -46,9 +51,9 @@ function Set-SRBytes([string]$Path,$Bytes,[string]$Stage){
 }
 function Write-SRAtomicJson([string]$Path,$Value){$tmp=$Path+'.new';$bytes=[Text.Encoding]::UTF8.GetBytes(($Value|ConvertTo-Json -Depth 20));Write-SRStage $tmp $bytes '';[IO.File]::Move($tmp,$Path)}
 function Get-SRReceipt([string]$Root){
- $path=Get-SRPath $Root 'SRBugfix/receipt.json';if(-not(Test-Path -LiteralPath $path)){return $null}
+ $path=Get-SRPath $Root $script:ReceiptPath;if(-not(Test-Path -LiteralPath $path)){return $null}
  $receipt=Read-SRJson $path
- if($receipt.format -ne 1 -or $receipt.id -ne 'SRBugfix' -or @($receipt.files).Count -ne $script:OwnedPaths.Count){throw 'Unrecognized installation receipt.'}
+ if($receipt.format -ne 1 -or $receipt.id -ne $script:ModId -or @($receipt.files).Count -ne $script:OwnedPaths.Count){throw 'Unrecognized installation receipt.'}
  $seen=@{}
  foreach($file in $receipt.files){if($file.path -notin $script:OwnedPaths -or $seen.ContainsKey($file.path) -or $file.hash -notmatch '^[a-f0-9]{64}$'){throw 'Invalid installation receipt.'};$seen[$file.path]=$true
   $dest=Get-SRPath $Root $file.path;$bytes=Get-SRBytes $dest
@@ -58,49 +63,49 @@ function Get-SRReceipt([string]$Root){
  return $receipt
 }
 function Clear-SRJournal([string]$Root){
- $dir=Get-SRPath $Root '.SRBugfix-transaction'
+ $dir=Get-SRPath $Root $script:JournalDirectory
  if(Test-Path -LiteralPath $dir){
   $files=@(Get-ChildItem -LiteralPath $dir -Force)
-  foreach($file in $files){if($file.PSIsContainer -or $file.Name -notmatch '^(journal\.json(\.new)?|(stage|restore)-[0-5]\.bin)$'){throw 'Unexpected transaction contents; they have been preserved.'};Get-SRPath $Root ('.SRBugfix-transaction/'+$file.Name)|Out-Null}
+  foreach($file in $files){if($file.PSIsContainer -or $file.Name -notmatch '^(journal\.json(\.new)?|(stage|restore)-([0-9]+)\.bin)$'){throw 'Unexpected transaction contents; they have been preserved.'};if($file.Name -match '^(stage|restore)-([0-9]+)\.bin$'){$index=0;if(-not [int]::TryParse($Matches[2],[ref]$index) -or $index -gt $script:OwnedPaths.Count){throw 'Unexpected transaction contents; they have been preserved.'}};Get-SRPath $Root (($script:JournalDirectory+'/')+$file.Name)|Out-Null}
   foreach($file in $files|Where-Object Name -ne 'journal.json'){Remove-Item -LiteralPath $file.FullName -Force}
   $journal=Join-Path $dir 'journal.json';if(Test-Path -LiteralPath $journal){Remove-Item -LiteralPath $journal -Force}
   Remove-Item -LiteralPath $dir -Force
  }
 }
 function Recover-SRTransaction([string]$Root){
- $dir=Get-SRPath $Root '.SRBugfix-transaction';if(-not(Test-Path -LiteralPath $dir)){return}
- $journalPath=Get-SRPath $Root '.SRBugfix-transaction/journal.json'
+ $dir=Get-SRPath $Root $script:JournalDirectory;if(-not(Test-Path -LiteralPath $dir)){return}
+ $journalPath=Get-SRPath $Root ($script:JournalDirectory+'/journal.json')
  # No live destination is touched until the complete journal has been published.
  # Missing journal therefore means pre-publication or completed-cleanup residue.
  if(-not(Test-Path -LiteralPath $journalPath)){Clear-SRJournal $Root;return}
  $journal=Read-SRJson $journalPath
- if($journal.format -ne 1 -or @($journal.files).Count -ne 6){throw 'Invalid recovery journal.'}
+ if($journal.format -ne 1 -or @($journal.files).Count -ne ($script:OwnedPaths.Count+1)){throw 'Invalid recovery journal.'}
  $seen=@{};$recovery=@()
  foreach($file in $journal.files){
-  if($file.path -notin ($script:OwnedPaths+@('SRBugfix/receipt.json')) -or $seen.ContainsKey($file.path)){throw 'Invalid recovery file path.'};$seen[$file.path]=$true
+  if($file.path -notin ($script:OwnedPaths+@($script:ReceiptPath)) -or $seen.ContainsKey($file.path)){throw 'Invalid recovery file path.'};$seen[$file.path]=$true
   $dest=Get-SRPath $Root $file.path;$old=if($null -eq $file.before){$null}else{[Convert]::FromBase64String($file.before)}
   $present=Get-SRBytes $dest;$hash=if($null -eq $present){'absent'}else{Hash-Bytes $present};$beforeHash=if($null -eq $old){'absent'}else{Hash-Bytes $old}
   if($hash -ne $beforeHash -and $hash -ne $file.afterHash){throw "Recovery stopped because $($file.path) was changed. Your file has been preserved."}
   $recovery+=@{path=$dest;bytes=$old}
  }
- $index=0;foreach($file in $recovery){Set-SRBytes $file.path $file.bytes (Get-SRPath $Root ('.SRBugfix-transaction/restore-'+$index+'.bin'));$index++};Clear-SRJournal $Root
+ $index=0;foreach($file in $recovery){Set-SRBytes $file.path $file.bytes (Get-SRPath $Root (($script:JournalDirectory+'/restore-')+$index+'.bin'));$index++};Clear-SRJournal $Root
 }
 function Invoke-SRTransaction([string]$Root,$Changes){
  $files=@();foreach($change in $Changes){$dest=Get-SRPath $Root $change.path;$before=Get-SRBytes $dest;$files+=@{path=$change.path;before=if($null -eq $before){$null}else{[Convert]::ToBase64String($before)};afterHash=if($null -eq $change.bytes){'absent'}else{Hash-Bytes $change.bytes}}}
- $dir=Get-SRPath $Root '.SRBugfix-transaction';[IO.Directory]::CreateDirectory($dir)|Out-Null
+ $dir=Get-SRPath $Root $script:JournalDirectory;[IO.Directory]::CreateDirectory($dir)|Out-Null
  Write-SRAtomicJson (Join-Path $dir 'journal.json') @{format=1;files=$files}
  $count=0
  try{
-  $index=0;foreach($change in $Changes){if($null -ne $change.bytes){Write-SRStage (Get-SRPath $Root ('.SRBugfix-transaction/stage-'+$index+'.bin')) $change.bytes $change.path -Inject};$index++}
+  $index=0;foreach($change in $Changes){if($null -ne $change.bytes){Write-SRStage (Get-SRPath $Root (($script:JournalDirectory+'/stage-')+$index+'.bin')) $change.bytes $change.path -Inject};$index++}
   foreach($change in $Changes){$dest=Get-SRPath $Root $change.path
    if($null -eq $change.bytes){if(Test-Path -LiteralPath $dest){Remove-Item -LiteralPath $dest -Force}}
-   else{Move-SRStage (Get-SRPath $Root ('.SRBugfix-transaction/stage-'+$count+'.bin')) $dest}
+   else{Move-SRStage (Get-SRPath $Root (($script:JournalDirectory+'/stage-')+$count+'.bin')) $dest}
    $actual=Get-SRBytes $dest;$expected=$files[$count].afterHash;$actualHash=if($null -eq $actual){'absent'}else{Hash-Bytes $actual};if($expected -ne $actualHash){throw 'Copied file failed verification.'}
    $count++;if($script:InterruptForFixtures -eq $count){throw 'Fixture interrupt'}
   }
   Clear-SRJournal $Root
  }catch{
-  if($script:InterruptForFixtures -eq 0){$index=0;foreach($file in $files){$bytes=if($null -eq $file.before){$null}else{[Convert]::FromBase64String($file.before)};Set-SRBytes (Get-SRPath $Root $file.path) $bytes (Get-SRPath $Root ('.SRBugfix-transaction/restore-'+$index+'.bin'));$index++};Clear-SRJournal $Root}
+  if($script:InterruptForFixtures -eq 0){$index=0;foreach($file in $files){$bytes=if($null -eq $file.before){$null}else{[Convert]::FromBase64String($file.before)};Set-SRBytes (Get-SRPath $Root $file.path) $bytes (Get-SRPath $Root (($script:JournalDirectory+'/restore-')+$index+'.bin'));$index++};Clear-SRJournal $Root}
   throw
  }
 }
@@ -108,22 +113,31 @@ function Get-SRBugfixPlan([string]$GameRoot,[string]$PayloadRoot){
  $root=Get-SRRoot $GameRoot;Assert-SRStopped $root
  foreach($relative in $script:ExpectedGame.Keys){$path=Get-SRPath $root $relative;if(-not(Test-Path -LiteralPath $path -PathType Leaf) -or (Get-FileHash -LiteralPath $path).Hash.ToLowerInvariant() -ne $script:ExpectedGame[$relative]){throw 'This release supports the unmodified Windows Steam build 1.5.1.5.'}}
  $payload=[IO.Path]::GetFullPath($PayloadRoot).TrimEnd('\','/');$package=Read-SRJson (Join-Path $payload 'package.json')
+ if($null -ne $package.PSObject.Properties['id'] -and $package.id -ne $script:ModId){throw 'Release package belongs to a different or unknown mod profile.'}
  if($package.format -ne 1 -or $package.version -notmatch '^\d+\.\d+\.\d+$' -or @($package.files.PSObject.Properties).Count -ne $script:OwnedPaths.Count){throw 'Invalid release package.'}
  $changes=@();$files=@();$receipt=Get-SRReceipt $root
- if($null -eq $receipt){foreach($relative in @('winhttp.dll','doorstop_config.ini','SRBugfix','SRRebalance','BepInEx')){$existing=Get-SRPath $root $relative;if(Test-Path -LiteralPath $existing){
-  if($relative -eq 'SRBugfix' -and (Test-Path -LiteralPath $existing -PathType Container) -and @((Get-ChildItem -LiteralPath $existing -Force)|Where-Object {$_.Name -ne 'bugfix.log' -or $_.PSIsContainer}).Count -eq 0){continue}
+ $conflicts=@('BepInEx')
+ $otherMod=if($script:ModId -eq 'SRBugfix'){'SRRebalance'}else{'SRBugfix'}
+ $conflicts+=@($otherMod,('.'+$otherMod+'-transaction'))
+ if($null -eq $receipt){$conflicts+=@('winhttp.dll','doorstop_config.ini',$script:ModId)}
+ foreach($relative in $conflicts){$existing=Get-SRPath $root $relative;if(Test-Path -LiteralPath $existing){
+  if($relative -in @('SRBugfix','SRRebalance') -and (Test-Path -LiteralPath $existing -PathType Container)){
+   $logName=if($relative -eq 'SRBugfix'){'bugfix.log'}else{'rebalance.log'}
+   if(@((Get-ChildItem -LiteralPath $existing -Force)|Where-Object {$_.Name -ne $logName -or $_.PSIsContainer}).Count -eq 0){continue}
+  }
   throw "An existing loader or mod ($relative) was found. Remove it using its own instructions first."
- }}}
+ }}
  foreach($relative in $script:OwnedPaths){$prop=$package.files.PSObject.Properties[$relative];if($null -eq $prop -or $prop.Value -notmatch '^[a-f0-9]{64}$'){throw 'Invalid package file list.'};$source=Get-SRPath $payload $relative;$bytes=Get-SRBytes $source
   if($null -eq $bytes -or (Hash-Bytes $bytes) -ne $prop.Value){throw "Release file failed verification: $relative"}
   $original=$null;if($null -ne $receipt){$original=($receipt.files|Where-Object path -eq $relative).original}
   $files+=@{path=$relative;hash=$prop.Value;original=$original};$changes+=@{path=$relative;bytes=$bytes}
  }
- $newReceipt=@{format=1;id='SRBugfix';version=$package.version;files=$files}
- $changes+=@{path='SRBugfix/receipt.json';bytes=[Text.Encoding]::UTF8.GetBytes(($newReceipt|ConvertTo-Json -Depth 20))}
+ $newReceipt=@{format=1;id=$script:ModId;version=$package.version;files=$files}
+ $changes+=@{path=$script:ReceiptPath;bytes=[Text.Encoding]::UTF8.GetBytes(($newReceipt|ConvertTo-Json -Depth 20))}
  return @{root=$root;changes=$changes}
 }
 function Invoke-SRLocked([string]$Root,[scriptblock]$Action){
+ # Keep the original shared game-path lock namespace for both profiles and older installers.
  $key=Hash-Bytes ([Text.Encoding]::UTF8.GetBytes($Root.ToLowerInvariant()));$mutex=[Threading.Mutex]::new($false,('Local\SRBugfix-'+$key));$locked=$false
  try{try{$locked=$mutex.WaitOne(0)}catch [Threading.AbandonedMutexException]{$locked=$true};if(-not $locked){throw 'Another mod installer is already running.'};& $Action}finally{if($locked){$mutex.ReleaseMutex()};$mutex.Dispose()}
 }
@@ -131,9 +145,9 @@ function Install-SRBugfix([string]$GameRoot,[string]$PayloadRoot){
  $root=Get-SRRoot $GameRoot;Invoke-SRLocked $root {Assert-SRStopped $root;Recover-SRTransaction $root;$plan=Get-SRBugfixPlan $root $PayloadRoot;Invoke-SRTransaction $root $plan.changes}
 }
 function Uninstall-SRBugfix([string]$GameRoot){
- $root=Get-SRRoot $GameRoot;Invoke-SRLocked $root {Assert-SRStopped $root;Recover-SRTransaction $root;$receipt=Get-SRReceipt $root;if($null -eq $receipt){throw 'No Bugfix Mod installation receipt was found.'}
+ $root=Get-SRRoot $GameRoot;Invoke-SRLocked $root {Assert-SRStopped $root;Recover-SRTransaction $root;$receipt=Get-SRReceipt $root;if($null -eq $receipt){throw "No $($script:ModName) installation receipt was found."}
   $changes=@();foreach($file in $receipt.files){$bytes=if($null -eq $file.original){$null}else{[Convert]::FromBase64String($file.original)};$changes+=@{path=$file.path;bytes=$bytes}}
-  $changes+=@{path='SRBugfix/receipt.json';bytes=$null};Invoke-SRTransaction $root $changes
+  $changes+=@{path=$script:ReceiptPath;bytes=$null};Invoke-SRTransaction $root $changes
  }
 }
 function Find-SRGame([string[]]$SteamRoots) {

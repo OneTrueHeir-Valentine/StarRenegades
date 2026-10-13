@@ -1,0 +1,1404 @@
+{
+  "version": "0.3.1",
+  "fingerprints": {
+    "data.unity3d": "4c405e4f179f475a67e8561a5163bddb55e7e6340de83bb876ebb1f94c44275d",
+    "Assembly-CSharp.dll": "a9d49075bab3953b7748b7e91d94829d325580e870297df8ebdc8d43f55427d0"
+  },
+  "dictionary_counts": {
+    "PowerData": 1165,
+    "UnitClassData": 199,
+    "UnitModifierData": 1642,
+    "PowerModifierData": 2443,
+    "TraitData": 3261,
+    "TraitStringData": 4563,
+    "PowerStringData": 1008,
+    "EquipmentData": 3366,
+    "CamaraderieCardData": 141,
+    "CamaraderieStringData": 240
+  },
+  "changes": [
+    {
+      "table": "PowerData",
+      "id": "hArcAttack",
+      "field": "damageMin",
+      "before": 10,
+      "after": 13
+    },
+    {
+      "table": "PowerData",
+      "id": "hArcAttack",
+      "field": "damageMax",
+      "before": 10,
+      "after": 13
+    },
+    {
+      "table": "PowerData",
+      "id": "hArcAttack",
+      "field": "timeDamage",
+      "before": 10,
+      "after": 15
+    },
+    {
+      "table": "PowerData",
+      "id": "hArcShieldsB",
+      "field": "execution",
+      "before": 35,
+      "after": 25
+    },
+    {
+      "table": "PowerData",
+      "id": "hArcShieldsA",
+      "field": "execution",
+      "before": 35,
+      "after": 25
+    },
+    {
+      "table": "PowerData",
+      "id": "hArcShieldsC",
+      "field": "execution",
+      "before": 55,
+      "after": 35
+    },
+    {
+      "table": "PowerData",
+      "id": "hArcShieldsD",
+      "field": "execution",
+      "before": 55,
+      "after": 35
+    },
+    {
+      "table": "PowerData",
+      "id": "hGueAmbush",
+      "field": "damageMin",
+      "before": 15,
+      "after": 22
+    },
+    {
+      "table": "PowerData",
+      "id": "hGueAmbush",
+      "field": "damageMax",
+      "before": 15,
+      "after": 22
+    },
+    {
+      "table": "PowerData",
+      "id": "hGueMark",
+      "field": "damageMin",
+      "before": 5,
+      "after": 7
+    },
+    {
+      "table": "PowerData",
+      "id": "hGueMark",
+      "field": "damageMax",
+      "before": 5,
+      "after": 7
+    },
+    {
+      "table": "PowerData",
+      "id": "hGueMark",
+      "field": "criticalArmorPiercingAbsolute",
+      "before": 1,
+      "after": 3
+    },
+    {
+      "table": "PowerData",
+      "id": "hGueMark2",
+      "field": "criticalArmorPiercingAbsolute",
+      "before": 1,
+      "after": 3
+    },
+    {
+      "table": "PowerData",
+      "id": "hGueFlurry",
+      "field": "damageMin",
+      "before": 13,
+      "after": 15
+    },
+    {
+      "table": "PowerData",
+      "id": "hGueFlurry",
+      "field": "damageMax",
+      "before": 13,
+      "after": 15
+    },
+    {
+      "table": "PowerData",
+      "id": "hGueFlurry",
+      "field": "criticalArmorPiercingAbsolute",
+      "before": 1,
+      "after": 3
+    },
+    {
+      "table": "PowerData",
+      "id": "hGueBlind",
+      "field": "squadFocusCost",
+      "before": 50,
+      "after": 40
+    },
+    {
+      "table": "PowerData",
+      "id": "hComInstantAttack",
+      "field": "damageMin",
+      "before": 20,
+      "after": 25
+    },
+    {
+      "table": "PowerData",
+      "id": "hComInstantAttack",
+      "field": "damageMax",
+      "before": 20,
+      "after": 25
+    },
+    {
+      "table": "PowerData",
+      "id": "hComBuckshot",
+      "field": "damageMin",
+      "before": 30,
+      "after": 35
+    },
+    {
+      "table": "PowerData",
+      "id": "hComBuckshot",
+      "field": "damageMax",
+      "before": 30,
+      "after": 35
+    },
+    {
+      "table": "PowerData",
+      "id": "hComBuckshot",
+      "field": "criticalArmorDamageMin",
+      "before": 4,
+      "after": 5
+    },
+    {
+      "table": "PowerData",
+      "id": "hComBuckshot",
+      "field": "criticalArmorDamageMax",
+      "before": 4,
+      "after": 5
+    },
+    {
+      "table": "PowerData",
+      "id": "hComBuckshot2",
+      "field": "damageMin",
+      "before": 40,
+      "after": 45
+    },
+    {
+      "table": "PowerData",
+      "id": "hComBuckshot2",
+      "field": "damageMax",
+      "before": 40,
+      "after": 45
+    },
+    {
+      "table": "PowerData",
+      "id": "hComBuckshot2",
+      "field": "criticalArmorDamageMin",
+      "before": 4,
+      "after": 5
+    },
+    {
+      "table": "PowerData",
+      "id": "hComBuckshot2",
+      "field": "criticalArmorDamageMax",
+      "before": 4,
+      "after": 5
+    },
+    {
+      "table": "PowerData",
+      "id": "hVanAttack",
+      "field": "damageMin",
+      "before": 25,
+      "after": 30
+    },
+    {
+      "table": "PowerData",
+      "id": "hVanAttack",
+      "field": "damageMax",
+      "before": 25,
+      "after": 30
+    },
+    {
+      "table": "PowerData",
+      "id": "hVanAttack",
+      "field": "execution",
+      "before": 35,
+      "after": 30
+    },
+    {
+      "table": "PowerData",
+      "id": "hEmpDistract",
+      "field": "damageMin",
+      "before": 15,
+      "after": 18
+    },
+    {
+      "table": "PowerData",
+      "id": "hEmpDistract",
+      "field": "damageMax",
+      "before": 15,
+      "after": 18
+    },
+    {
+      "table": "PowerData",
+      "id": "hEmpDistract",
+      "field": "timeDamage",
+      "before": 15,
+      "after": 20
+    },
+    {
+      "table": "PowerData",
+      "id": "hEmpDistract",
+      "field": "execution",
+      "before": 15,
+      "after": 10
+    },
+    {
+      "table": "PowerData",
+      "id": "hEmpDistract2",
+      "field": "damageMin",
+      "before": 20,
+      "after": 24
+    },
+    {
+      "table": "PowerData",
+      "id": "hEmpDistract2",
+      "field": "damageMax",
+      "before": 20,
+      "after": 24
+    },
+    {
+      "table": "PowerData",
+      "id": "hValAttack",
+      "field": "damageMin",
+      "before": 25,
+      "after": 28
+    },
+    {
+      "table": "PowerData",
+      "id": "hValAttack",
+      "field": "damageMax",
+      "before": 25,
+      "after": 28
+    },
+    {
+      "table": "PowerData",
+      "id": "hValHeavy",
+      "field": "damageMin",
+      "before": 40,
+      "after": 45
+    },
+    {
+      "table": "PowerData",
+      "id": "hValHeavy",
+      "field": "damageMax",
+      "before": 40,
+      "after": 45
+    },
+    {
+      "table": "PowerData",
+      "id": "hValHeavy",
+      "field": "execution",
+      "before": 45,
+      "after": 40
+    },
+    {
+      "table": "PowerData",
+      "id": "hValHeavy",
+      "field": "criticalArmorDamageMin",
+      "before": 3,
+      "after": 4
+    },
+    {
+      "table": "PowerData",
+      "id": "hValHeavy",
+      "field": "criticalArmorDamageMax",
+      "before": 3,
+      "after": 4
+    },
+    {
+      "table": "PowerData",
+      "id": "hValHeavy2",
+      "field": "damageMin",
+      "before": 40,
+      "after": 45
+    },
+    {
+      "table": "PowerData",
+      "id": "hValHeavy2",
+      "field": "damageMax",
+      "before": 40,
+      "after": 45
+    },
+    {
+      "table": "PowerData",
+      "id": "hValHeavy2",
+      "field": "execution",
+      "before": 45,
+      "after": 40
+    },
+    {
+      "table": "PowerData",
+      "id": "hValHeavy2",
+      "field": "criticalArmorDamageMin",
+      "before": 5,
+      "after": 6
+    },
+    {
+      "table": "PowerData",
+      "id": "hValHeavy2",
+      "field": "criticalArmorDamageMax",
+      "before": 5,
+      "after": 6
+    },
+    {
+      "table": "PowerData",
+      "id": "hAegBash",
+      "field": "damageMin",
+      "before": 20,
+      "after": 24
+    },
+    {
+      "table": "PowerData",
+      "id": "hAegBash",
+      "field": "damageMax",
+      "before": 20,
+      "after": 24
+    },
+    {
+      "table": "PowerData",
+      "id": "hAegBash",
+      "field": "timeDamage",
+      "before": 15,
+      "after": 20
+    },
+    {
+      "table": "PowerData",
+      "id": "hAegGenShields",
+      "field": "shieldGain",
+      "before": 40,
+      "after": 45
+    },
+    {
+      "table": "PowerData",
+      "id": "hMarQuickShot",
+      "field": "damageMin",
+      "before": 15,
+      "after": 18
+    },
+    {
+      "table": "PowerData",
+      "id": "hMarQuickShot",
+      "field": "damageMax",
+      "before": 15,
+      "after": 18
+    },
+    {
+      "table": "PowerData",
+      "id": "hMarQuickShot",
+      "field": "timeDamage",
+      "before": 15,
+      "after": 20
+    },
+    {
+      "table": "UnitClassData",
+      "id": "hMar",
+      "field": "shield",
+      "before": 15.0,
+      "after": 40
+    },
+    {
+      "table": "UnitClassData",
+      "id": "hMar",
+      "field": "shieldCap",
+      "before": 15.0,
+      "after": 40
+    },
+    {
+      "table": "PowerData",
+      "id": "hMarAimedPierce",
+      "field": "execution",
+      "before": 50,
+      "after": 30
+    },
+    {
+      "table": "UnitModifierData",
+      "id": "hMarJug",
+      "field": "modDamagePercent",
+      "before": -20.0,
+      "after": -10
+    },
+    {
+      "table": "PowerData",
+      "id": "hComInstantAttack",
+      "field": "range",
+      "before": "Close",
+      "after": "Any"
+    },
+    {
+      "table": "UnitModifierData",
+      "id": "hComEmp",
+      "field": "modDamagePercent",
+      "before": -20.0,
+      "after": 0
+    },
+    {
+      "table": "UnitModifierData",
+      "id": "hArcEmp",
+      "field": "modShieldCapAbsolute",
+      "before": -20.0,
+      "after": -10
+    },
+    {
+      "table": "UnitModifierData",
+      "id": "hArcVanTraits",
+      "field": "modShieldCapAbsolute",
+      "before": -25.0,
+      "after": -15
+    },
+    {
+      "table": "PowerModifierData",
+      "id": "hArcGue",
+      "field": "modShieldGainPercent",
+      "before": -20.0,
+      "after": 0
+    },
+    {
+      "table": "UnitModifierData",
+      "id": "hVanArcTraits",
+      "field": "modHealthAbsolute",
+      "before": -35.0,
+      "after": -15
+    },
+    {
+      "table": "UnitModifierData",
+      "id": "hVanArcTraits",
+      "field": "modArmorMaxAbsolute",
+      "before": -3.0,
+      "after": -1
+    },
+    {
+      "table": "UnitModifierData",
+      "id": "hVanArcTraits",
+      "field": "modDamagePercent",
+      "before": -10.0,
+      "after": 0
+    },
+    {
+      "table": "UnitModifierData",
+      "id": "hVanEmpTraits",
+      "field": "modHealthAbsolute",
+      "before": -20.0,
+      "after": -10
+    },
+    {
+      "table": "UnitModifierData",
+      "id": "hVanEmpTraits",
+      "field": "modArmorMaxAbsolute",
+      "before": -3.0,
+      "after": -1
+    },
+    {
+      "table": "UnitModifierData",
+      "id": "hVanEmpTraits",
+      "field": "modDamagePercent",
+      "before": -20.0,
+      "after": -5
+    },
+    {
+      "table": "PowerModifierData",
+      "id": "hDarSabAttacksFaster",
+      "field": "tags",
+      "before": [
+        "attack",
+        "canHasten"
+      ],
+      "after": [
+        "attack",
+        "canhasten"
+      ]
+    },
+    {
+      "table": "PowerModifierData",
+      "id": "hDarSabMoreStagger",
+      "field": "tags",
+      "before": [
+        "attack",
+        "canstagger"
+      ],
+      "after": [
+        "attack"
+      ]
+    },
+    {
+      "table": "PowerData",
+      "id": "hEnfFlurry",
+      "field": "criticalArmorPiercingAbsolute",
+      "before": 1.0,
+      "after": 3
+    },
+    {
+      "table": "PowerData",
+      "id": "hEnfFlurry2",
+      "field": "criticalArmorPiercingAbsolute",
+      "before": 1.0,
+      "after": 3
+    },
+    {
+      "table": "UnitModifierData",
+      "id": "hVarEnf",
+      "field": "modArmorMaxAbsolute",
+      "before": -5.0,
+      "after": -3
+    },
+    {
+      "table": "UnitModifierData",
+      "id": "hVarSpe",
+      "field": "modArmorMaxAbsolute",
+      "before": -5.0,
+      "after": -3
+    },
+    {
+      "table": "UnitModifierData",
+      "id": "hVarSpe",
+      "field": "modShieldCapAbsolute",
+      "before": -25.0,
+      "after": -10
+    },
+    {
+      "table": "PowerData",
+      "id": "hEmpPiercer",
+      "field": "damageMin",
+      "before": 8,
+      "after": 10
+    },
+    {
+      "table": "PowerData",
+      "id": "hEmpPiercer",
+      "field": "damageMax",
+      "before": 8,
+      "after": 10
+    },
+    {
+      "table": "TraitData",
+      "id": "hValGueTraits",
+      "field": "name",
+      "before": "",
+      "after": "srrebalance.hValGueTraits.name"
+    },
+    {
+      "table": "TraitData",
+      "id": "hValGueTraits",
+      "field": "description",
+      "before": "",
+      "after": "srrebalance.hValGueTraits.desc"
+    },
+    {
+      "table": "TraitData",
+      "id": "hValGueTraits",
+      "field": "hidden",
+      "before": true,
+      "after": false
+    },
+    {
+      "table": "TraitData",
+      "id": "hDarSabProgenyTrait",
+      "field": "name",
+      "before": "hDarSabProgenyTrait",
+      "after": "srrebalance.hDarSabProgenyTrait.name"
+    },
+    {
+      "table": "TraitData",
+      "id": "hDarSabProgenyTrait",
+      "field": "description",
+      "before": "",
+      "after": "srrebalance.hDarSabProgenyTrait.desc"
+    },
+    {
+      "table": "TraitData",
+      "id": "hDarSabProgenyTrait",
+      "field": "hidden",
+      "before": true,
+      "after": false
+    },
+    {
+      "table": "TraitData",
+      "id": "hArcEmpTraits",
+      "field": "name",
+      "before": "",
+      "after": "srrebalance.hArcEmpTraits.name"
+    },
+    {
+      "table": "TraitData",
+      "id": "hArcEmpTraits",
+      "field": "description",
+      "before": "",
+      "after": "srrebalance.hArcEmpTraits.desc"
+    },
+    {
+      "table": "TraitData",
+      "id": "hArcEmpTraits",
+      "field": "hidden",
+      "before": true,
+      "after": false
+    },
+    {
+      "table": "TraitData",
+      "id": "hArcGueTraits",
+      "field": "name",
+      "before": "",
+      "after": "srrebalance.hArcGueTraits.name"
+    },
+    {
+      "table": "TraitData",
+      "id": "hArcGueTraits",
+      "field": "description",
+      "before": "",
+      "after": "srrebalance.hArcGueTraits.desc"
+    },
+    {
+      "table": "TraitData",
+      "id": "hArcGueTraits",
+      "field": "hidden",
+      "before": true,
+      "after": false
+    },
+    {
+      "table": "TraitData",
+      "id": "hArcVanTraits",
+      "field": "name",
+      "before": "",
+      "after": "srrebalance.hArcVanTraits.name"
+    },
+    {
+      "table": "TraitData",
+      "id": "hArcVanTraits",
+      "field": "description",
+      "before": "",
+      "after": "srrebalance.hArcVanTraits.desc"
+    },
+    {
+      "table": "TraitData",
+      "id": "hArcVanTraits",
+      "field": "hidden",
+      "before": true,
+      "after": false
+    },
+    {
+      "table": "TraitData",
+      "id": "hComEmpTraits",
+      "field": "name",
+      "before": "",
+      "after": "srrebalance.hComEmpTraits.name"
+    },
+    {
+      "table": "TraitData",
+      "id": "hComEmpTraits",
+      "field": "description",
+      "before": "",
+      "after": "srrebalance.hComEmpTraits.desc"
+    },
+    {
+      "table": "TraitData",
+      "id": "hComEmpTraits",
+      "field": "hidden",
+      "before": true,
+      "after": false
+    },
+    {
+      "table": "TraitData",
+      "id": "hMarJugTraits",
+      "field": "name",
+      "before": "",
+      "after": "srrebalance.hMarJugTraits.name"
+    },
+    {
+      "table": "TraitData",
+      "id": "hMarJugTraits",
+      "field": "description",
+      "before": "",
+      "after": "srrebalance.hMarJugTraits.desc"
+    },
+    {
+      "table": "TraitData",
+      "id": "hMarJugTraits",
+      "field": "hidden",
+      "before": true,
+      "after": false
+    },
+    {
+      "table": "TraitData",
+      "id": "hVanArcTraits",
+      "field": "name",
+      "before": "",
+      "after": "srrebalance.hVanArcTraits.name"
+    },
+    {
+      "table": "TraitData",
+      "id": "hVanArcTraits",
+      "field": "description",
+      "before": "",
+      "after": "srrebalance.hVanArcTraits.desc"
+    },
+    {
+      "table": "TraitData",
+      "id": "hVanArcTraits",
+      "field": "hidden",
+      "before": true,
+      "after": false
+    },
+    {
+      "table": "TraitData",
+      "id": "hVanEmpTraits",
+      "field": "name",
+      "before": "",
+      "after": "srrebalance.hVanEmpTraits.name"
+    },
+    {
+      "table": "TraitData",
+      "id": "hVanEmpTraits",
+      "field": "description",
+      "before": "",
+      "after": "srrebalance.hVanEmpTraits.desc"
+    },
+    {
+      "table": "TraitData",
+      "id": "hVanEmpTraits",
+      "field": "hidden",
+      "before": true,
+      "after": false
+    },
+    {
+      "table": "TraitData",
+      "id": "hVarEnfTraits",
+      "field": "name",
+      "before": "",
+      "after": "srrebalance.hVarEnfTraits.name"
+    },
+    {
+      "table": "TraitData",
+      "id": "hVarEnfTraits",
+      "field": "description",
+      "before": "",
+      "after": "srrebalance.hVarEnfTraits.desc"
+    },
+    {
+      "table": "TraitData",
+      "id": "hVarEnfTraits",
+      "field": "hidden",
+      "before": true,
+      "after": false
+    },
+    {
+      "table": "TraitData",
+      "id": "hVarSpeTraits",
+      "field": "name",
+      "before": "",
+      "after": "srrebalance.hVarSpeTraits.name"
+    },
+    {
+      "table": "TraitData",
+      "id": "hVarSpeTraits",
+      "field": "description",
+      "before": "",
+      "after": "srrebalance.hVarSpeTraits.desc"
+    },
+    {
+      "table": "TraitData",
+      "id": "hVarSpeTraits",
+      "field": "hidden",
+      "before": true,
+      "after": false
+    },
+    {
+      "table": "PowerData",
+      "id": "hComInstantAttack",
+      "field": "description",
+      "before": "",
+      "after": "srrebalance.hComInstantAttack.desc"
+    },
+    {
+      "table": "PowerData",
+      "id": "hMarAimedPierce",
+      "field": "description",
+      "before": "",
+      "after": "srrebalance.hMarAimedPierce.desc"
+    },
+    {
+      "table": "CamaraderieCardData",
+      "id": "arcCard1",
+      "field": "cost",
+      "before": 2,
+      "after": 1
+    },
+    {
+      "table": "CamaraderieCardData",
+      "id": "empCard2",
+      "field": "cost",
+      "before": 2,
+      "after": 1
+    },
+    {
+      "table": "CamaraderieCardData",
+      "id": "vanCard2",
+      "field": "cost",
+      "before": 2,
+      "after": 1
+    },
+    {
+      "table": "CamaraderieCardData",
+      "id": "grdCard1",
+      "field": "cost",
+      "before": 3,
+      "after": 2
+    },
+    {
+      "table": "PowerData",
+      "id": "hEnfAegCombo",
+      "field": "damageMin",
+      "before": 25.0,
+      "after": 30
+    },
+    {
+      "table": "PowerData",
+      "id": "hEnfAegCombo",
+      "field": "damageMax",
+      "before": 25.0,
+      "after": 30
+    },
+    {
+      "table": "PowerData",
+      "id": "hEnfGunCombo",
+      "field": "damageMin",
+      "before": 10.0,
+      "after": 15
+    },
+    {
+      "table": "PowerData",
+      "id": "hEnfGunCombo",
+      "field": "damageMax",
+      "before": 10.0,
+      "after": 15
+    },
+    {
+      "table": "PowerData",
+      "id": "hMarGunCombo",
+      "field": "damageMin",
+      "before": 25.0,
+      "after": 30
+    },
+    {
+      "table": "PowerData",
+      "id": "hMarGunCombo",
+      "field": "damageMax",
+      "before": 25.0,
+      "after": 30
+    },
+    {
+      "table": "PowerData",
+      "id": "hEmpJugCombo",
+      "field": "shieldGain",
+      "before": 15.0,
+      "after": 25
+    },
+    {
+      "table": "PowerData",
+      "id": "hEmpJugCombo",
+      "field": "squadFocusCost",
+      "before": 25,
+      "after": 20
+    },
+    {
+      "table": "PowerData",
+      "id": "hComGunCombo",
+      "field": "squadFocusCost",
+      "before": 35,
+      "after": 25
+    },
+    {
+      "table": "PowerData",
+      "id": "hParEnfCombo",
+      "field": "damageMin",
+      "before": 20.0,
+      "after": 25
+    },
+    {
+      "table": "PowerData",
+      "id": "hParEnfCombo",
+      "field": "damageMax",
+      "before": 20.0,
+      "after": 25
+    },
+    {
+      "table": "PowerData",
+      "id": "hParMarCombo",
+      "field": "damageMin",
+      "before": 60.0,
+      "after": 75
+    },
+    {
+      "table": "PowerData",
+      "id": "hParMarCombo",
+      "field": "damageMax",
+      "before": 60.0,
+      "after": 75
+    },
+    {
+      "table": "PowerData",
+      "id": "hVanJugCombo",
+      "field": "squadFocusCost",
+      "before": 20,
+      "after": 15
+    }
+  ],
+  "additions": [
+    {
+      "table": "PowerModifierData",
+      "id": "hValGue",
+      "template": "hMarVanTraits",
+      "fields": {
+        "id": "hValGue",
+        "name": "",
+        "description": "",
+        "tags": [
+          "attack"
+        ],
+        "modExecution": -5
+      }
+    },
+    {
+      "table": "TraitStringData",
+      "id": "srrebalance.hValGueTraits.name",
+      "fields": {
+        "id": "srrebalance.hValGueTraits.name",
+        "EN": "Dayana's Progeny Traits",
+        "FR": "",
+        "JA": "",
+        "ES": "",
+        "DE": "",
+        "RU": "",
+        "ZH": "",
+        "ZHTW": "",
+        "KO": "",
+        "PL": "",
+        "PTBR": ""
+      }
+    },
+    {
+      "table": "TraitStringData",
+      "id": "srrebalance.hValGueTraits.desc",
+      "fields": {
+        "id": "srrebalance.hValGueTraits.desc",
+        "EN": "40 less health, 5 less armor and 15 less shields. Attacks execute 5 seconds faster.",
+        "FR": "",
+        "JA": "",
+        "ES": "",
+        "DE": "",
+        "RU": "",
+        "ZH": "",
+        "ZHTW": "",
+        "KO": "",
+        "PL": "",
+        "PTBR": ""
+      }
+    },
+    {
+      "table": "TraitStringData",
+      "id": "srrebalance.hDarSabProgenyTrait.name",
+      "fields": {
+        "id": "srrebalance.hDarSabProgenyTrait.name",
+        "EN": "Durnin's Progeny Traits",
+        "FR": "",
+        "JA": "",
+        "ES": "",
+        "DE": "",
+        "RU": "",
+        "ZH": "",
+        "ZHTW": "",
+        "KO": "",
+        "PL": "",
+        "PTBR": ""
+      }
+    },
+    {
+      "table": "TraitStringData",
+      "id": "srrebalance.hDarSabProgenyTrait.desc",
+      "fields": {
+        "id": "srrebalance.hDarSabProgenyTrait.desc",
+        "EN": "30 less health. Attacks that benefit from haste execute 10 seconds faster. Attacks gain 10 stagger. Slice keeps its usual execution time.",
+        "FR": "",
+        "JA": "",
+        "ES": "",
+        "DE": "",
+        "RU": "",
+        "ZH": "",
+        "ZHTW": "",
+        "KO": "",
+        "PL": "",
+        "PTBR": ""
+      }
+    },
+    {
+      "table": "TraitStringData",
+      "id": "srrebalance.hArcEmpTraits.name",
+      "fields": {
+        "id": "srrebalance.hArcEmpTraits.name",
+        "EN": "Rax's Progeny Traits",
+        "FR": "",
+        "JA": "",
+        "ES": "",
+        "DE": "",
+        "RU": "",
+        "ZH": "",
+        "ZHTW": "",
+        "KO": "",
+        "PL": "",
+        "PTBR": ""
+      }
+    },
+    {
+      "table": "TraitStringData",
+      "id": "srrebalance.hArcEmpTraits.desc",
+      "fields": {
+        "id": "srrebalance.hArcEmpTraits.desc",
+        "EN": "10 less shields. Shield regeneration is 20% stronger. Starts with Benediction instead of Bestow Shields.",
+        "FR": "",
+        "JA": "",
+        "ES": "",
+        "DE": "",
+        "RU": "",
+        "ZH": "",
+        "ZHTW": "",
+        "KO": "",
+        "PL": "",
+        "PTBR": ""
+      }
+    },
+    {
+      "table": "TraitStringData",
+      "id": "srrebalance.hArcGueTraits.name",
+      "fields": {
+        "id": "srrebalance.hArcGueTraits.name",
+        "EN": "Maz's Progeny Traits",
+        "FR": "",
+        "JA": "",
+        "ES": "",
+        "DE": "",
+        "RU": "",
+        "ZH": "",
+        "ZHTW": "",
+        "KO": "",
+        "PL": "",
+        "PTBR": ""
+      }
+    },
+    {
+      "table": "TraitStringData",
+      "id": "srrebalance.hArcGueTraits.desc",
+      "fields": {
+        "id": "srrebalance.hArcGueTraits.desc",
+        "EN": "15% more damage. Starts with Blessing instead of Bestow Shields.",
+        "FR": "",
+        "JA": "",
+        "ES": "",
+        "DE": "",
+        "RU": "",
+        "ZH": "",
+        "ZHTW": "",
+        "KO": "",
+        "PL": "",
+        "PTBR": ""
+      }
+    },
+    {
+      "table": "TraitStringData",
+      "id": "srrebalance.hArcVanTraits.name",
+      "fields": {
+        "id": "srrebalance.hArcVanTraits.name",
+        "EN": "Xhal's Progeny Traits",
+        "FR": "",
+        "JA": "",
+        "ES": "",
+        "DE": "",
+        "RU": "",
+        "ZH": "",
+        "ZHTW": "",
+        "KO": "",
+        "PL": "",
+        "PTBR": ""
+      }
+    },
+    {
+      "table": "TraitStringData",
+      "id": "srrebalance.hArcVanTraits.desc",
+      "fields": {
+        "id": "srrebalance.hArcVanTraits.desc",
+        "EN": "15 less shields and 15% more damage. Starts with Benediction instead of Bestow Shields.",
+        "FR": "",
+        "JA": "",
+        "ES": "",
+        "DE": "",
+        "RU": "",
+        "ZH": "",
+        "ZHTW": "",
+        "KO": "",
+        "PL": "",
+        "PTBR": ""
+      }
+    },
+    {
+      "table": "TraitStringData",
+      "id": "srrebalance.hComEmpTraits.name",
+      "fields": {
+        "id": "srrebalance.hComEmpTraits.name",
+        "EN": "Royce's Progeny Traits",
+        "FR": "",
+        "JA": "",
+        "ES": "",
+        "DE": "",
+        "RU": "",
+        "ZH": "",
+        "ZHTW": "",
+        "KO": "",
+        "PL": "",
+        "PTBR": ""
+      }
+    },
+    {
+      "table": "TraitStringData",
+      "id": "srrebalance.hComEmpTraits.desc",
+      "fields": {
+        "id": "srrebalance.hComEmpTraits.desc",
+        "EN": "Normal starting damage. Learns Cannonfire instead of Man-O-War at level 6.",
+        "FR": "",
+        "JA": "",
+        "ES": "",
+        "DE": "",
+        "RU": "",
+        "ZH": "",
+        "ZHTW": "",
+        "KO": "",
+        "PL": "",
+        "PTBR": ""
+      }
+    },
+    {
+      "table": "TraitStringData",
+      "id": "srrebalance.hMarJugTraits.name",
+      "fields": {
+        "id": "srrebalance.hMarJugTraits.name",
+        "EN": "Rath's Progeny Traits",
+        "FR": "",
+        "JA": "",
+        "ES": "",
+        "DE": "",
+        "RU": "",
+        "ZH": "",
+        "ZHTW": "",
+        "KO": "",
+        "PL": "",
+        "PTBR": ""
+      }
+    },
+    {
+      "table": "TraitStringData",
+      "id": "srrebalance.hMarJugTraits.desc",
+      "fields": {
+        "id": "srrebalance.hMarJugTraits.desc",
+        "EN": "5 more armor and 10% less damage.",
+        "FR": "",
+        "JA": "",
+        "ES": "",
+        "DE": "",
+        "RU": "",
+        "ZH": "",
+        "ZHTW": "",
+        "KO": "",
+        "PL": "",
+        "PTBR": ""
+      }
+    },
+    {
+      "table": "TraitStringData",
+      "id": "srrebalance.hVanArcTraits.name",
+      "fields": {
+        "id": "srrebalance.hVanArcTraits.name",
+        "EN": "Zeven's Progeny Traits",
+        "FR": "",
+        "JA": "",
+        "ES": "",
+        "DE": "",
+        "RU": "",
+        "ZH": "",
+        "ZHTW": "",
+        "KO": "",
+        "PL": "",
+        "PTBR": ""
+      }
+    },
+    {
+      "table": "TraitStringData",
+      "id": "srrebalance.hVanArcTraits.desc",
+      "fields": {
+        "id": "srrebalance.hVanArcTraits.desc",
+        "EN": "15 less health, 1 less armor and 15 more shields. Normal starting damage. Learns Osmosis II at level 2 and Vulnerable/Stagger auras at level 4.",
+        "FR": "",
+        "JA": "",
+        "ES": "",
+        "DE": "",
+        "RU": "",
+        "ZH": "",
+        "ZHTW": "",
+        "KO": "",
+        "PL": "",
+        "PTBR": ""
+      }
+    },
+    {
+      "table": "TraitStringData",
+      "id": "srrebalance.hVanEmpTraits.name",
+      "fields": {
+        "id": "srrebalance.hVanEmpTraits.name",
+        "EN": "Kader's Progeny Traits",
+        "FR": "",
+        "JA": "",
+        "ES": "",
+        "DE": "",
+        "RU": "",
+        "ZH": "",
+        "ZHTW": "",
+        "KO": "",
+        "PL": "",
+        "PTBR": ""
+      }
+    },
+    {
+      "table": "TraitStringData",
+      "id": "srrebalance.hVanEmpTraits.desc",
+      "fields": {
+        "id": "srrebalance.hVanEmpTraits.desc",
+        "EN": "10 less health, 1 less armor and 5% less damage. Learns Osmosis II at level 2 and Health Drain/Stagger auras at level 4.",
+        "FR": "",
+        "JA": "",
+        "ES": "",
+        "DE": "",
+        "RU": "",
+        "ZH": "",
+        "ZHTW": "",
+        "KO": "",
+        "PL": "",
+        "PTBR": ""
+      }
+    },
+    {
+      "table": "TraitStringData",
+      "id": "srrebalance.hVarEnfTraits.name",
+      "fields": {
+        "id": "srrebalance.hVarEnfTraits.name",
+        "EN": "Jase's Progeny Traits",
+        "FR": "",
+        "JA": "",
+        "ES": "",
+        "DE": "",
+        "RU": "",
+        "ZH": "",
+        "ZHTW": "",
+        "KO": "",
+        "PL": "",
+        "PTBR": ""
+      }
+    },
+    {
+      "table": "TraitStringData",
+      "id": "srrebalance.hVarEnfTraits.desc",
+      "fields": {
+        "id": "srrebalance.hVarEnfTraits.desc",
+        "EN": "15 more health and 3 less armor. Learns Ravage at level 4.",
+        "FR": "",
+        "JA": "",
+        "ES": "",
+        "DE": "",
+        "RU": "",
+        "ZH": "",
+        "ZHTW": "",
+        "KO": "",
+        "PL": "",
+        "PTBR": ""
+      }
+    },
+    {
+      "table": "TraitStringData",
+      "id": "srrebalance.hVarSpeTraits.name",
+      "fields": {
+        "id": "srrebalance.hVarSpeTraits.name",
+        "EN": "Tiric's Progeny Traits",
+        "FR": "",
+        "JA": "",
+        "ES": "",
+        "DE": "",
+        "RU": "",
+        "ZH": "",
+        "ZHTW": "",
+        "KO": "",
+        "PL": "",
+        "PTBR": ""
+      }
+    },
+    {
+      "table": "TraitStringData",
+      "id": "srrebalance.hVarSpeTraits.desc",
+      "fields": {
+        "id": "srrebalance.hVarSpeTraits.desc",
+        "EN": "15 more health, 3 less armor and 10 less shields. Learns Fire in the Hole at level 4.",
+        "FR": "",
+        "JA": "",
+        "ES": "",
+        "DE": "",
+        "RU": "",
+        "ZH": "",
+        "ZHTW": "",
+        "KO": "",
+        "PL": "",
+        "PTBR": ""
+      }
+    },
+    {
+      "table": "PowerStringData",
+      "id": "srrebalance.hComInstantAttack.desc",
+      "fields": {
+        "id": "srrebalance.hComInstantAttack.desc",
+        "EN": "A single-target shot that can target any enemy, including the back row.",
+        "FR": "",
+        "JA": "",
+        "ES": "",
+        "DE": "",
+        "RU": "",
+        "ZH": "",
+        "ZHTW": "",
+        "KO": "",
+        "PL": "",
+        "PTBR": ""
+      }
+    },
+    {
+      "table": "PowerStringData",
+      "id": "srrebalance.hMarAimedPierce.desc",
+      "fields": {
+        "id": "srrebalance.hMarAimedPierce.desc",
+        "EN": "A heavy single-target shot. Sniper Mode trades execution speed and defense for greater damage, critical damage and reach.",
+        "FR": "",
+        "JA": "",
+        "ES": "",
+        "DE": "",
+        "RU": "",
+        "ZH": "",
+        "ZHTW": "",
+        "KO": "",
+        "PL": "",
+        "PTBR": ""
+      }
+    }
+  ]
+}

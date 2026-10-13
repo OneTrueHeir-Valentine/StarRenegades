@@ -15,8 +15,8 @@ if(Test-Path -LiteralPath $harmony){$options+=('/reference:"'+$harmony+'"');Copy
 if(-not $Tests){
  $out=Join-Path $bin 'SRBugfix.dll';$options+=@('/target:library',('/out:"'+$out+'"'));$files=@(Get-ChildItem -LiteralPath $source -Filter '*.cs' | ForEach-Object FullName)
 }else{
- $mains=@{Core='CoreTests';Preview='PreviewTests';Prediction='PredictionTests';Forecast='ForecastFollowupTests';Achievements='AchievementTests';Activation='ActivationTests'}
- if(-not $mains.ContainsKey($Tests)){throw 'Choose -Tests Core, Preview, Prediction, Forecast, Achievements or Activation.'}
+ $mains=@{Core='CoreTests';Preview='PreviewTests';Prediction='PredictionTests';Forecast='ForecastFollowupTests';Achievements='AchievementTests';Activation='ActivationTests';EnemyAI='EnemyAiTests';EnemyData='EnemyDataTests'}
+ if(-not $mains.ContainsKey($Tests)){throw 'Choose -Tests Core, Preview, Prediction, Forecast, Achievements, Activation, EnemyAI or EnemyData.'}
  $main=$mains[$Tests];$out=Join-Path $bin ($main+'.exe');$options+=@('/target:exe',('/main:'+$main),('/out:"'+$out+'"'))
  if($Tests -eq 'Forecast'){$options+='/define:FOLLOWUP_FIX'}
  $files=@(Get-ChildItem -LiteralPath $source -Filter '*.cs' | ForEach-Object FullName)

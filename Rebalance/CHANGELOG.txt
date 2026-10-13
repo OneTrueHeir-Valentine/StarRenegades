@@ -1,0 +1,39 @@
+Changelog
+
+0.3.1
+
+First public installer package. No earlier version is required.
+Includes Bugfix Mod 0.1.2's item, localization, camping-preview, combat
+forecast, achievement and enemy repairs from the same source files.
+
+Replaces 288 equipment pool-reference workarounds with the shared repair
+of 36 missing pools. These use matching sword pool definitions with the
+weapon slot changed. The 336 damage-trait corrections and Aegis English
+correction also move to the shared patch. Saved random rolls are retained.
+
+Retains all approved character and variant changes from the private 0.3
+build, including Mind Scythe damage 10 per hit and the higher-level kit
+adjustments. Retains the following combo and camping changes:
+
+Freebooters: Fury 35 to 25.
+Surge and Protect: Fury 25 to 20; shields 15 to 25 per valid ally, capped.
+Oppressive Fire: damage 25 to 30 per hit, three hits.
+Branded For Life: damage 10 to 15 per hit, four hits.
+Bulletstorm: damage 25 to 30 per hit, three hits.
+Truth and Justice: damage 20 to 25 per hit, four hits.
+Law of the Jungle: damage 60 to 75, one hit.
+Demonopolize: Fury 20 to 15.
+
+Damage values are ability-record bases before level and other modifiers.
+Hit counts, action consumption, self-deactivation and effect requirements
+are unchanged. Multiple hits do not add a flurry tag.
+
+Pamphlet: camping cost 2 to 1.
+Soul Soothing: camping cost 2 to 1.
+Optimizations: camping cost 2 to 1.
+Reborn: camping cost 3 to 2.
+
+No new character nerfs or unlock changes are included. Exact before/after
+values are in balance-changes.json in the source release. The combined
+loader applies 480 field changes and 61 added records, and rolls back both
+overlays if activation fails.

@@ -1,5 +1,25 @@
 Changelog
 
+0.1.2
+
+Weighted enemy action lists now retain their weights. The original method
+removed numbers before interpreting the list, leaving equal chances for
+the surviving actions. The correction uses the game RNG and preserves a
+no-choice gap when declared weights total less than 100. Unweighted or
+malformed lists retain their original behavior.
+
+Dragoon Overseer's summon chain now references the existing continuation
+action instead of a power ID. Panzer's repair chain now references the
+existing area attack action instead of a missing action. These repairs
+can make encounters harder; no compensating balance nerfs are included.
+
+The installer supports separate Bugfix and Rebalance releases. The
+Rebalance build compiles the same correction source. It includes all
+forecast, achievement, item and enemy fixes from the Bugfix build.
+
+Loading failures, uncertain enemy references and broader forecast issues
+remain under investigation. This is a test release.
+
 0.1.1
 
 Corrects two additional combat forecast discrepancies:

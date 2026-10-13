@@ -1,0 +1,64 @@
+Why these changes
+
+Character changes were approved after reviewing the Steam 1.5.1.5 data,
+level scaling, alternate forms and kit competition. The aim is stronger
+starter choices on Entropy V while retaining distinct roles. Buffs are the
+default; this release adds no new character nerfs. Numerical improvements
+are not proof that every form is equally effective in actual runs.
+
+The inherited starter pass improves weak early attack, control or recovery
+options and reduces severe starting penalties on selected progeny. The
+later pass improves Marksman shield buffers and Killshot timing, allows
+Commando Salvo to reach the back row, improves Archon shield timing and
+retained defenses, restores Dayana's starting speed benefit and repairs
+Durnin's haste/stagger tag matching. Selected Enforcer armor piercing and
+starting defense adjustments improve early contribution.
+
+The higher-level kit pass preserves alternatives after starter buffs.
+Mind Scythe gains damage 10 per hit because the Psion Knife buff removed
+its neutral-target damage advantage on Dinah and Viera at level 10. Its
+three-hit total becomes 30 before scaling. Psion Knife retains its speed
+and control role. English trait summaries and ability descriptions were
+updated where their meaning changed.
+
+Camping
+
+Pamphlet becomes affordable early shield preparation at one point. Soul
+Soothing becomes cheaper protection after shields fail; it provides no
+immediate healing. Optimizations' half armor repair and shield defense
+become easier to fit alongside other preparation. Reborn's full healing
+costs two points, allowing it to fit alongside a three-point group card.
+The five-point camping budget remains. Cheaper cards can accelerate
+relationships by allowing more plays; that remains a playtesting concern.
+
+Combos
+
+Freebooters: cheaper access to confusion setup after spending two actions.
+Surge and Protect: a larger immediate shield component and lower Fury cost
+make recovery easier to justify. Group size and shield caps still matter.
+Oppressive Fire: better payoff for spending an Aegis defensive action and
+an Enforcer action, with the same three hits.
+Branded For Life: raises small-hit damage that armor heavily reduces;
+its permanent Mark still requires CRIT.
+Bulletstorm: improves the payoff of instant focus fire over separate attacks.
+Truth and Justice: improves its close-range burst while retaining reach limits.
+Law of the Jungle: improves ordinary burst while retaining its piercing,
+shield damage and stagger requirements.
+Demonopolize: makes short-lived damage suppression cheaper without
+extending its duration or removing its CRIT requirement.
+
+Items and shared fixes
+
+Broken Focus Cortex and Disruptor Implant references omit their declared
+damage bonuses. Repairing the names restores existing tier-appropriate
+traits. Missing affix pools are restored from the working sword pool at
+the same grade and level, with the weapon slot changed. This follows the
+surviving override pattern; exact developer intent is an inference.
+Previously saved empty rolls are not filled retroactively.
+
+The shared corrections also repair Paragon shield-steal stacking, Aegis
+health-regeneration text, card rank previews, specific forecast defects
+and missed earned achievement submissions. Weighted enemy choices and
+two broken continuations are corrected even when that increases difficulty.
+Uncertain enemy references and loading recovery remain held for further
+investigation. The release does not invent missing effects.

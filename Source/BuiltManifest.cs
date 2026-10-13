@@ -1,1 +1,1 @@
-namespace SRBugfix { internal static class BuiltManifest { internal const string Sha256="0de3e36bc9c1555e25cddeb7bd982554337c2671b9a586ad0a8ec3ae5d6c2b9a"; } }
+namespace SRBugfix { internal static class BuiltManifest { internal const string Sha256="cf21739fc4d9c2d142ce9fc6f8f93497807b6ee22e54e03cfaa841f8e11bc510"; } }

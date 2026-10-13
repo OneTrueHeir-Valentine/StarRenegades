@@ -6,7 +6,7 @@ body:
     id: version
     attributes:
       label: Game and mod versions
-      placeholder: Steam 1.5.1.5, mod 0.1.1
+      placeholder: Steam 1.5.1.5, Bugfix 0.1.2 or Rebalance 0.3.1
     validations:
       required: true
   - type: textarea
@@ -25,5 +25,5 @@ body:
     id: log
     attributes:
       label: Mod log
-      description: Paste SRBugfix/bugfix.log from the game folder. Remove any personal paths before posting.
+      description: Paste SRBugfix/bugfix.log or SRRebalance/rebalance.log from the game folder. Remove any personal paths before posting.
       render: text

@@ -1,0 +1,1 @@
+namespace SRRebalance { internal static class BuiltManifest { internal const string Sha256="0903c10548edae049453814cef3a3eda4b497733f6ef995ae7d64b3e3370d122"; } }

@@ -12,6 +12,8 @@ powershell.exe -NoProfile -ExecutionPolicy Bypass -File ./setup-dependencies.ps1
 ./build.ps1 -Tests Forecast -GamePath 'C:\path\to\Star Renegades'
 ./build.ps1 -Tests Achievements -GamePath 'C:\path\to\Star Renegades'
 ./build.ps1 -Tests Activation -GamePath 'C:\path\to\Star Renegades'
+./build.ps1 -Tests EnemyAI -GamePath 'C:\path\to\Star Renegades'
+./build.ps1 -Tests EnemyData -GamePath 'C:\path\to\Star Renegades'
 powershell.exe -NoProfile -ExecutionPolicy Bypass -File ./Tests/Installer.Tests.ps1
 python ./package.py --output ./artifacts
 python ./Tests/PackageTests.py ./artifacts
@@ -34,3 +36,16 @@ the complete startup hook list and rollback after a final-hook failure.
 Also playtest an effect applied before a later attack, reflection from a
 CRIT, and submission of an already earned counter achievement when Steam
 stats become ready. These checks require the normal game and Steam UI.
+
+The EnemyAI suite covers weighted rolls, the original percentage gap,
+invalid lists and native RNG use. EnemyData covers the two continuation
+repairs and exact dictionary restoration. Neither suite runs a battle.
+
+From the repository or Rebalance source ZIP, also run:
+./Rebalance/Tests/RunTests.ps1 -GamePath 'C:\path\to\Star Renegades'
+./Rebalance/build.ps1 -GamePath 'C:\path\to\Star Renegades'
+python ./package.py --profile all --output ./artifacts
+python ./Tests/PackageTests.py ./artifacts --all
+
+The Bugfix source ZIP can build and audit the Bugfix archives alone.
+Rebalance's source ZIP contains both projects and their shared sources.

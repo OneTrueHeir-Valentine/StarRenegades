@@ -1,0 +1,20 @@
+Star Renegades Rebalance 0.3.1
+
+Test release for Windows x64, Steam build 1.5.1.5.
+
+First public Rebalance package in this repository. It retains the approved
+character, variant, combo and camping changes and includes every fix in
+Bugfix Mod 0.1.2, including the enemy action repairs.
+
+Download Star-Renegades-Rebalance-v0.3.1.zip, extract it, close the game and
+run Install.cmd. No earlier rebalance version is required. Install one mod
+at a time; this package already contains the Bugfix repairs.
+
+The old random-affix workaround is replaced by the approved shared missing
+pool repair. Item levels, rarities and existing saved rolls are retained.
+Enemy fixes can make fights harder. The Entropy V balance goal still needs
+playtesting across the full roster and its alternate forms.
+
+The source ZIP includes both projects and their shared source. No game
+assemblies, full game tables or saves are included. README.txt covers
+installation, older private builds and remaining testing limits.
