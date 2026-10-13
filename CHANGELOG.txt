@@ -5,20 +5,20 @@ Changelog
 Weighted enemy action lists now retain their weights. The original method
 removed numbers before interpreting the list, leaving equal chances for
 the surviving actions. The correction uses the game RNG and preserves a
-no-choice gap when declared weights total less than 100. Unweighted or
-malformed lists retain their original behavior.
+no-choice gap when declared weights total less than 100. Unweighted lists 
+retain their original behavior.
 
 Dragoon Overseer's summon chain now references the existing continuation
 action instead of a power ID. Panzer's repair chain now references the
 existing area attack action instead of a missing action. These repairs
-can make encounters harder; no compensating balance nerfs are included.
+can make encounters harder.
 
 The installer supports separate Bugfix and Rebalance releases. The
 Rebalance build compiles the same correction source. It includes all
 forecast, achievement, item and enemy fixes from the Bugfix build.
 
 Loading failures, uncertain enemy references and broader forecast issues
-remain under investigation. This is a test release.
+remain under investigation.
 
 0.1.1
 
@@ -46,12 +46,21 @@ Loading, controller and cutscene softlocks remain outside this update.
 
 0.1.0
 
-First test release. Includes the item-reference, Paragon shield-steal, Aegis text, relationship-preview, missing-affix-pool and blaster-tag repairs listed in the README.
+First test release. Includes the item-reference, Paragon shield-steal, Aegis text, 
+relationship-preview, missing-affix-pool and blaster-tag repairs listed in the README.
 
 Corrects three combat forecast defects:
 
-- Reflected damage could reduce the attacker's armor in the forecast even though execution leaves it intact. Later attacks could consequently show too much health damage.
-- Direct attack inspection passed damage as a positive resource change to the HUD, making damage look like healing. Its armor delta also used maximum armor instead of the estimated remaining armor.
-- Resisted delay rounded fractions to the nearest second in the forecast while execution discarded the fraction. Two 15-second staggers against 50% resistance could forecast a 45-second attack at 61 seconds when it actually executes at 59.
+- Reflected damage could reduce the attacker's armor in the forecast even 
+though execution leaves it intact. Later attacks could consequently show too 
+much health damage.
+
+- Direct attack inspection passed damage as a positive resource change to the HUD, 
+making damage look like healing. Its armor delta also used maximum armor instead of 
+the estimated remaining armor.
+
+- Resisted delay rounded fractions to the nearest second in the forecast while execution 
+discarded the fraction. Two 15-second staggers against 50% resistance could forecast a 
+45-second attack at 61 seconds when it actually executes at 59.
 
 The corrections change estimates and display inputs. They do not change executed damage, delay or round boundaries.
