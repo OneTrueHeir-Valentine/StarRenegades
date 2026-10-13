@@ -16,13 +16,17 @@ powershell.exe -NoProfile -ExecutionPolicy Bypass -File ./Tests/Installer.Tests.
 python ./package.py --output ./artifacts
 python ./Tests/PackageTests.py ./artifacts
 
-Source/fixes.json is the pinned minimal manifest. make_manifest.py regenerates it from the two source definitions. build.ps1 binds its SHA-256 into the loader. The compiler uses the game's local Mono reference assemblies; it does not copy them into the release.
+Source/fixes.json is the pinned minimal manifest. make_manifest.py regenerates it from the two source definitions. 
+build.ps1 binds its SHA-256 into the loader. 
+The compiler uses the game's local Mono reference assemblies; it does not copy them into the release.
 
-The source package includes the same build and test inputs as the repository. To check reproducibility, build in two different folders using the same SDK, dependencies, game and manifest; the resulting DLL hashes should match. Packaging uses explicit file lists.
+The source package includes the same build and test inputs as the repository. 
+To check reproducibility, build in two different folders using the same SDK, dependencies, game and manifest; the resulting DLL hashes should match. 
+Packaging uses explicit file lists.
 
-The optional SRBugfix/verify.flag enables an in-memory engine probe on startup. It checks equipment construction and saved-roll loading, Paragon modifier stacking, card text and getter output. It creates no squad or run and writes no saves. The flag is excluded from releases.
-
-Before marking a release stable, check a normal Steam launch, direct attack inspection versus the full-turn preview, armor after reflected attacks, a resisted stagger near the round boundary, card rank labels, and install/uninstall on an ordinary Steam library. The automated tests do not replace those rendered-UI checks.
+The optional SRBugfix/verify.flag enables an in-memory engine probe on startup. 
+It checks equipment construction and saved-roll loading, Paragon modifier stacking, card text and getter output. 
+It creates no squad or run and writes no saves. The flag is excluded from releases.
 
 The Forecast suite patches the installed managed methods in a separate
 process. It covers projected effects, cancellation, reflection and their
@@ -30,7 +34,3 @@ interaction with the existing forecast fixes. It does not launch Unity.
 The Achievements suite uses a fake Steam adapter and synthetic profiles;
 it makes no real achievement submissions. The Activation suite exercises
 the complete startup hook list and rollback after a final-hook failure.
-
-Also playtest an effect applied before a later attack, reflection from a
-CRIT, and submission of an already earned counter achievement when Steam
-stats become ready. These checks require the normal game and Steam UI.
