@@ -1,11 +1,37 @@
 Changelog
 
+0.1.3
+
+Illuminate now deactivates its own combo after use. The previous reference
+instead disabled Exhilaration and left Illuminate usable again. This repair
+removes that repeat-use behavior and preserves the unrelated combo.
+
+Shadow Puppets now gives its existing instant-attack effect to the linked
+Dark Paragon participant. The original self-targeting failed its required
+character tag on Spectre. Other allies are not granted the participant
+effect, and Spectre retains its existing effect. The effect now expires
+when Dark Paragon attacks, preventing repeated instant attacks until hit.
+
+Hard Reset English:
+Before: Wipe all enemy buffs, wipe all hero debuffs, recharge all hero shields.
+After: Wipe all enemy buffs and all hero debuffs.
+The cleanse already works. The referenced recharge effect is missing, and
+its intended strength is unknown. This update corrects the description;
+it does not introduce a guessed shield gain.
+
+The remaining enemy references were investigated with native methods and
+current tables. Bounty Hunter trimming introduces a self-retry loop; missing
+reload powers, a MOTHER continuation and Commodore's Delicate effect require
+more evidence before replacement. No additional enemy mechanics are changed.
+
+The repository README now covers both downloads and their log paths.
+
 0.1.2
 
 Weighted enemy action lists now retain their weights. The original method
 removed numbers before interpreting the list, leaving equal chances for
 the surviving actions. The correction uses the game RNG and preserves a
-no-choice gap when declared weights total less than 100. Unweighted lists 
+no-choice gap when declared weights total less than 100. Unweighted lists
 retain their original behavior.
 
 Dragoon Overseer's summon chain now references the existing continuation
@@ -46,21 +72,21 @@ Loading, controller and cutscene softlocks remain outside this update.
 
 0.1.0
 
-First test release. Includes the item-reference, Paragon shield-steal, Aegis text, 
+First test release. Includes the item-reference, Paragon shield-steal, Aegis text,
 relationship-preview, missing-affix-pool and blaster-tag repairs listed in the README.
 
 Corrects three combat forecast defects:
 
-- Reflected damage could reduce the attacker's armor in the forecast even 
-though execution leaves it intact. Later attacks could consequently show too 
+- Reflected damage could reduce the attacker's armor in the forecast even
+though execution leaves it intact. Later attacks could consequently show too
 much health damage.
 
-- Direct attack inspection passed damage as a positive resource change to the HUD, 
-making damage look like healing. Its armor delta also used maximum armor instead of 
+- Direct attack inspection passed damage as a positive resource change to the HUD,
+making damage look like healing. Its armor delta also used maximum armor instead of
 the estimated remaining armor.
 
-- Resisted delay rounded fractions to the nearest second in the forecast while execution 
-discarded the fraction. Two 15-second staggers against 50% resistance could forecast a 
+- Resisted delay rounded fractions to the nearest second in the forecast while execution
+discarded the fraction. Two 15-second staggers against 50% resistance could forecast a
 45-second attack at 61 seconds when it actually executes at 59.
 
 The corrections change estimates and display inputs. They do not change executed damage, delay or round boundaries.

@@ -132,6 +132,10 @@ namespace SRBugfix
             if(!__state.WasInterrupted&&__instance.wasInterrupted)foreach(var effect in p.Effects.Where(e=>e.Effect.EffectData.cancelledOnInterrupt).Select(e=>e.Effect).ToArray())Cancel(__instance,effect,limit);
             foreach(var effect in p.Effects.Where(e=>e.Effect.EffectData.tagsHash.Overlaps(tags)).Select(e=>e.Effect).ToArray())Cancel(__instance,effect,limit);
         }
+        internal static void CancelForEstimate(Combat.CombatUnit.EstimatedState state,Effect effect)
+        {
+            if(Enabled&&state!=null&&effect!=null)Cancel(state,effect,0);
+        }
         static void Cancel(Combat.CombatUnit.EstimatedState state,Effect effect,int limit)
         {
             int remaining=limit;

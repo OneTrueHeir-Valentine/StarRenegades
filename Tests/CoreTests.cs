@@ -71,13 +71,13 @@ internal static class CoreTests
             var m=Manifest();var d=Fixture(m);Overlay.Stage(d,m).Commit(d);Reject(()=>Overlay.Stage(d,m),"mismatch");
         });
         Test("RejectsDuplicateJsonProperty",()=>{
-            string dir=Temporary("duplicate");File.WriteAllText(Path.Combine(dir,"fixes.json"),"{\"version\":\"0.1.2\",\"version\":\"0.1.2\"}");Reject(()=>Bootstrap.Read(gameRoot,dir),"duplicate");
+            string dir=Temporary("duplicate");File.WriteAllText(Path.Combine(dir,"fixes.json"),"{\"version\":\"0.1.3\",\"version\":\"0.1.3\"}");Reject(()=>Bootstrap.Read(gameRoot,dir),"duplicate");
         });
         Test("RejectsModifiedManifest",()=>{
             string dir=Temporary("modified");var m=Manifest();m["changes"][336]["after"]=5;File.WriteAllText(Path.Combine(dir,"fixes.json"),m.ToString());Reject(()=>Bootstrap.Read(gameRoot,dir),"checksum");
         });
         Test("RejectsMissingManifest",()=>Reject(()=>Bootstrap.Read(gameRoot,Temporary("missing")),"missing"));
-        Test("AcceptsPinnedManifestAndGame",()=>Equal((string)Bootstrap.Read(gameRoot,sourceRoot)["version"],"0.1.2"));
+        Test("AcceptsPinnedManifestAndGame",()=>Equal((string)Bootstrap.Read(gameRoot,sourceRoot)["version"],"0.1.3"));
         Test("AddsMirroredPoolWithFreshTagsHash",()=>{
             var m=CoreManifest();var d=Fixture(m);Set(d,"TagGroupData",new Dictionary<string,TagGroupData>());
             var template=new TagGroupData{id="tagSwordElementalA3",tags=new[]{"eqp","sword","lvl3"}};((UnityEngine.ISerializationCallbackReceiver)template).OnAfterDeserialize();
@@ -122,6 +122,14 @@ internal static class CoreTests
             {"ePanActFlurry",new UnitCombatActionData{id="ePanActFlurry"}},
             {"ePanActAoeAttack",new UnitCombatActionData{id="ePanActAoeAttack"}}
         });
+        d.PowerData["hVanGueCombo"]=new PowerData{id="hVanGueCombo",deactivatesPowersOnUse=new[]{"hVanEmpCombo"}};
+        Set(d,"PowerStringData",new Dictionary<string,LocalizedStringData>{
+            {"hGrdSpeComboDesc",new LocalizedStringData{id="hGrdSpeComboDesc",EN="Wipe all enemy buffs, wipe all hero debuffs, recharge all hero shields."}}
+        });
+        var instant=new EffectData{id="hDarSpeCombo",tags=new string[0],duration=-1,cancelledAfterNumAttacks=1,requiredUnitTags=new[]{"hDarUnit"}};
+        foreach(var field in typeof(EffectData).GetFields())if(field.FieldType==typeof(string[])&&field.GetValue(instant)==null)field.SetValue(instant,new string[0]);
+        ((UnityEngine.ISerializationCallbackReceiver)instant).OnAfterDeserialize();
+        Set(d,"EffectData",new Dictionary<string,EffectData>{{instant.id,instant}});
         foreach(var e in (JArray)manifest["changes"])
         {
             string tn=(string)e["table"],id=(string)e["id"];var table=Table(d,tn);object row;

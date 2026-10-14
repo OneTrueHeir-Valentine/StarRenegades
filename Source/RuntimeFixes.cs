@@ -15,7 +15,7 @@ namespace SRBugfix
             var reflection=ReflectionPreviewFix.ResolveTarget();var inspection=DamageInspectionFix.ResolveTarget();
             ReflectionPreviewFix.Transpile(PatchProcessor.GetOriginalInstructions(reflection)).ToArray();
             DamageInspectionFix.Transpile(PatchProcessor.GetOriginalInstructions(inspection)).ToArray();
-            ProjectedEffectFix.ValidateTargets();ReflectionPreviewFix.ValidateReactionTargets();EnemyAiFix.ValidateTargets();
+            ProjectedEffectFix.ValidateTargets();ReflectionPreviewFix.ValidateReactionTargets();EnemyAiFix.ValidateTargets();ComboEffectFix.ValidateTargets();
             var achievements=AchievementFix.ResolveTargets();
             return new Action[]{
                 ()=>harmony.Patch(preview[0],postfix:Hook(typeof(PreviewFix),"BasePostfix")),
@@ -25,6 +25,7 @@ namespace SRBugfix
                 ()=>ProjectedEffectFix.Install(harmony),
                 ()=>ReflectionPreviewFix.InstallReactionHooks(harmony),
                 ()=>EnemyAiFix.Install(harmony),
+                ()=>ComboEffectFix.Install(harmony),
                 ()=>harmony.Patch(achievements[0],postfix:Hook(typeof(AchievementFix),"InitializePostfix")),
                 ()=>harmony.Patch(achievements[1],postfix:Hook(typeof(AchievementFix),"RecordPostfix")),
                 ()=>harmony.Patch(achievements[2],prefix:Hook(typeof(AchievementFix),"AchievementPrefix")),
@@ -39,7 +40,7 @@ namespace SRBugfix
         public static void SetEnabled(bool value)
         {
             PreviewFix.Enabled=value;ReflectionPreviewFix.Enabled=value;DamageInspectionFix.Enabled=value;
-            ProjectedEffectFix.Enabled=value;AchievementFix.Enabled=value;EnemyAiFix.Enabled=value;
+            ProjectedEffectFix.Enabled=value;AchievementFix.Enabled=value;EnemyAiFix.Enabled=value;ComboEffectFix.Enabled=value;
         }
         public static void Remove(Harmony harmony){SetEnabled(false);harmony.UnpatchAll(harmony.Id);}
     }

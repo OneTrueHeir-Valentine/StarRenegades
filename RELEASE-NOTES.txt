@@ -1,24 +1,25 @@
-Star Renegades Bugfix Mod 0.1.2
+Star Renegades Bugfix Mod 0.1.3
 
 Test release for Windows x64, Steam build 1.5.1.5.
 
-This update corrects weighted enemy action selection and repairs two
-broken enemy continuations: Dragoon Overseer summoning and Panzer repair.
-Some encounters can become harder because their existing definitions now
-work. All item, text, forecast and achievement fixes from 0.1.1 remain.
+Illuminate now deactivates itself after use and leaves Exhilaration active.
+Shadow Puppets gives its instant-attack effect to the selected Dark Paragon
+partner, retaining Spectre's existing effect. Hard Reset's English text now
+describes its working cleanses; the missing shield recharge remains held.
 
-Download Star-Renegades-Bugfix-Mod-v0.1.2.zip, extract it into a new folder,
-close the game and run Install.cmd. Existing Bugfix installations can be
-updated directly. Launch through Steam as usual. Keep the extracted folder
-and run Uninstall.cmd to remove the mod.
+All fixes from 0.1.2 remain. The remaining enemy-reference candidates were
+investigated, but no additional replacement is shipped without evidence
+for the intended power, effect or continuation.
 
-Rebalance has a separate download and release tag in this repository.
-It includes these fixes. Install one mod at a time.
+Download Star-Renegades-Bugfix-Mod-v0.1.3.zip, extract it into a new folder,
+close the game and run Install.cmd. Existing Bugfix installations update
+directly. Rebalance 0.3.2 has a separate download and includes these fixes.
+Install one mod at a time. Keep the extracted folder for Uninstall.cmd.
 
-Automated checks cover the native methods, activation rollback, installer
-recovery and package contents. The new enemy behavior still needs normal
-game playtesting. Loading softlocks and other forecast discrepancies may
-remain. The mod does not edit saves or add achievement progress.
+The corrections passed isolated native-method and activation tests. Full
+battles and rendered UI still need testing. Loading failures and further
+forecast issues remain under investigation. The source ZIP includes tests
+and dependency notices, with no game assemblies, full tables or saves.
 
-The source ZIP contains the mod source, tests and dependency notices.
-Neither ZIP includes game assemblies, full game tables or saves.
+Shadow Puppets participant routing and effect consumption are tested.
+Rescheduling of already queued actions still needs normal battle testing.

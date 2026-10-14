@@ -34,7 +34,7 @@ namespace SRRebalance
                 throw new InvalidDataException("manifest fingerprint mismatch");
             if(HashFile(path)!=BuiltManifest.Sha256)
                 throw new InvalidDataException("manifest checksum mismatch; rebuild loader with the intended manifest");
-            if((string)result["version"]!="0.3.1"||!(result["changes"] is JArray)||((JArray)result["changes"]).Count!=132||!(result["additions"] is JArray)||((JArray)result["additions"]).Count!=25)throw new InvalidDataException("unsupported manifest scope");
+            if((string)result["version"]!="0.3.2"||!(result["changes"] is JArray)||((JArray)result["changes"]).Count!=132||!(result["additions"] is JArray)||((JArray)result["additions"]).Count!=25)throw new InvalidDataException("unsupported manifest scope");
             CheckHash(Path.Combine(gameRoot,"Star Renegades_Data/data.unity3d"),DataHash);
             CheckHash(Path.Combine(gameRoot,"Star Renegades_Data/Managed/Assembly-CSharp.dll"),AssemblyHash);
             return result;

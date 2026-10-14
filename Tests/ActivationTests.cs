@@ -35,11 +35,13 @@ internal static class ActivationTests
             Check(!Patched(ReflectionPreviewFix.ResolveTarget()), "runtime forecast hook installed before data activation");
             Check(!Patched(AchievementFix.ResolveTargets()[0]), "achievement hook installed before data activation");
             Check(!ProjectedEffectFix.Enabled && !AchievementFix.Enabled, "new helpers enabled before activation");
+            Check(!ComboEffectFix.Enabled&&!Patched(ComboEffectFix.ResolveTarget()),"combo routing installed before activation");
         });
         Test("ActivationIncludesProjectedAndAchievementFixes", () => {
             Prepare(); Install(); var data = Fixture(); Apply(data);
             Check(ProjectedEffectFix.Enabled && AchievementFix.Enabled, "new fixes not enabled after successful activation");
             Check(PreviewFix.Enabled && ReflectionPreviewFix.Enabled && DamageInspectionFix.Enabled, "existing fixes disabled");
+            Check(ComboEffectFix.Enabled&&Patched(ComboEffectFix.ResolveTarget())&&Patched(ComboEffectFix.ResolveForecastTarget()),"combo routing not enabled after activation");
             Check(Patched(typeof(Combat.CombatUnit.EstimatedState).GetConstructor(new[] { typeof(Combat.CombatUnit) })), "projected state hook missing");
             Check(Patched(typeof(Combat).GetMethod("GetPowerReactions")), "reaction amount hook missing");
             foreach (var method in AchievementFix.ResolveTargets()) Check(Patched(method), "achievement hook missing: " + method.Name);
@@ -48,14 +50,16 @@ internal static class ActivationTests
         });
         Test("LastHookFailureRestoresAllDataAndHooks", () => {
             Prepare(); Install(); var data = Fixture();
-            var equipment = data.EquipmentData; var traits = data.TraitData; var groups = data.TagGroupData; var enemyActions = data.UnitCombatActionData;
+            var equipment = data.EquipmentData; var traits = data.TraitData; var groups = data.TagGroupData; var enemyActions = data.UnitCombatActionData; var powers=data.PowerData;var descriptions=data.PowerStringData;var effects=data.EffectData;
             var field = typeof(Doorstop.Entrypoint).GetField("installHooks", Static);
             var actions = (Action[])field.GetValue(null);
             field.SetValue(null, actions.Concat(new Action[] { () => { throw new InvalidOperationException("last-hook fixture failure"); } }).ToArray());
             Apply(data);
             Check(ReferenceEquals(equipment, data.EquipmentData) && ReferenceEquals(traits, data.TraitData) && ReferenceEquals(groups, data.TagGroupData), "failed activation left changed data");
             Check(ReferenceEquals(enemyActions,data.UnitCombatActionData),"failed activation left changed enemy actions");
+            Check(ReferenceEquals(powers,data.PowerData)&&ReferenceEquals(descriptions,data.PowerStringData)&&ReferenceEquals(effects,data.EffectData),"failed activation left changed combo tables");
             Check(!PreviewFix.Enabled && !ReflectionPreviewFix.Enabled && !DamageInspectionFix.Enabled && !ProjectedEffectFix.Enabled && !AchievementFix.Enabled, "failed activation left enabled helpers");
+            Check(!ComboEffectFix.Enabled,"failed activation left combo helper enabled");
             Check(!Harmony.GetAllPatchedMethods().Any(Patched), "failed activation left hooks installed");
         });
         Test("ActivationIncludesEnemySequencesAndWeightedSelection", () => {
@@ -66,13 +70,19 @@ internal static class ActivationTests
             var type=typeof(Doorstop.Entrypoint).Assembly.GetType("SRBugfix.EnemyAiFix");
             Check(type!=null&&(bool)type.GetField("Enabled").GetValue(null),"enemy helper not enabled");
         });
+        Test("ActivationRepairsIlluminateAndHardResetEnglish",()=>{
+            Prepare();Install();var data=Fixture();Apply(data);
+            Check(data.PowerData["hVanGueCombo"].deactivatesPowersOnUse[0]=="hVanGueCombo","Illuminate still deactivates the other combo");
+            Check(data.PowerStringData["hGrdSpeComboDesc"].EN=="Wipe all enemy buffs and all hero debuffs.","Hard Reset text still promises missing recharge");
+            Check(data.EffectData["hDarSpeCombo"].tagsHash.Contains("wipedByAttacking"),"Shadow Puppets cancellation missing");
+        });
         Console.WriteLine("RESULT " + passed + " passed, " + failed + " failed");
         return failed == 0 ? 0 : 1;
     }
     static void Prepare()
     {
         new Harmony(Owner).UnpatchAll(Owner);
-        PreviewFix.Enabled = ReflectionPreviewFix.Enabled = DamageInspectionFix.Enabled = ProjectedEffectFix.Enabled = AchievementFix.Enabled = false;
+        RuntimeFixes.SetEnabled(false);ComboEffectFix.Enabled=false;
         var enemyType=typeof(Doorstop.Entrypoint).Assembly.GetType("SRBugfix.EnemyAiFix");
         if(enemyType!=null)enemyType.GetField("Enabled").SetValue(null,false);
         Set("root", sourceRoot); Set("gameRoot", gameRoot); Set("applications", 0);

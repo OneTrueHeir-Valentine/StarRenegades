@@ -16,7 +16,7 @@ internal static class RebalanceActivationTests
     const BindingFlags Static=BindingFlags.Static|BindingFlags.NonPublic;
     static string gameRoot,sourceRoot,coreSourceRoot,modRoot;
     static int passed,failed;
-    static readonly string[] Tables={"EquipmentData","PowerModifierData","CamaraderieStringData","TraitData","TagGroupData","PowerData","UnitClassData","UnitModifierData","TraitStringData","PowerStringData","CamaraderieCardData","UnitCombatActionData"};
+    static readonly string[] Tables={"EquipmentData","PowerModifierData","CamaraderieStringData","TraitData","TagGroupData","PowerData","UnitClassData","UnitModifierData","TraitStringData","PowerStringData","CamaraderieCardData","UnitCombatActionData","EffectData"};
     static int Main(string[] args)
     {
         gameRoot=args[0];sourceRoot=args[1];coreSourceRoot=args[2];
@@ -34,14 +34,17 @@ internal static class RebalanceActivationTests
         modRoot=Temporary("activation-manifests");
         File.Copy(Path.Combine(coreSourceRoot,"fixes.json"),Path.Combine(modRoot,"fixes.json"),true);
         File.Copy(Path.Combine(sourceRoot,"rebalance.json"),Path.Combine(modRoot,"rebalance.json"),true);
-        Test("CombinedManifestApplies480FieldsAnd61Additions",()=>{
+        Test("CombinedManifestApplies483FieldsAnd61Additions",()=>{
             JObject core,balance;var d=Fixture(out core,out balance);
             var equipment=d.EquipmentData;var sword=d.TagGroupData["tagSwordElementalA3"];
             var result=Activate(d,core,balance,new Action[0],()=>{});
-            Check(result.ChangedFields==480&&result.AddedRecords==61,"expected 480 fields and 61 additions, got "+result.ChangedFields+" / "+result.AddedRecords);
+            Check(result.ChangedFields==483&&result.AddedRecords==61,"expected 483 fields and 61 additions, got "+result.ChangedFields+" / "+result.AddedRecords);
             Check(d.UnitClassData["hMar"].shield==40&&d.UnitClassData["hMar"].shieldCap==40,"Marksman shields missing");
             Check(!d.TraitData["hValGueTraits"].hidden&&d.PowerModifierData["hValGue"].modExecution==-5,"Dayana balance missing");
             Check(d.PowerData["hComInstantAttack"].range=="Any","Salvo range missing");
+            Check(d.PowerData["hVanGueCombo"].deactivatesPowersOnUse[0]=="hVanGueCombo","shared Illuminate correction missing");
+            Check(d.PowerStringData["hGrdSpeComboDesc"].EN=="Wipe all enemy buffs and all hero debuffs.","shared Hard Reset English correction missing");
+            Check(d.EffectData["hDarSpeCombo"].tagsHash.Contains("wipedByAttacking"),"shared Shadow Puppets cancellation missing");
             Check(d.UnitCombatActionData["oVanSummonA"].nextAction[0]=="oVanSummonB","enemy continuation missing");
             Check(d.PowerModifierData["camParTrait1"].setCriticalTransferShieldAbsolute==0,"core correction missing");
             Check(d.TagGroupData["tagKineticElementalA3"].tagsHash.Contains("kinetic"),"shared affix fix missing");
@@ -64,17 +67,17 @@ internal static class RebalanceActivationTests
             JObject core,balance;var d=Fixture(out core,out balance);var originals=Snapshot(d);var h=new Harmony(Owner);
             var actions=RuntimeFixes.Prepare(h,s=>{}).Concat(new Action[]{()=>{
                 Check(d.UnitClassData["hMar"].shield==40,"balance not committed before runtime hooks");
-                RuntimeFixes.SetEnabled(true);throw new InvalidOperationException("late hook failure");
+                RuntimeFixes.SetEnabled(true);ComboEffectFix.Enabled=true;throw new InvalidOperationException("late hook failure");
             }}).ToArray();
             try{Activate(d,core,balance,actions,()=>RuntimeFixes.Remove(h));throw new Exception("failure not propagated");}
             catch(InvalidOperationException e){Check(e.Message=="late hook failure","wrong hook failure");}
             Restored(d,originals);
-            Check(!PreviewFix.Enabled&&!ReflectionPreviewFix.Enabled&&!DamageInspectionFix.Enabled&&!ProjectedEffectFix.Enabled&&!AchievementFix.Enabled&&!EnemyAiFix.Enabled,"helper flags remain enabled");
+            Check(!PreviewFix.Enabled&&!ReflectionPreviewFix.Enabled&&!DamageInspectionFix.Enabled&&!ProjectedEffectFix.Enabled&&!AchievementFix.Enabled&&!EnemyAiFix.Enabled&&!ComboEffectFix.Enabled,"helper flags remain enabled");
             Check(!Harmony.GetAllPatchedMethods().Any(Patched),"runtime hooks remain installed");
         });
         Test("BothPinnedManifestsAcceptedAndTamperingRejected",()=>{
-            Check((string)SRBugfix.Bootstrap.Read(gameRoot,modRoot)["version"]=="0.1.2","wrong core manifest version");
-            Check((string)ReadBalance(modRoot)["version"]=="0.3.1","wrong balance manifest version");
+            Check((string)SRBugfix.Bootstrap.Read(gameRoot,modRoot)["version"]=="0.1.3","wrong core manifest version");
+            Check((string)ReadBalance(modRoot)["version"]=="0.3.2","wrong balance manifest version");
             string bad=Temporary("tampered");
             File.WriteAllText(Path.Combine(bad,"fixes.json"),File.ReadAllText(Path.Combine(modRoot,"fixes.json"))+" ");
             Reject(()=>SRBugfix.Bootstrap.Read(gameRoot,bad),"checksum");
@@ -85,14 +88,15 @@ internal static class RebalanceActivationTests
             PrepareEntrypoint();Install();
             Check(Patched(Loader()),"loader hook missing");
             Check(!Patched(ReflectionPreviewFix.ResolveTarget())&&!Patched(AchievementFix.ResolveTargets()[0]),"runtime hooks installed before activation");
-            Check(!PreviewFix.Enabled&&!ProjectedEffectFix.Enabled&&!AchievementFix.Enabled&&!EnemyAiFix.Enabled,"helper enabled before activation");
+            Check(!PreviewFix.Enabled&&!ProjectedEffectFix.Enabled&&!AchievementFix.Enabled&&!EnemyAiFix.Enabled&&!ComboEffectFix.Enabled,"helper enabled before activation");
         });
         Test("EntrypointEnablesAllSharedRuntimeFixesAfterBalance",()=>{
             PrepareEntrypoint();Install();JObject core,balance;var d=Fixture(out core,out balance);
             Set("coreManifest",core);Set("balanceManifest",balance);InvokeEntrypoint("AfterDataLoad",d);
-            Check(PreviewFix.Enabled&&ReflectionPreviewFix.Enabled&&DamageInspectionFix.Enabled&&ProjectedEffectFix.Enabled&&AchievementFix.Enabled&&EnemyAiFix.Enabled,"shared helpers not all enabled");
+            Check(PreviewFix.Enabled&&ReflectionPreviewFix.Enabled&&DamageInspectionFix.Enabled&&ProjectedEffectFix.Enabled&&AchievementFix.Enabled&&EnemyAiFix.Enabled&&ComboEffectFix.Enabled,"shared helpers not all enabled");
             foreach(var m in AchievementFix.ResolveTargets())Check(Patched(m),"achievement hook missing "+m.Name);
             Check(Patched(typeof(Mdi.SRRW.Engine.Combat.CombatAI).GetMethod("SelectAction",BindingFlags.Instance|BindingFlags.NonPublic)),"weighted enemy hook missing");
+            Check(Patched(ComboEffectFix.ResolveTarget())&&Patched(ComboEffectFix.ResolveForecastTarget()),"shared combo hooks missing");
             Check(d.UnitClassData["hMar"].shield==40,"balance missing after loader activation");
         });
         Test("EntrypointLateHookFailureRestoresOriginalState",()=>{
@@ -101,7 +105,7 @@ internal static class RebalanceActivationTests
             var actions=(Action[])Entrypoint().GetField("installHooks",Static).GetValue(null);
             Set("installHooks",actions.Concat(new Action[]{()=>{throw new InvalidOperationException("entrypoint late failure");}}).ToArray());
             InvokeEntrypoint("AfterDataLoad",d);Restored(d,originals);
-            Check(!PreviewFix.Enabled&&!ProjectedEffectFix.Enabled&&!AchievementFix.Enabled&&!EnemyAiFix.Enabled,"entrypoint enabled helpers after failure");
+            Check(!PreviewFix.Enabled&&!ProjectedEffectFix.Enabled&&!AchievementFix.Enabled&&!EnemyAiFix.Enabled&&!ComboEffectFix.Enabled,"entrypoint enabled helpers after failure");
             Check(!Harmony.GetAllPatchedMethods().Any(Patched),"entrypoint left hooks installed");
         });
         Console.WriteLine("RESULT "+passed+" passed, "+failed+" failed");return failed==0?0:1;
