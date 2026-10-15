@@ -11,6 +11,7 @@ namespace SRBugfix
         public static Action[] Prepare(Harmony harmony,Action<string> report)
         {
             AchievementFix.Report=report;
+            LoadingFix.Report=report;
             var preview=PreviewFix.ResolveTargets();
             var reflection=ReflectionPreviewFix.ResolveTarget();var inspection=DamageInspectionFix.ResolveTarget();
             ReflectionPreviewFix.Transpile(PatchProcessor.GetOriginalInstructions(reflection)).ToArray();
@@ -18,6 +19,7 @@ namespace SRBugfix
             ProjectedEffectFix.ValidateTargets();ReflectionPreviewFix.ValidateReactionTargets();EnemyAiFix.ValidateTargets();ComboEffectFix.ValidateTargets();
             EffectLifecycleFix.ValidateTargets();ResourceForecastFix.ValidateTargets();
             EnemyConditionFix.ValidateTargets();
+            LoadingFix.ValidateTargets();
             var achievements=AchievementFix.ResolveTargets();
             return new Action[]{
                 ()=>harmony.Patch(preview[0],postfix:Hook(typeof(PreviewFix),"BasePostfix")),
@@ -30,6 +32,7 @@ namespace SRBugfix
                 ()=>ReflectionPreviewFix.InstallReactionHooks(harmony),
                 ()=>EnemyAiFix.Install(harmony),
                 ()=>EnemyConditionFix.Install(harmony),
+                ()=>LoadingFix.Install(harmony),
                 ()=>ComboEffectFix.Install(harmony),
                 ()=>harmony.Patch(achievements[0],postfix:Hook(typeof(AchievementFix),"InitializePostfix")),
                 ()=>harmony.Patch(achievements[1],postfix:Hook(typeof(AchievementFix),"RecordPostfix")),
@@ -48,6 +51,7 @@ namespace SRBugfix
             ProjectedEffectFix.Enabled=value;AchievementFix.Enabled=value;EnemyAiFix.Enabled=value;ComboEffectFix.Enabled=value;
             EffectLifecycleFix.Enabled=value;ResourceForecastFix.Enabled=value;
             EnemyConditionFix.Enabled=value;
+            LoadingFix.Enabled=value;
         }
         public static void Remove(Harmony harmony){SetEnabled(false);harmony.UnpatchAll(harmony.Id);}
     }

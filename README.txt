@@ -2,25 +2,33 @@ Star Renegades Mods
 
 Two mods for the Windows x64 Steam version of Star Renegades 1.5.1.5.
 
-Bugfix Mod 0.1.5
+Bugfix Mod 0.1.6 candidate
 Fixes item effects, English text, combat forecasts, earned achievement
 submissions and enemy action selection. Keeps the base character balance.
-Download:
+Current public version: 0.1.5
 https://github.com/OneTrueHeir-Valentine/StarRenegades/releases/tag/bugfix-v0.1.5
 
-Rebalance 0.3.4
+Rebalance 0.3.5 candidate
 Includes every Bugfix repair, plus the approved base-character and alternate
 form changes, eight combo buffs and four camping cost reductions. The aim
 is stronger starter choices on Entropy V; complete roster testing is ongoing.
-Download:
+Current public version: 0.3.4
 https://github.com/OneTrueHeir-Valentine/StarRenegades/releases/tag/rebalance-v0.3.4
 
 Install one mod at a time. Rebalance already includes the Bugfix repairs.
 Both versions are test releases.
 
+DEVELOPMENT CANDIDATE
+
+The source also contains Bugfix 0.1.6 and Rebalance 0.3.5 candidates with
+shared title-load recovery. They are not public releases. Controller/UI
+acceptance is pending; the public download links above remain current.
+Failures now have an error result and an owned recovery path back to save
+selection. Existing fallback saves and successful scene routing remain.
+
 INSTALL
 
-1. Download the player ZIP for the mod you want. The ZIP ending in
+1. Use the prepared candidate player ZIP. The ZIP ending in
    -source.zip is for contributors.
 2. Extract it into its own folder and make sure the game is closed.
 3. Double click on Install.cmd. The installer finds the Steam library,
@@ -52,8 +60,8 @@ Logs are created or appended during game startup. If no log appears after
 a launch, the mod has not confirmed startup. An empty file by itself does
 not establish that the mod loaded. Look for the Applied version line.
 
-Bugfix 0.1.5 reports 351 fields and 36 affix pools.
-Rebalance 0.3.4 reports 483 fields and 61 added records.
+Bugfix 0.1.6 reports 351 fields and 36 affix pools.
+Rebalance 0.3.5 reports 483 fields and 61 added records.
 
 NEW IN BUGFIX 0.1.5 AND REBALANCE 0.3.4
 

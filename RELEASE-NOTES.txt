@@ -1,23 +1,11 @@
-Star Renegades Bugfix Mod 0.1.5
+Development candidate 0.1.6
 
-Test release for Windows x64, Steam build 1.5.1.5.
+Shared title-load recovery handles reconstruction errors and rejects stale
+results. Failure returns to save selection through a dismissible message.
+The existing native backup-save fallback and successful routing remain.
 
-Corrects rounding in enemy energy conditions. Dragoon Overseer's starting
-30/50 energy was calculated as slightly above 60%, incorrectly satisfying
-its greater-than-60% Supercharge condition. It now follows its normal attack
-path at that boundary. The tested choices at 29 and 31 energy are unchanged.
+Not published. Controller/UI acceptance in the rendered game is pending.
+Automated checks use isolated synthetic failures and blocked filesystem
+boundaries. They do not prove every loading or progression issue fixed.
 
-The configured threshold, energy values, moves and action budgets are
-retained. Native tests cover all five comparison operators, runtime rounding,
-invalid inputs and the selected action. Free-action chains, summons and
-reactions keep their normal rules. All previous fixes remain included.
-
-Download Star-Renegades-Bugfix-Mod-v0.1.5.zip, extract it into a new folder,
-close the game and run Install.cmd. Existing Bugfix installations update
-directly. Rebalance 0.3.4 has a separate download and includes these fixes.
-Install one mod at a time. Keep the extracted folder for Uninstall.cmd.
-
-Full boss encounters and rendered UI still need testing. Missing enemy
-references, further forecast errors and loading failures remain under investigation.
-The source ZIP includes tests and dependency notices, with no game
-assemblies, full tables or saves. CHANGELOG.txt explains the changes.
+No balance changes in this update. Install one mod at a time.

@@ -78,8 +78,8 @@ internal static class RebalanceActivationTests
             Check(!Harmony.GetAllPatchedMethods().Any(Patched),"runtime hooks remain installed");
         });
         Test("BothPinnedManifestsAcceptedAndTamperingRejected",()=>{
-            Check((string)SRBugfix.Bootstrap.Read(gameRoot,modRoot)["version"]=="0.1.5","wrong core manifest version");
-            Check((string)ReadBalance(modRoot)["version"]=="0.3.4","wrong balance manifest version");
+            Check((string)SRBugfix.Bootstrap.Read(gameRoot,modRoot)["version"]=="0.1.6","wrong core manifest version");
+            Check((string)ReadBalance(modRoot)["version"]=="0.3.5","wrong balance manifest version");
             string bad=Temporary("tampered");
             File.WriteAllText(Path.Combine(bad,"fixes.json"),File.ReadAllText(Path.Combine(modRoot,"fixes.json"))+" ");
             Reject(()=>SRBugfix.Bootstrap.Read(gameRoot,bad),"checksum");
@@ -100,6 +100,7 @@ internal static class RebalanceActivationTests
             Check(PreviewFix.Enabled&&ReflectionPreviewFix.Enabled&&DamageInspectionFix.Enabled&&ProjectedEffectFix.Enabled&&AchievementFix.Enabled&&EnemyAiFix.Enabled&&ComboEffectFix.Enabled,"shared helpers not all enabled");
             Check(ResourceForecastFix.Enabled&&EffectLifecycleFix.Enabled,"priority 2 helpers not enabled");
             Check(EnemyConditionFix.Enabled&&Patched(EnemyConditionFix.ResolveTarget()),"enemy condition helper not activated");
+            Check(LoadingFix.Enabled&&LoadingFix.ResolveTargets().All(Patched),"loading recovery not activated in Rebalance");
             foreach(var m in AchievementFix.ResolveTargets())Check(Patched(m),"achievement hook missing "+m.Name);
             Check(Patched(typeof(Mdi.SRRW.Engine.Combat.CombatAI).GetMethod("SelectAction",BindingFlags.Instance|BindingFlags.NonPublic)),"weighted enemy hook missing");
             Check(Patched(ComboEffectFix.ResolveTarget())&&Patched(ComboEffectFix.ResolveForecastTarget()),"shared combo hooks missing");

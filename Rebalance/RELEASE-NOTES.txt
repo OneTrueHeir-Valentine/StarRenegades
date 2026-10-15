@@ -1,23 +1,11 @@
-Star Renegades Rebalance 0.3.4
+Development candidate 0.3.5
 
-Test release for Windows x64, Steam build 1.5.1.5.
+Shared title-load recovery handles reconstruction errors and rejects stale
+results. Failure returns to save selection through a dismissible message.
+The existing native backup-save fallback and successful routing remain.
 
-Includes Bugfix Mod 0.1.5's enemy energy-condition rounding repair.
-Dragoon Overseer now follows its normal attack path at exactly 30/50 energy
-instead of treating 60% as greater than its configured 60% threshold.
-Existing character, alternate-form, combo and camping balance values are
-retained. All previous shared repairs remain included.
+Not published. Controller/UI acceptance in the rendered game is pending.
+Automated checks use isolated synthetic failures and blocked filesystem
+boundaries. They do not prove every loading or progression issue fixed.
 
-Download Star-Renegades-Rebalance-v0.3.4.zip, extract it, close the game and
-run Install.cmd. Existing public Rebalance installations update directly.
-No earlier version is required for a first install. Install one mod at a
-time; this package already contains the shared Bugfix repairs.
-
-Cross-round expiry and other unmodeled effects remain under investigation.
-Hard Reset's missing recharge effect and uncertain enemy replacements stay
-held. Full battles, rendered UI and Entropy V roster balance need playtesting.
-
-The source ZIP includes both projects, their tests and dependency notices.
-No game assemblies, full game tables or saves are included.
-
-CHANGELOG.txt lists this update; the root changelog explains shared repairs.
+No balance changes in this update. Install one mod at a time.

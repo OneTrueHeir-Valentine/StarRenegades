@@ -18,6 +18,7 @@ powershell.exe -NoProfile -ExecutionPolicy Bypass -File ./setup-dependencies.ps1
 ./build.ps1 -Tests ComboData -GamePath 'C:\path\to\Star Renegades'
 ./build.ps1 -Tests ComboEffects -GamePath 'C:\path\to\Star Renegades'
 ./build.ps1 -Tests Resources -GamePath 'C:\path\to\Star Renegades'
+./build.ps1 -Tests Loading -GamePath 'C:\path\to\Star Renegades'
 ./build.ps1 -Tests Effects -GamePath 'C:\path\to\Star Renegades'
 powershell.exe -NoProfile -ExecutionPolicy Bypass -File ./Tests/Installer.Tests.ps1
 python ./package.py --output ./artifacts
@@ -71,3 +72,27 @@ reactions, public scenarios and live-state isolation using small fixtures.
 After building Effects, its Rebalance damage control can also be run with:
 ./bin/EffectLifecycleTests.exe 'C:\path\to\Star Renegades' rebalance
 These isolated checks do not launch Unity or modify saves.
+
+Loading tests cover worker outcomes, captured saves, stale publication,
+constructor serialization, nested iterator errors, overlay ownership and
+recovery dismissal. Native constructor, filesystem and scene boundaries
+are intercepted in isolated processes. These checks do not render Unity
+or establish actual controller/UI acceptance.
+
+Optional rendered loading check, after installing the candidate:
+./Tests/PrepareLoadingCheck.ps1 -OutputDirectory 'C:\path\to\loading-check' -GamePath 'C:\path\to\Star Renegades' -Mod SRRebalance
+Run the generated Start loading check.cmd while the game is closed. It
+requests elevation for the startup configuration, launches through Steam,
+and restores normal startup after the diagnostic acknowledges loading.
+Choose an existing save. The diagnostic supplies a synthetic save and
+throws before the native reconstruction body, exercising the real recovery
+message without reading the selected save. Check Confirm and Back, then
+close the game. The next launch uses the normal candidate.
+
+LoadingDiagnostic.dll is never included in the normal player payload.
+If the launcher is forcibly terminated before startup acknowledgement,
+use its Restore normal startup.cmd before the next normal launch. Original
+configuration bytes are retained. Conflicting external edits are preserved
+and reported rather than discarded. The tool does not record video.
+The launcher transaction fixtures can be run with:
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File ./Tests/LoadingLauncherTests.ps1

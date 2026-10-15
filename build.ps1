@@ -15,13 +15,21 @@ if(Test-Path -LiteralPath $harmony){$options+=('/reference:"'+$harmony+'"');Copy
 if(-not $Tests){
  $out=Join-Path $bin 'SRBugfix.dll';$options+=@('/target:library',('/out:"'+$out+'"'));$files=@(Get-ChildItem -LiteralPath $source -Filter '*.cs' | ForEach-Object FullName)
 }else{
- $mains=@{Core='CoreTests';Preview='PreviewTests';Prediction='PredictionTests';Forecast='ForecastFollowupTests';Achievements='AchievementTests';Activation='ActivationTests';EnemyAI='EnemyAiTests';EnemyData='EnemyDataTests';ComboData='ComboDataTests';ComboEffects='ComboEffectTests';Resources='ResourceForecastTests';Effects='EffectLifecycleTests';EnemyConditions='EnemyConditionTests'}
+ $mains=@{Core='CoreTests';Preview='PreviewTests';Prediction='PredictionTests';Forecast='ForecastFollowupTests';Achievements='AchievementTests';Activation='ActivationTests';EnemyAI='EnemyAiTests';EnemyData='EnemyDataTests';ComboData='ComboDataTests';ComboEffects='ComboEffectTests';Resources='ResourceForecastTests';Effects='EffectLifecycleTests';EnemyConditions='EnemyConditionTests';Loading='LoadingTests'}
  if(-not $mains.ContainsKey($Tests)){throw 'Choose -Tests Core, Preview, Prediction, Forecast, Achievements, Activation, EnemyAI, EnemyData, ComboData, ComboEffects, Resources, Effects or EnemyConditions.'}
  $main=$mains[$Tests];$out=Join-Path $bin ($main+'.exe');$options+=@('/target:exe',('/main:'+$main),('/out:"'+$out+'"'))
  if($Tests -eq 'Forecast'){$options+='/define:FOLLOWUP_FIX'}
  if($Tests -eq 'Resources'){$options+='/define:RESOURCE_FIX'}
  $files=@(Get-ChildItem -LiteralPath $source -Filter '*.cs' | ForEach-Object FullName)
  $files+=Join-Path $PSScriptRoot ('Tests/'+$main+'.cs')
+ if($Tests -eq 'Loading'){
+  $files+=Join-Path $PSScriptRoot 'Tests/LoadingNativeTests.cs';$files+=Join-Path $PSScriptRoot 'Tests/LoadingDiagnosticTests.cs'
+  $diagnosticRoot=Join-Path $bin 'diagnostic';New-Item -ItemType Directory -Force -Path $diagnosticRoot | Out-Null
+  $diagnosticOptions=@($options | Where-Object {$_ -notlike '/target:*' -and $_ -notlike '/main:*' -and $_ -notlike '/out:*'})
+  $diagnosticOptions+=@('/target:library',('/out:"'+(Join-Path $diagnosticRoot 'LoadingDiagnostic.dll')+'"'),('"'+(Join-Path $PSScriptRoot 'Tests/LoadingDiagnostic.cs')+'"'))
+  $diagnosticResponse=Join-Path $diagnosticRoot 'compile.rsp';[IO.File]::WriteAllLines($diagnosticResponse,$diagnosticOptions)
+  & dotnet $compiler ('@'+$diagnosticResponse);if($LASTEXITCODE -ne 0){throw 'Diagnostic compilation failed.'}
+ }
  if($Tests -eq 'Preview' -or $Tests -eq 'Activation'){$files+=Join-Path $PSScriptRoot 'Tests/CoreTests.cs'}
 }
 foreach($file in $files){$options+=('"'+$file+'"')}

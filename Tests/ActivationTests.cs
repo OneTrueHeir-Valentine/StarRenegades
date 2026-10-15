@@ -41,6 +41,7 @@ internal static class ActivationTests
             Prepare(); Install(); var data = Fixture(); Apply(data);
             Check(ProjectedEffectFix.Enabled && AchievementFix.Enabled, "new fixes not enabled after successful activation");
             Check(PreviewFix.Enabled && ReflectionPreviewFix.Enabled && DamageInspectionFix.Enabled, "existing fixes disabled");
+            Check(LoadingFix.Enabled&&LoadingFix.ResolveTargets().All(Patched),"loading recovery not activated with shared fixes");
             Check(ComboEffectFix.Enabled&&Patched(ComboEffectFix.ResolveTarget())&&Patched(ComboEffectFix.ResolveForecastTarget()),"combo routing not enabled after activation");
             Check(Patched(typeof(Combat.CombatUnit.EstimatedState).GetConstructor(new[] { typeof(Combat.CombatUnit) })), "projected state hook missing");
             Check(Patched(typeof(Combat).GetMethod("GetPowerReactions")), "reaction amount hook missing");

@@ -1,8 +1,8 @@
 from pathlib import Path
 import sys, zipfile, hashlib, json, re
 root=Path(sys.argv[1])
-player=root/'Star-Renegades-Bugfix-Mod-v0.1.5.zip'
-source=root/'Star-Renegades-Bugfix-Mod-v0.1.5-source.zip'
+player=root/'Star-Renegades-Bugfix-Mod-v0.1.6.zip'
+source=root/'Star-Renegades-Bugfix-Mod-v0.1.6-source.zip'
 common={'README.txt','BUILD.txt','CHANGELOG.txt','RELEASE-NOTES.txt','THIRD-PARTY-NOTICES.txt','LICENSE',
         'ThirdParty/Doorstop-LICENSE.txt','ThirdParty/Harmony-LICENSE.txt','ThirdParty/MonoMod-LICENSE.txt',
         'ThirdParty/Mono.Cecil-LICENSE.txt','ThirdParty/SR-Tweaker-LICENSE.txt','ThirdParty/UnityDoorstop-v4.0.0-source.zip',
@@ -11,12 +11,12 @@ expected={
     'player':common|{'Install.cmd','Uninstall.cmd','package.json','winhttp.dll','doorstop_config.ini',
                      'SRBugfix/SRBugfix.dll','SRBugfix/0Harmony.dll','SRBugfix/fixes.json'},
     'source':common|{'Source/'+n+'.cs' for n in ['Bootstrap','Overlay','BuiltManifest','Activation','PreviewFix',
-                     'ReflectionPreviewFix','DamageInspectionFix','ProjectedEffectFix','EffectLifecycleFix','ResourceForecastFix','AchievementFix','EnemyAiFix','EnemyConditionFix','EnemyDataFix','ComboDataFix','ComboEffectFix','RuntimeFixes','Entrypoint','RuntimeProbe']}|
+                     'ReflectionPreviewFix','DamageInspectionFix','ProjectedEffectFix','EffectLifecycleFix','ResourceForecastFix','AchievementFix','EnemyAiFix','EnemyConditionFix','LoadingFix','LoadingRecovery','EnemyDataFix','ComboDataFix','ComboEffectFix','RuntimeFixes','Entrypoint','RuntimeProbe']}|
              {'Source/fixes.json','Source/core-fixes.json','Source/affix-fixes.json',
               'Installer/Install.cmd','Installer/Uninstall.cmd','Installer/doorstop_config.ini',
               'Tests/CoreTests.cs','Tests/PreviewTests.cs','Tests/PredictionTests.cs','Tests/ForecastFollowupTests.cs','Tests/AchievementTests.cs','Tests/ActivationTests.cs',
               'Tests/run-forecast-followup.ps1','Tests/RunAchievementTests.ps1','Tests/card-preview-cases.json',
-              'Tests/Installer.Tests.ps1','Tests/PackageTests.py','Tests/EnemyAiTests.cs','Tests/EnemyConditionTests.cs','Tests/EnemyDataTests.cs','Tests/RunEnemyAiTests.ps1','Tests/RunEnemyDataTests.ps1','Tests/ComboDataTests.cs','Tests/ComboEffectTests.cs','Tests/RunComboEffectTests.ps1','Tests/EffectLifecycleTests.cs','Tests/ResourceForecastTests.cs','.github/ISSUE_TEMPLATE/bug_report.yml',
+              'Tests/Installer.Tests.ps1','Tests/PackageTests.py','Tests/EnemyAiTests.cs','Tests/EnemyConditionTests.cs','Tests/LoadingTests.cs','Tests/LoadingNativeTests.cs','Tests/LoadingDiagnostic.cs','Tests/LoadingDiagnosticTests.cs','Tests/LoadingCheckLauncher.ps1','Tests/LoadingLauncherTests.ps1','Tests/PrepareLoadingCheck.ps1','Tests/EnemyDataTests.cs','Tests/RunEnemyAiTests.ps1','Tests/RunEnemyDataTests.ps1','Tests/ComboDataTests.cs','Tests/ComboEffectTests.cs','Tests/RunComboEffectTests.ps1','Tests/EffectLifecycleTests.cs','Tests/ResourceForecastTests.cs','.github/ISSUE_TEMPLATE/bug_report.yml',
               '.gitignore','build.ps1','setup-dependencies.ps1','make_manifest.py','package.py'}
 }
 rebalance_extra={
@@ -55,10 +55,10 @@ def scan(z, kind):
         if mod=='SRRebalance':
             assert '-ModId SRRebalance' in z.read('Install.cmd').decode()
             balance=json.loads(z.read(mod+'/rebalance.json'))
-            assert balance['version']=='0.3.4' and len(balance['changes'])==132 and len(balance['additions'])==25
+            assert balance['version']=='0.3.5' and len(balance['changes'])==132 and len(balance['additions'])==25
             core=json.loads(z.read(mod+'/fixes.json'))
             assert not ({(c['table'],c['id'],c['field']) for c in balance['changes']} & {(c['table'],c['id'],c['field']) for c in core['changes']})
-        else:assert package['version']=='0.1.5'
+        else:assert package['version']=='0.1.6'
         for name,digest in package['files'].items(): assert hashlib.sha256(z.read(name)).hexdigest()==digest, 'Payload checksum: '+name
         manifest=json.loads(z.read(mod+'/fixes.json'))
         assert len(manifest['changes'])==346 and len(manifest['additions'])==36
@@ -71,7 +71,7 @@ def scan(z, kind):
         assert 'UnityDoorstop-4.0.0/xmake.lua' in dep.namelist()
         assert 'UnityDoorstop-4.0.0/src/windows/proxy/proxy.h' in dep.namelist()
 archives=[(player,'player'),(source,'source')]
-if '--all' in sys.argv:archives += [(root/'Star-Renegades-Rebalance-v0.3.4.zip','rebalance_player'),(root/'Star-Renegades-Rebalance-v0.3.4-source.zip','rebalance_source')]
+if '--all' in sys.argv:archives += [(root/'Star-Renegades-Rebalance-v0.3.5.zip','rebalance_player'),(root/'Star-Renegades-Rebalance-v0.3.5-source.zip','rebalance_source')]
 for path,kind in archives:
     with zipfile.ZipFile(path) as z:
         assert z.testzip() is None
