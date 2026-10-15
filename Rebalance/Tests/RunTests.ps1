@@ -18,8 +18,13 @@ $badSource=Get-Content -LiteralPath (Join-Path $rebalanceRoot 'balance-changes.j
 $core=Get-Content -LiteralPath (Join-Path $project 'Source/fixes.json') -Raw | ConvertFrom-Json
 $badSource.changes[0]=$core.changes[0]
 [IO.File]::WriteAllText((Join-Path $fixtureRoot 'Rebalance/balance-changes.json'),($badSource | ConvertTo-Json -Depth 32))
-& $PythonExecutable (Join-Path $fixtureRoot 'Rebalance/make_manifest.py') 2>&1 | Out-Null
-if($LASTEXITCODE -eq 0){throw 'Generator accepted a field overlapping shared fixes.'}
+$originalPreference=$ErrorActionPreference
+try{
+ $ErrorActionPreference='Continue'
+ $fixtureFailure=(& $PythonExecutable (Join-Path $fixtureRoot 'Rebalance/make_manifest.py') 2>&1 | Out-String)
+ $fixtureExit=$LASTEXITCODE
+}finally{$ErrorActionPreference=$originalPreference}
+if($fixtureExit -eq 0 -or $fixtureFailure -notmatch 'balance field overlaps shared fixes'){throw 'Generator did not reject the intended overlap.'}
 if(Test-Path -LiteralPath (Join-Path $fixtureRoot 'Rebalance/Source/rebalance.json')){throw 'Rejected generation wrote an output manifest.'}
 Write-Host 'PASS generator rejects overlap before writing'
 & (Join-Path $rebalanceRoot 'build.ps1') -GamePath $GamePath -Tests Core

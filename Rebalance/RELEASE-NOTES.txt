@@ -1,23 +1,19 @@
-Star Renegades Rebalance 0.3.4
+Rebalance 0.3.5
 
-Test release for Windows x64, Steam build 1.5.1.5.
+Save preparation and reconstruction errors now offer a return to save
+selection through an error message. Confirm and Back both dismiss it. The
+original loader could keep waiting after reconstruction failed.
 
-Includes Bugfix Mod 0.1.5's enemy energy-condition rounding repair.
-Dragoon Overseer now follows its normal attack path at exactly 30/50 energy
-instead of treating 60% as greater than its configured 60% threshold.
-Existing character, alternate-form, combo and camping balance values are
-retained. All previous shared repairs remain included.
+Each attempt captures its prepared save and returns a local worker result.
+Older results cannot replace a newer load. Native backup fallback,
+constructor safe-loading behavior and successful scene routing remain.
 
-Download Star-Renegades-Rebalance-v0.3.4.zip, extract it, close the game and
-run Install.cmd. Existing public Rebalance installations update directly.
-No earlier version is required for a first install. Install one mod at a
-time; this package already contains the shared Bugfix repairs.
+Both mods use the same repair. This update makes no balance changes and
+retains all earlier fixes. Install one mod at a time; Rebalance includes
+the Bugfix repairs.
 
-Cross-round expiry and other unmodeled effects remain under investigation.
-Hard Reset's missing recharge effect and uncertain enemy replacements stay
-held. Full battles, rendered UI and Entropy V roster balance need playtesting.
-
-The source ZIP includes both projects, their tests and dependency notices.
-No game assemblies, full game tables or saves are included.
-
-CHANGELOG.txt lists this update; the root changelog explains shared repairs.
+Validation: 528 automated checks passed. Controlled reconstruction failure
+recovered with a PlayStation controller, followed by normal Steam restart
+and successful existing-save loading. The optional developer diagnostic is
+excluded from player payloads. Other progression reports remain under
+investigation.

@@ -1,5 +1,23 @@
 Changelog
 
+0.3.5
+
+Adds shared title-load recovery. Reconstruction errors return a terminal
+result instead of leaving the loading coroutine waiting for pendingGame.
+Each attempt captures its prepared save. Invalidated attempts cannot
+publish, and a retry waits for any earlier constructor to finish.
+
+Failure recovery releases the attempt's loading overlay, restores the
+title view and shows a message. Confirm and Back dismiss the message and
+return to the selected save slot. Native backup fallback, constructor
+safe-loading behavior and successful scene routing are retained.
+
+Controlled reconstruction failure recovered with PlayStation Confirm and
+Back. Normal Steam restart and existing-save loading passed afterward.
+The unconfirmed controller-camera issue, cutscene ownership, final-boss
+markers and cave timing remain separate investigations. No balance or
+data-field values change.
+
 0.3.4
 
 Includes Bugfix Mod 0.1.5's enemy energy-condition rounding repair.

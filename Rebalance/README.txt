@@ -1,7 +1,7 @@
-Star Renegades Rebalance 0.3.4
+Star Renegades Rebalance 0.3.5
 
 Test release for the Windows x64 Steam version of Star Renegades 1.5.1.5.
-Includes every fix in Bugfix Mod 0.1.5.
+Includes every fix in Bugfix Mod 0.1.6.
 
 The aim is to make every base renegade and alternate form a strong starter
 choice on Entropy V. This build retains the approved character and variant
@@ -10,8 +10,8 @@ still needs playtesting across forms, equipment and team compositions.
 
 INSTALL
 
-1. Download Star-Renegades-Rebalance-v0.3.4.zip from:
-   https://github.com/OneTrueHeir-Valentine/StarRenegades/releases
+1. Download Star-Renegades-Rebalance-v0.3.5.zip from:
+   https://github.com/OneTrueHeir-Valentine/StarRenegades/releases/tag/rebalance-v0.3.5
 2. Extract it into its own folder. Close the game.
 3. Double-click Install.cmd. Select the Steam game folder if requested.
 4. Start the game normally through Steam.
@@ -76,3 +76,10 @@ are not distributed. This is an unofficial mod.
 Shadow Puppets testing covers the selected partner effect and its expiry
 through native methods. Changes to already scheduled timeline positions
 still need battle verification; the forecast is not guaranteed exact.
+
+Version 0.3.5 adds shared title-loading recovery from Bugfix 0.1.6.
+Save preparation and reconstruction errors offer a return to save
+selection through a message that Confirm or Back can dismiss. The
+controlled-error check passed with a PlayStation controller, followed by
+normal Steam restart and existing-save loading.
+No balance values change in this update.

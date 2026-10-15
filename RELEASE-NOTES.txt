@@ -1,23 +1,19 @@
-Star Renegades Bugfix Mod 0.1.5
+Bugfix Mod 0.1.6
 
-Test release for Windows x64, Steam build 1.5.1.5.
+Save preparation and reconstruction errors now offer a return to save
+selection through an error message. Confirm and Back both dismiss it. The
+original loader could keep waiting after reconstruction failed.
 
-Corrects rounding in enemy energy conditions. Dragoon Overseer's starting
-30/50 energy was calculated as slightly above 60%, incorrectly satisfying
-its greater-than-60% Supercharge condition. It now follows its normal attack
-path at that boundary. The tested choices at 29 and 31 energy are unchanged.
+Each attempt captures its prepared save and returns a local worker result.
+Older results cannot replace a newer load. Native backup fallback,
+constructor safe-loading behavior and successful scene routing remain.
 
-The configured threshold, energy values, moves and action budgets are
-retained. Native tests cover all five comparison operators, runtime rounding,
-invalid inputs and the selected action. Free-action chains, summons and
-reactions keep their normal rules. All previous fixes remain included.
+Both mods use the same repair. This update makes no balance changes and
+retains all earlier fixes. Install one mod at a time; Rebalance includes
+the Bugfix repairs.
 
-Download Star-Renegades-Bugfix-Mod-v0.1.5.zip, extract it into a new folder,
-close the game and run Install.cmd. Existing Bugfix installations update
-directly. Rebalance 0.3.4 has a separate download and includes these fixes.
-Install one mod at a time. Keep the extracted folder for Uninstall.cmd.
-
-Full boss encounters and rendered UI still need testing. Missing enemy
-references, further forecast errors and loading failures remain under investigation.
-The source ZIP includes tests and dependency notices, with no game
-assemblies, full tables or saves. CHANGELOG.txt explains the changes.
+Validation: 528 automated checks passed. Controlled reconstruction failure
+recovered with a PlayStation controller, followed by normal Steam restart
+and successful existing-save loading. The optional developer diagnostic is
+excluded from player payloads. Other progression reports remain under
+investigation.

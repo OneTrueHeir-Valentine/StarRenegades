@@ -2,21 +2,33 @@ Star Renegades Mods
 
 Two mods for the Windows x64 Steam version of Star Renegades 1.5.1.5.
 
-Bugfix Mod 0.1.5
+Bugfix Mod 0.1.6
 Fixes item effects, English text, combat forecasts, earned achievement
 submissions and enemy action selection. Keeps the base character balance.
 Download:
-https://github.com/OneTrueHeir-Valentine/StarRenegades/releases/tag/bugfix-v0.1.5
+https://github.com/OneTrueHeir-Valentine/StarRenegades/releases/tag/bugfix-v0.1.6
 
-Rebalance 0.3.4
+Rebalance 0.3.5
 Includes every Bugfix repair, plus the approved base-character and alternate
 form changes, eight combo buffs and four camping cost reductions. The aim
 is stronger starter choices on Entropy V; complete roster testing is ongoing.
 Download:
-https://github.com/OneTrueHeir-Valentine/StarRenegades/releases/tag/rebalance-v0.3.4
+https://github.com/OneTrueHeir-Valentine/StarRenegades/releases/tag/rebalance-v0.3.5
 
 Install one mod at a time. Rebalance already includes the Bugfix repairs.
 Both versions are test releases.
+
+NEW IN BUGFIX 0.1.6 AND REBALANCE 0.3.5
+
+Save preparation and reconstruction errors now offer a return to save
+selection through an error message. Confirm and Back both dismiss it.
+Each load captures its prepared save; older results cannot replace a newer
+load. Native backup fallback and successful scene routing remain.
+This update makes no balance changes.
+
+The controlled-error check passed with a PlayStation controller. Normal
+Steam restart and existing-save loading also passed. Other progression
+and controller-camera reports remain under investigation.
 
 INSTALL
 
@@ -52,10 +64,10 @@ Logs are created or appended during game startup. If no log appears after
 a launch, the mod has not confirmed startup. An empty file by itself does
 not establish that the mod loaded. Look for the Applied version line.
 
-Bugfix 0.1.5 reports 351 fields and 36 affix pools.
-Rebalance 0.3.4 reports 483 fields and 61 added records.
+Bugfix 0.1.6 reports 351 fields and 36 affix pools.
+Rebalance 0.3.5 reports 483 fields and 61 added records.
 
-NEW IN BUGFIX 0.1.5 AND REBALANCE 0.3.4
+EARLIER ENEMY ENERGY CORRECTION
 
 Dragoon Overseer's energy condition now respects its exact threshold.
 At 30 out of 50 energy, floating-point rounding treated 60% as greater
