@@ -32,7 +32,7 @@ namespace SRRebalance
         public static StageResult Stage(GameData data,JObject manifest)
         {
             if(data==null||manifest==null)throw new InvalidDataException("missing data or manifest");
-            if((string)manifest["version"]!="0.3.3")throw new InvalidDataException("unsupported manifest version");
+            if((string)manifest["version"]!="0.3.4")throw new InvalidDataException("unsupported manifest version");
             var changes=manifest["changes"] as JArray;var additions=manifest["additions"] as JArray;
             if(changes==null||additions==null)throw new InvalidDataException("missing changes/additions arrays");
             var result=new StageResult{Originals=new Dictionary<string,IDictionary>(),Replacements=new Dictionary<string,IDictionary>()};

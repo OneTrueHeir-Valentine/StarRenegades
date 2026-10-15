@@ -74,11 +74,12 @@ internal static class RebalanceActivationTests
             Restored(d,originals);
             Check(!PreviewFix.Enabled&&!ReflectionPreviewFix.Enabled&&!DamageInspectionFix.Enabled&&!ProjectedEffectFix.Enabled&&!AchievementFix.Enabled&&!EnemyAiFix.Enabled&&!ComboEffectFix.Enabled,"helper flags remain enabled");
             Check(!ResourceForecastFix.Enabled&&!EffectLifecycleFix.Enabled,"priority 2 helper flags remain enabled");
+            Check(!EnemyConditionFix.Enabled,"enemy condition helper remained enabled after failure");
             Check(!Harmony.GetAllPatchedMethods().Any(Patched),"runtime hooks remain installed");
         });
         Test("BothPinnedManifestsAcceptedAndTamperingRejected",()=>{
-            Check((string)SRBugfix.Bootstrap.Read(gameRoot,modRoot)["version"]=="0.1.4","wrong core manifest version");
-            Check((string)ReadBalance(modRoot)["version"]=="0.3.3","wrong balance manifest version");
+            Check((string)SRBugfix.Bootstrap.Read(gameRoot,modRoot)["version"]=="0.1.5","wrong core manifest version");
+            Check((string)ReadBalance(modRoot)["version"]=="0.3.4","wrong balance manifest version");
             string bad=Temporary("tampered");
             File.WriteAllText(Path.Combine(bad,"fixes.json"),File.ReadAllText(Path.Combine(modRoot,"fixes.json"))+" ");
             Reject(()=>SRBugfix.Bootstrap.Read(gameRoot,bad),"checksum");
@@ -91,12 +92,14 @@ internal static class RebalanceActivationTests
             Check(!Patched(ReflectionPreviewFix.ResolveTarget())&&!Patched(AchievementFix.ResolveTargets()[0]),"runtime hooks installed before activation");
             Check(!PreviewFix.Enabled&&!ProjectedEffectFix.Enabled&&!AchievementFix.Enabled&&!EnemyAiFix.Enabled&&!ComboEffectFix.Enabled,"helper enabled before activation");
             Check(!ResourceForecastFix.Enabled&&!EffectLifecycleFix.Enabled,"priority 2 helpers enabled before activation");
+            Check(!EnemyConditionFix.Enabled&&!Patched(EnemyConditionFix.ResolveTarget()),"enemy condition helper installed before activation");
         });
         Test("EntrypointEnablesAllSharedRuntimeFixesAfterBalance",()=>{
             PrepareEntrypoint();Install();JObject core,balance;var d=Fixture(out core,out balance);
             Set("coreManifest",core);Set("balanceManifest",balance);InvokeEntrypoint("AfterDataLoad",d);
             Check(PreviewFix.Enabled&&ReflectionPreviewFix.Enabled&&DamageInspectionFix.Enabled&&ProjectedEffectFix.Enabled&&AchievementFix.Enabled&&EnemyAiFix.Enabled&&ComboEffectFix.Enabled,"shared helpers not all enabled");
             Check(ResourceForecastFix.Enabled&&EffectLifecycleFix.Enabled,"priority 2 helpers not enabled");
+            Check(EnemyConditionFix.Enabled&&Patched(EnemyConditionFix.ResolveTarget()),"enemy condition helper not activated");
             foreach(var m in AchievementFix.ResolveTargets())Check(Patched(m),"achievement hook missing "+m.Name);
             Check(Patched(typeof(Mdi.SRRW.Engine.Combat.CombatAI).GetMethod("SelectAction",BindingFlags.Instance|BindingFlags.NonPublic)),"weighted enemy hook missing");
             Check(Patched(ComboEffectFix.ResolveTarget())&&Patched(ComboEffectFix.ResolveForecastTarget()),"shared combo hooks missing");
@@ -110,6 +113,7 @@ internal static class RebalanceActivationTests
             InvokeEntrypoint("AfterDataLoad",d);Restored(d,originals);
             Check(!PreviewFix.Enabled&&!ProjectedEffectFix.Enabled&&!AchievementFix.Enabled&&!EnemyAiFix.Enabled&&!ComboEffectFix.Enabled,"entrypoint enabled helpers after failure");
             Check(!ResourceForecastFix.Enabled&&!EffectLifecycleFix.Enabled,"priority 2 helpers enabled after failure");
+            Check(!EnemyConditionFix.Enabled,"enemy condition helper enabled after entrypoint failure");
             Check(!Harmony.GetAllPatchedMethods().Any(Patched),"entrypoint left hooks installed");
         });
         Console.WriteLine("RESULT "+passed+" passed, "+failed+" failed");return failed==0?0:1;

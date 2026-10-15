@@ -95,6 +95,22 @@ internal static class ActivationTests
                 Check(!HelperEnabled(name),name+" remained enabled after activation failure");
             Check(!Harmony.GetAllPatchedMethods().Any(Patched),"priority 2 failure left installed hooks");
         });
+        Test("EnemyConditionHelperActivatesOnlyWithDataAndRollsBack",()=>{
+            Prepare();Install();
+            Check(!HelperEnabled("EnemyConditionFix"),"enemy condition helper enabled before data activation");
+            Check(!Patched(EnemyConditionFix.ResolveTarget()),"enemy condition hook installed before data activation");
+            Apply(Fixture());Check(HelperEnabled("EnemyConditionFix"),"enemy condition helper not enabled after data activation");
+            Check(Patched(EnemyConditionFix.ResolveTarget()),"enemy condition hook missing after data activation");
+            Prepare();Install();
+            var field=typeof(Doorstop.Entrypoint).GetField("installHooks",Static);
+            var actions=(Action[])field.GetValue(null);
+            field.SetValue(null,actions.Concat(new Action[]{()=>{
+                RuntimeFixes.SetEnabled(true);throw new InvalidOperationException("enemy condition rollback fixture");
+            }}).ToArray());
+            Apply(Fixture());
+            Check(!HelperEnabled("EnemyConditionFix"),"enemy condition helper remained enabled after failure");
+            Check(!Harmony.GetAllPatchedMethods().Any(Patched),"enemy condition failure left installed hooks");
+        });
         Console.WriteLine("RESULT " + passed + " passed, " + failed + " failed");
         return failed == 0 ? 0 : 1;
     }

@@ -43,7 +43,7 @@ namespace Doorstop
             if(load==null)throw new InvalidDataException("Supported game-data loader was not found.");
             try{harmony.Patch(load,postfix:new HarmonyMethod(typeof(Entrypoint).GetMethod("AfterDataLoad",flags)));}
             catch{removeHooks();throw;}
-            Log("Loader ready, version 0.1.4.");
+            Log("Loader ready, version 0.1.5.");
         }
         static void AfterDataLoad(GameData __instance)
         {
@@ -51,7 +51,7 @@ namespace Doorstop
             try
             {
                 var applied=Activation.Apply(__instance,manifest,installHooks,removeHooks);RuntimeFixes.SetEnabled(true);
-                Log("Applied version 0.1.4: "+applied.ChangedFields+" fields, "+applied.AddedRecords+" affix pools.");
+                Log("Applied version 0.1.5: "+applied.ChangedFields+" fields, "+applied.AddedRecords+" affix pools.");
                 if(File.Exists(Path.Combine(root,"verify.flag"))){try{RuntimeProbe.Run(__instance,manifest);}catch(Exception e){Log("ACCEPTANCE FAILED: "+e);}}
             }
             catch(Exception e){Log("Fixes not applied; original data retained: "+e);}

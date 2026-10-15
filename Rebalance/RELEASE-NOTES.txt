@@ -1,13 +1,14 @@
-Star Renegades Rebalance 0.3.3
+Star Renegades Rebalance 0.3.4
 
 Test release for Windows x64, Steam build 1.5.1.5.
 
-Includes Bugfix Mod 0.1.4's healing cap, temporary armor, effect cancellation,
-immunity, tether and ally guard forecast corrections. These change forecasts;
-executed combat and the existing character, alternate-form, combo and
-camping balance values are unchanged. All previous shared repairs remain.
+Includes Bugfix Mod 0.1.5's enemy energy-condition rounding repair.
+Dragoon Overseer now follows its normal attack path at exactly 30/50 energy
+instead of treating 60% as greater than its configured 60% threshold.
+Existing character, alternate-form, combo and camping balance values are
+retained. All previous shared repairs remain included.
 
-Download Star-Renegades-Rebalance-v0.3.3.zip, extract it, close the game and
+Download Star-Renegades-Rebalance-v0.3.4.zip, extract it, close the game and
 run Install.cmd. Existing public Rebalance installations update directly.
 No earlier version is required for a first install. Install one mod at a
 time; this package already contains the shared Bugfix repairs.

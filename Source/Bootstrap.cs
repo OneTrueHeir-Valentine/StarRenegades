@@ -32,7 +32,7 @@ namespace SRBugfix
             if(HashFile(path)!=BuiltManifest.Sha256)throw new InvalidDataException("patch checksum mismatch");
             var fp=result["fingerprints"] as JObject;
             if(fp==null||(string)fp["data.unity3d"]!=DataHash||(string)fp["Assembly-CSharp.dll"]!=AssemblyHash)throw new InvalidDataException("patch fingerprints mismatch");
-            if((string)result["version"]!="0.1.4"||!(result["changes"] is JArray)||((JArray)result["changes"]).Count!=346||!(result["additions"] is JArray)||((JArray)result["additions"]).Count!=36)throw new InvalidDataException("unsupported patch scope");
+            if((string)result["version"]!="0.1.5"||!(result["changes"] is JArray)||((JArray)result["changes"]).Count!=346||!(result["additions"] is JArray)||((JArray)result["additions"]).Count!=36)throw new InvalidDataException("unsupported patch scope");
             if(HashFile(Path.Combine(gameRoot,"Star Renegades_Data/data.unity3d"))!=DataHash||HashFile(Path.Combine(gameRoot,"Star Renegades_Data/Managed/Assembly-CSharp.dll"))!=AssemblyHash)throw new InvalidDataException("game files do not match the supported Steam build");
             return result;
         }

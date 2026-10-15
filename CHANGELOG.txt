@@ -1,5 +1,25 @@
 Changelog
 
+0.1.5
+
+Corrects rounding in enemy AI energy conditions. Dragoon Overseer starts
+with 30 energy out of 50, exactly 60%. The original float-ratio calculation
+produced 60.0000038%, satisfying its greater-than-60% Supercharge condition.
+It now takes the normal attack path at exactly 60%; the tested choices at
+29 and 31 energy are unchanged.
+
+The repair compares the current amount and maximum against the configured
+percentage without first rounding a ratio. It preserves the five comparison
+operators and retains native behavior for nonfinite values or nonpositive
+maximums. No threshold, energy value, move, damage or action budget is edited.
+Both mods use the same repair. The data-change counts are unchanged.
+
+Native scheduling checks also cover free-action chains, same-round summons,
+reactions and round-boundary recovery. Those supported mechanics remain.
+Missing reload/recovery definitions, uncertain enemy references and
+Commodore death cleanup remain held for further evidence. The forecast
+does not simulate every future AI selection or newly generated summon.
+
 0.1.4
 
 Corrects further differences between combat execution and its forecast:

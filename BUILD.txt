@@ -13,6 +13,7 @@ powershell.exe -NoProfile -ExecutionPolicy Bypass -File ./setup-dependencies.ps1
 ./build.ps1 -Tests Achievements -GamePath 'C:\path\to\Star Renegades'
 ./build.ps1 -Tests Activation -GamePath 'C:\path\to\Star Renegades'
 ./build.ps1 -Tests EnemyAI -GamePath 'C:\path\to\Star Renegades'
+./build.ps1 -Tests EnemyConditions -GamePath 'C:\path\to\Star Renegades'
 ./build.ps1 -Tests EnemyData -GamePath 'C:\path\to\Star Renegades'
 ./build.ps1 -Tests ComboData -GamePath 'C:\path\to\Star Renegades'
 ./build.ps1 -Tests ComboEffects -GamePath 'C:\path\to\Star Renegades'
@@ -44,6 +45,11 @@ the complete startup hook list and rollback after a final-hook failure.
 The EnemyAI suite covers weighted rolls, the original percentage gap,
 invalid lists and native RNG use. EnemyData covers the two continuation
 repairs and exact dictionary restoration. Neither suite runs a battle.
+
+EnemyConditions exercises the native energy predicate and scheduler at
+29/30/31 energy, all comparison operators, native getter rounding, disabled
+hooks and invalid-domain fallback. Availability and Unity sinks use explicit
+test seams; this suite does not simulate a complete boss encounter.
 
 From the repository or Rebalance source ZIP, also run:
 ./Rebalance/Tests/RunTests.ps1 -GamePath 'C:\path\to\Star Renegades'

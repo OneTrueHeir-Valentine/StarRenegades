@@ -2,18 +2,18 @@ Star Renegades Mods
 
 Two mods for the Windows x64 Steam version of Star Renegades 1.5.1.5.
 
-Bugfix Mod 0.1.4
+Bugfix Mod 0.1.5
 Fixes item effects, English text, combat forecasts, earned achievement
 submissions and enemy action selection. Keeps the base character balance.
 Download:
-https://github.com/OneTrueHeir-Valentine/StarRenegades/releases/tag/bugfix-v0.1.4
+https://github.com/OneTrueHeir-Valentine/StarRenegades/releases/tag/bugfix-v0.1.5
 
-Rebalance 0.3.3
+Rebalance 0.3.4
 Includes every Bugfix repair, plus the approved base-character and alternate
 form changes, eight combo buffs and four camping cost reductions. The aim
 is stronger starter choices on Entropy V; complete roster testing is ongoing.
 Download:
-https://github.com/OneTrueHeir-Valentine/StarRenegades/releases/tag/rebalance-v0.3.3
+https://github.com/OneTrueHeir-Valentine/StarRenegades/releases/tag/rebalance-v0.3.4
 
 Install one mod at a time. Rebalance already includes the Bugfix repairs.
 Both versions are test releases.
@@ -52,10 +52,17 @@ Logs are created or appended during game startup. If no log appears after
 a launch, the mod has not confirmed startup. An empty file by itself does
 not establish that the mod loaded. Look for the Applied version line.
 
-Bugfix 0.1.4 reports 351 fields and 36 affix pools.
-Rebalance 0.3.3 reports 483 fields and 61 added records.
+Bugfix 0.1.5 reports 351 fields and 36 affix pools.
+Rebalance 0.3.4 reports 483 fields and 61 added records.
 
-NEW IN BUGFIX 0.1.4 AND REBALANCE 0.3.3
+NEW IN BUGFIX 0.1.5 AND REBALANCE 0.3.4
+
+Dragoon Overseer's energy condition now respects its exact threshold.
+At 30 out of 50 energy, floating-point rounding treated 60% as greater
+than 60% and selected Supercharge. It now follows the normal attack path
+at that boundary. The configured threshold and move values are retained.
+
+INCLUDED FORECAST CORRECTIONS
 
 - Forecast healing stops at maximum health. Previously, excess healing
   could conceal a lethal hit later in the same forecast.
@@ -73,7 +80,7 @@ These corrections change forecasts, not executed combat. They do not
 establish that every forecast is exact. Cross-round effect expiry and
 other effects that the original forecast does not model still need work.
 
-ALSO INCLUDED FROM THE PREVIOUS RELEASE
+INCLUDED COMBO CORRECTIONS
 
 - Illuminate deactivates itself after use, preserving Exhilaration.
 - Shadow Puppets applies its instant-attack effect to the selected Dark
@@ -84,8 +91,7 @@ ALSO INCLUDED FROM THE PREVIOUS RELEASE
   Its missing shield-recharge effect remains unresolved; the advertised
   recharge was not occurring and its intended amount is unknown.
 
-The remaining enemy-reference candidates were tested against this game
-build. No additional enemy repair is included: their intended replacements
+The missing enemy references remain held because their intended replacements
 are not established. Bounty Hunter's invalid self-reference is not trimmed
 because doing so triggers the AI loop guard. The previous enemy fixes remain.
 
@@ -109,6 +115,8 @@ SHARED FIXES
 - Enemy AI: honor valid weighted action lists. Ordinary unweighted lists
   retain their equal selection chances. Invalid definitions need individual
   investigation; the selector does not guess missing actions or weights.
+- Enemy energy conditions: compare the configured percentage without the
+  intermediate float-ratio rounding that changed Dragoon's boundary choice.
 - Enemy sequences: restore Dragoon Overseer's summon continuation and
   Panzer's repair continuation. These corrections can make encounters harder.
 

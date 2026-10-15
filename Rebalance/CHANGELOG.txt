@@ -1,5 +1,15 @@
 Changelog
 
+0.3.4
+
+Includes Bugfix Mod 0.1.5's enemy energy-condition rounding repair.
+Dragoon Overseer now follows its normal attack path at exactly 30/50
+energy instead of treating 60% as greater than its 60% threshold.
+
+All previous balance values and shared repairs are retained. The combined
+loader still reports 483 fields and 61 added records. Free-action chains,
+summons and reactions retain their normal rules.
+
 0.3.3
 
 Includes Bugfix Mod 0.1.4's healing cap, temporary armor, effect cancellation,
