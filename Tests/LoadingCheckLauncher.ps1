@@ -16,8 +16,9 @@ function Write-StartupConfig {
 if(-not $NoElevation){
  $principal=New-Object Security.Principal.WindowsPrincipal([Security.Principal.WindowsIdentity]::GetCurrent())
  if(-not $principal.IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)){
-  $extra=if($Restore){'-Restore'}elseif($PrepareOnly){'-PrepareOnly'}else{''}
-  Start-Process -FilePath powershell.exe -Verb RunAs -ArgumentList @('-NoProfile','-ExecutionPolicy','Bypass','-File',('"'+$PSCommandPath+'"'),$extra)
+  $elevationArguments=@('-NoProfile','-ExecutionPolicy','Bypass','-File',('"'+$PSCommandPath+'"'))
+  if($Restore){$elevationArguments+='-Restore'}elseif($PrepareOnly){$elevationArguments+='-PrepareOnly'}
+  Start-Process -FilePath powershell.exe -Verb RunAs -ArgumentList $elevationArguments
   return
  }
 }
