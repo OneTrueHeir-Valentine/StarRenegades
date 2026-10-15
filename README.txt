@@ -2,33 +2,37 @@ Star Renegades Mods
 
 Two mods for the Windows x64 Steam version of Star Renegades 1.5.1.5.
 
-Bugfix Mod 0.1.6 candidate
+Bugfix Mod 0.1.6
 Fixes item effects, English text, combat forecasts, earned achievement
 submissions and enemy action selection. Keeps the base character balance.
-Current public version: 0.1.5
-https://github.com/OneTrueHeir-Valentine/StarRenegades/releases/tag/bugfix-v0.1.5
+Download:
+https://github.com/OneTrueHeir-Valentine/StarRenegades/releases/tag/bugfix-v0.1.6
 
-Rebalance 0.3.5 candidate
+Rebalance 0.3.5
 Includes every Bugfix repair, plus the approved base-character and alternate
 form changes, eight combo buffs and four camping cost reductions. The aim
 is stronger starter choices on Entropy V; complete roster testing is ongoing.
-Current public version: 0.3.4
-https://github.com/OneTrueHeir-Valentine/StarRenegades/releases/tag/rebalance-v0.3.4
+Download:
+https://github.com/OneTrueHeir-Valentine/StarRenegades/releases/tag/rebalance-v0.3.5
 
 Install one mod at a time. Rebalance already includes the Bugfix repairs.
 Both versions are test releases.
 
-DEVELOPMENT CANDIDATE
+NEW IN BUGFIX 0.1.6 AND REBALANCE 0.3.5
 
-The source also contains Bugfix 0.1.6 and Rebalance 0.3.5 candidates with
-shared title-load recovery. They are not public releases. Controller/UI
-acceptance is pending; the public download links above remain current.
-Failures now have an error result and an owned recovery path back to save
-selection. Existing fallback saves and successful scene routing remain.
+Save preparation and reconstruction errors now offer a return to save
+selection through an error message. Confirm and Back both dismiss it.
+Each load captures its prepared save; older results cannot replace a newer
+load. Native backup fallback and successful scene routing remain.
+This update makes no balance changes.
+
+The controlled-error check passed with a PlayStation controller. Normal
+Steam restart and existing-save loading also passed. Other progression
+and controller-camera reports remain under investigation.
 
 INSTALL
 
-1. Use the prepared candidate player ZIP. The ZIP ending in
+1. Download the player ZIP for the mod you want. The ZIP ending in
    -source.zip is for contributors.
 2. Extract it into its own folder and make sure the game is closed.
 3. Double click on Install.cmd. The installer finds the Steam library,
@@ -63,7 +67,7 @@ not establish that the mod loaded. Look for the Applied version line.
 Bugfix 0.1.6 reports 351 fields and 36 affix pools.
 Rebalance 0.3.5 reports 483 fields and 61 added records.
 
-NEW IN BUGFIX 0.1.5 AND REBALANCE 0.3.4
+EARLIER ENEMY ENERGY CORRECTION
 
 Dragoon Overseer's energy condition now respects its exact threshold.
 At 30 out of 50 energy, floating-point rounding treated 60% as greater
