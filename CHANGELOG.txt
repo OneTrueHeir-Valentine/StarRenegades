@@ -1,5 +1,36 @@
 Changelog
 
+0.1.4
+
+Corrects further differences between combat execution and its forecast:
+
+- Healing is capped at maximum health at the healing step. Excess healing
+  previously increased forecast health and could hide a later lethal hit.
+- Existing and newly granted temporary armor is tracked separately from
+  base armor. Armor stripping consumes temporary armor first; removing its
+  effect removes its remaining armor. Spy mode no longer loses this
+  protection when a fresh forecast starts or shows a permanent armor gain.
+- Source, ally and enemy effect cancellations now reach the forecast.
+  Counterattacks also consume source effects when their native action does.
+  New source effects are granted after the old effects are cancelled.
+- Applying or removing Defend updates projected debuff immunity without
+  changing the live unit or removing an independent immunity source.
+- Tethered guard, counter and overwatch effects are removed together.
+  Tethered grants are rejected together when an application is resisted.
+  Guard refreshes retain the current bestower, and ally support reaches its
+  selected recipient instead of being redirected to a guard.
+
+Both mods compile these repairs from the same source. Executed damage,
+healing, enemy behavior and balance values are unchanged in this update.
+The loader still reports 351 fields and 36 added affix pools.
+
+Tests compare the original native executor with the patched forecast in
+isolated processes. They cover chained damage, multiple hits, immunity,
+reaction cancellation, failure cleanup and live-unit isolation. They do
+not establish exact forecasts for cross-round expiry or every effect.
+The suspected negative-damage case above 100% defense remains held until
+a reachable state in normal play is established.
+
 0.1.3
 
 Illuminate now deactivates its own combo after use. The previous reference

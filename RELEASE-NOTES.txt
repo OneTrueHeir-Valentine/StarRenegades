@@ -1,25 +1,24 @@
-Star Renegades Bugfix Mod 0.1.3
+Star Renegades Bugfix Mod 0.1.4
 
 Test release for Windows x64, Steam build 1.5.1.5.
 
-Illuminate now deactivates itself after use and leaves Exhilaration active.
-Shadow Puppets gives its instant-attack effect to the selected Dark Paragon
-partner, retaining Spectre's existing effect. Hard Reset's English text now
-describes its working cleanses; the missing shield recharge remains held.
+Corrects combat forecasts for healing caps, temporary armor, source and
+party cleanses, projected debuff immunity, tethered guard/counter/overwatch
+effects and ally support routing. Counterattacks consume forecast source
+effects when their native action does. Tethered grants fail together when
+an effect is resisted.
 
-All fixes from 0.1.2 remain. The remaining enemy-reference candidates were
-investigated, but no additional replacement is shipped without evidence
-for the intended power, effect or continuation.
+Excess healing could previously hide a later lethal hit. Existing Spy mode
+armor was omitted when a forecast started. These repairs change forecasts;
+executed combat and balance values are unchanged. All previous fixes remain.
 
-Download Star-Renegades-Bugfix-Mod-v0.1.3.zip, extract it into a new folder,
+Download Star-Renegades-Bugfix-Mod-v0.1.4.zip, extract it into a new folder,
 close the game and run Install.cmd. Existing Bugfix installations update
-directly. Rebalance 0.3.2 has a separate download and includes these fixes.
+directly. Rebalance 0.3.3 has a separate download and includes these fixes.
 Install one mod at a time. Keep the extracted folder for Uninstall.cmd.
 
-The corrections passed isolated native-method and activation tests. Full
-battles and rendered UI still need testing. Loading failures and further
-forecast issues remain under investigation. The source ZIP includes tests
-and dependency notices, with no game assemblies, full tables or saves.
-
-Shadow Puppets participant routing and effect consumption are tested.
-Rescheduling of already queued actions still needs normal battle testing.
+Native-method tests cover the reproduced cases and live-state isolation.
+Full battles and rendered UI still need testing. Cross-round expiry,
+further forecast errors and loading failures remain under investigation.
+The source ZIP includes tests and dependency notices, with no game
+assemblies, full tables or saves. CHANGELOG.txt explains the changes.

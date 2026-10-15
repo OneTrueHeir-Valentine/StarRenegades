@@ -15,10 +15,11 @@ if(Test-Path -LiteralPath $harmony){$options+=('/reference:"'+$harmony+'"');Copy
 if(-not $Tests){
  $out=Join-Path $bin 'SRBugfix.dll';$options+=@('/target:library',('/out:"'+$out+'"'));$files=@(Get-ChildItem -LiteralPath $source -Filter '*.cs' | ForEach-Object FullName)
 }else{
- $mains=@{Core='CoreTests';Preview='PreviewTests';Prediction='PredictionTests';Forecast='ForecastFollowupTests';Achievements='AchievementTests';Activation='ActivationTests';EnemyAI='EnemyAiTests';EnemyData='EnemyDataTests';ComboData='ComboDataTests';ComboEffects='ComboEffectTests'}
- if(-not $mains.ContainsKey($Tests)){throw 'Choose -Tests Core, Preview, Prediction, Forecast, Achievements, Activation, EnemyAI, EnemyData, ComboData or ComboEffects.'}
+ $mains=@{Core='CoreTests';Preview='PreviewTests';Prediction='PredictionTests';Forecast='ForecastFollowupTests';Achievements='AchievementTests';Activation='ActivationTests';EnemyAI='EnemyAiTests';EnemyData='EnemyDataTests';ComboData='ComboDataTests';ComboEffects='ComboEffectTests';Resources='ResourceForecastTests';Effects='EffectLifecycleTests'}
+ if(-not $mains.ContainsKey($Tests)){throw 'Choose -Tests Core, Preview, Prediction, Forecast, Achievements, Activation, EnemyAI, EnemyData, ComboData, ComboEffects, Resources or Effects.'}
  $main=$mains[$Tests];$out=Join-Path $bin ($main+'.exe');$options+=@('/target:exe',('/main:'+$main),('/out:"'+$out+'"'))
  if($Tests -eq 'Forecast'){$options+='/define:FOLLOWUP_FIX'}
+ if($Tests -eq 'Resources'){$options+='/define:RESOURCE_FIX'}
  $files=@(Get-ChildItem -LiteralPath $source -Filter '*.cs' | ForEach-Object FullName)
  $files+=Join-Path $PSScriptRoot ('Tests/'+$main+'.cs')
  if($Tests -eq 'Preview' -or $Tests -eq 'Activation'){$files+=Join-Path $PSScriptRoot 'Tests/CoreTests.cs'}

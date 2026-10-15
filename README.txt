@@ -2,18 +2,18 @@ Star Renegades Mods
 
 Two mods for the Windows x64 Steam version of Star Renegades 1.5.1.5.
 
-Bugfix Mod 0.1.3
+Bugfix Mod 0.1.4
 Fixes item effects, English text, combat forecasts, earned achievement
 submissions and enemy action selection. Keeps the base character balance.
 Download:
-https://github.com/OneTrueHeir-Valentine/StarRenegades/releases/tag/bugfix-v0.1.3
+https://github.com/OneTrueHeir-Valentine/StarRenegades/releases/tag/bugfix-v0.1.4
 
-Rebalance 0.3.2
+Rebalance 0.3.3
 Includes every Bugfix repair, plus the approved base-character and alternate
 form changes, eight combo buffs and four camping cost reductions. The aim
 is stronger starter choices on Entropy V; complete roster testing is ongoing.
 Download:
-https://github.com/OneTrueHeir-Valentine/StarRenegades/releases/tag/rebalance-v0.3.2
+https://github.com/OneTrueHeir-Valentine/StarRenegades/releases/tag/rebalance-v0.3.3
 
 Install one mod at a time. Rebalance already includes the Bugfix repairs.
 Both versions are test releases.
@@ -52,10 +52,28 @@ Logs are created or appended during game startup. If no log appears after
 a launch, the mod has not confirmed startup. An empty file by itself does
 not establish that the mod loaded. Look for the Applied version line.
 
-Bugfix 0.1.3 reports 351 fields and 36 affix pools.
-Rebalance 0.3.2 reports 483 fields and 61 added records.
+Bugfix 0.1.4 reports 351 fields and 36 affix pools.
+Rebalance 0.3.3 reports 483 fields and 61 added records.
 
-NEW IN BUGFIX 0.1.3 AND REBALANCE 0.3.2
+NEW IN BUGFIX 0.1.4 AND REBALANCE 0.3.3
+
+- Forecast healing stops at maximum health. Previously, excess healing
+  could conceal a lethal hit later in the same forecast.
+- Temporary armor, including Spy mode armor, protects against forecast
+  damage and is consumed before base armor. It no longer appears as an
+  increase in permanent armor.
+- Forecasts track source, ally and enemy cleanses, including cancellation
+  after counterattacks. Defend's debuff immunity follows its projected
+  application and removal.
+- Removing a tethered effect removes its linked guard, counter or overwatch
+  effects. Tethered grants fail together when an effect is resisted, as
+  they do in combat. Ally support is no longer redirected through a guard.
+
+These corrections change forecasts, not executed combat. They do not
+establish that every forecast is exact. Cross-round effect expiry and
+other effects that the original forecast does not model still need work.
+
+ALSO INCLUDED FROM THE PREVIOUS RELEASE
 
 - Illuminate deactivates itself after use, preserving Exhilaration.
 - Shadow Puppets applies its instant-attack effect to the selected Dark
@@ -85,7 +103,7 @@ SHARED FIXES
 - Blaster affixes: repair five generation tags for buff-removal effects.
 - Combat forecasts: correct damage shown as healing during inspection,
   reflected armor loss, resisted-delay rounding, projected target effects
-  and incoming CRIT damage in reflection.
+  and incoming CRIT damage in reflection, plus the corrections above.
 - Achievements: retry earned counter achievements after Steam becomes
   ready or a submission fails. The mod does not add achievement progress.
 - Enemy AI: honor valid weighted action lists. Ordinary unweighted lists

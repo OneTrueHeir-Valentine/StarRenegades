@@ -16,6 +16,8 @@ powershell.exe -NoProfile -ExecutionPolicy Bypass -File ./setup-dependencies.ps1
 ./build.ps1 -Tests EnemyData -GamePath 'C:\path\to\Star Renegades'
 ./build.ps1 -Tests ComboData -GamePath 'C:\path\to\Star Renegades'
 ./build.ps1 -Tests ComboEffects -GamePath 'C:\path\to\Star Renegades'
+./build.ps1 -Tests Resources -GamePath 'C:\path\to\Star Renegades'
+./build.ps1 -Tests Effects -GamePath 'C:\path\to\Star Renegades'
 powershell.exe -NoProfile -ExecutionPolicy Bypass -File ./Tests/Installer.Tests.ps1
 python ./package.py --output ./artifacts
 python ./Tests/PackageTests.py ./artifacts
@@ -55,3 +57,11 @@ Rebalance's source ZIP contains both projects and their shared sources.
 ComboData covers guarded Illuminate/English corrections and dictionary
 rollback. ComboEffects covers native participant effect routing, ordinary
 combo behavior, linked partner selection and forecast state isolation.
+
+Resources compares native healing and armor calculations with forecast
+results, including excess healing, temporary armor stacks and reflection.
+Effects covers source/ally/enemy cancellations, immunity, tethered grants,
+reactions, public scenarios and live-state isolation using small fixtures.
+After building Effects, its Rebalance damage control can also be run with:
+./bin/EffectLifecycleTests.exe 'C:\path\to\Star Renegades' rebalance
+These isolated checks do not launch Unity or modify saves.

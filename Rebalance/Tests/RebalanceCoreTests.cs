@@ -46,11 +46,11 @@ internal static class RebalanceCoreTests
         });
         Test("approved manifest and game fingerprints accepted",()=>{
             var c=Bootstrap.Read(GamePath,SourceRoot);
-            Check((string)c["version"]=="0.3.2","wrong approved version");
+            Check((string)c["version"]=="0.3.3","wrong approved version");
         });
         Test("duplicate JSON property refused",()=>{
             string dir=Temporary("duplicate-config");
-            File.WriteAllText(Path.Combine(dir,"rebalance.json"),"{\"version\":\"0.3.2\",\"version\":\"0.3.2\"}");
+            File.WriteAllText(Path.Combine(dir,"rebalance.json"),"{\"version\":\"0.3.3\",\"version\":\"0.3.3\"}");
             Reject(()=>Bootstrap.Read(GamePath,dir),"duplicate");
         });
         Test("staging preserves baseline and derived values",()=>{
@@ -129,7 +129,7 @@ internal static class RebalanceCoreTests
     static void Check(bool ok,string message){if(!ok)throw new Exception(message);}
     static void Reject(Action action,string message){try{action();}catch(InvalidDataException e){Check(e.Message.ToLowerInvariant().Contains(message),"wrong refusal: "+e.Message);return;}throw new Exception("expected refusal: "+message);}
     static JObject Change(string t,string id,string f,object b,object a){return new JObject{{"table",t},{"id",id},{"field",f},{"before",JToken.FromObject(b)},{"after",JToken.FromObject(a)}};}
-    static JObject Config(params JObject[] edits){return new JObject{{"version","0.3.2"},{"changes",new JArray(edits)},{"additions",new JArray()}};}
+    static JObject Config(params JObject[] edits){return new JObject{{"version","0.3.3"},{"changes",new JArray(edits)},{"additions",new JArray()}};}
     static GameData Data()
     {
         var d=new GameData();

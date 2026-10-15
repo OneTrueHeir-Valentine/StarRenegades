@@ -13,7 +13,7 @@ foreach($name in @('mscorlib.dll','System.dll','System.Core.dll','Assembly-CShar
 $harmony=Join-Path $root 'dependencies/0Harmony.dll'
 $options+=('/reference:"'+$harmony+'"');Copy-Item -LiteralPath $harmony -Destination $outDir -Force
 $files=@('Source/ReflectionPreviewFix.cs','Tests/ForecastFollowupTests.cs')
-if(Test-Path (Join-Path $root 'Source/ProjectedEffectFix.cs')){$files+='Source/ProjectedEffectFix.cs';if(-not $Baseline){$options+='/define:FOLLOWUP_FIX'}}
+if(Test-Path (Join-Path $root 'Source/ProjectedEffectFix.cs')){$files+=@('Source/ProjectedEffectFix.cs','Source/EffectLifecycleFix.cs','Source/ComboEffectFix.cs');if(-not $Baseline){$options+='/define:FOLLOWUP_FIX'}}
 foreach($file in $files){$options+='"'+(Join-Path $root $file)+'"'}
 $rsp=Join-Path $outDir 'forecast-followup.rsp';[IO.File]::WriteAllLines($rsp,$options)
 & dotnet $csc ('@'+$rsp);if($LASTEXITCODE){throw 'Forecast fixture compilation failed'}

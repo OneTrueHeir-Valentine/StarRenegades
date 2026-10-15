@@ -38,7 +38,7 @@ counts = {
 }
 assert all(counts[t] == n for t, n in core['dictionary_counts'].items() if t in counts), 'shared dictionary counts differ'
 manifest = {
-    'version': '0.3.2',
+    'version': '0.3.3',
     'fingerprints': fingerprints,
     'dictionary_counts': counts,
     'changes': changes,

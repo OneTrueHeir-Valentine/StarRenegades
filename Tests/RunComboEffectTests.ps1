@@ -14,7 +14,7 @@ foreach($name in @('mscorlib.dll','System.dll','System.Core.dll','Assembly-CShar
 $harmony=Join-Path $project 'dependencies/0Harmony.dll';Copy-Item -LiteralPath $harmony -Destination $outDir -Force
 $options+=('/reference:"'+$harmony+'"');$options+='"'+(Join-Path $PSScriptRoot 'ComboEffectTests.cs')+'"'
 $source=Join-Path $project 'Source/ComboEffectFix.cs';if(Test-Path $source){$options+='"'+$source+'"'}
-foreach($name in @('ProjectedEffectFix.cs','ReflectionPreviewFix.cs')){$options+='"'+(Join-Path $project ('Source/'+$name))+'"'}
+foreach($name in @('ProjectedEffectFix.cs','EffectLifecycleFix.cs','ReflectionPreviewFix.cs')){$options+='"'+(Join-Path $project ('Source/'+$name))+'"'}
 $rsp=Join-Path $outDir 'combo-effects.rsp';[IO.File]::WriteAllLines($rsp,$options)
 & dotnet $csc ('@'+$rsp);if($LASTEXITCODE){throw 'Combo effect compilation failed'}
 & $out $GameRoot;exit $LASTEXITCODE

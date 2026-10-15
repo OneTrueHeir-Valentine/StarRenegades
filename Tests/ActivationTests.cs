@@ -76,6 +76,25 @@ internal static class ActivationTests
             Check(data.PowerStringData["hGrdSpeComboDesc"].EN=="Wipe all enemy buffs and all hero debuffs.","Hard Reset text still promises missing recharge");
             Check(data.EffectData["hDarSpeCombo"].tagsHash.Contains("wipedByAttacking"),"Shadow Puppets cancellation missing");
         });
+        Test("Priority2HelpersActivateAndRollbackTogether",()=>{
+            Prepare();Install();var data=Fixture();Apply(data);
+            foreach(string name in new[]{"ResourceForecastFix","EffectLifecycleFix"})
+                Check(HelperEnabled(name),name+" not enabled after activation");
+            RuntimeFixes.Remove(new Harmony(Owner));
+            foreach(string name in new[]{"ResourceForecastFix","EffectLifecycleFix"})
+                Check(!HelperEnabled(name),name+" remained enabled after removal");
+            Check(!Harmony.GetAllPatchedMethods().Any(Patched),"priority 2 hooks remained installed");
+            Prepare();Install();data=Fixture();
+            var field=typeof(Doorstop.Entrypoint).GetField("installHooks",Static);
+            var actions=(Action[])field.GetValue(null);
+            field.SetValue(null,actions.Concat(new Action[]{()=>{
+                RuntimeFixes.SetEnabled(true);throw new InvalidOperationException("priority 2 rollback fixture");
+            }}).ToArray());
+            Apply(data);
+            foreach(string name in new[]{"ResourceForecastFix","EffectLifecycleFix"})
+                Check(!HelperEnabled(name),name+" remained enabled after activation failure");
+            Check(!Harmony.GetAllPatchedMethods().Any(Patched),"priority 2 failure left installed hooks");
+        });
         Console.WriteLine("RESULT " + passed + " passed, " + failed + " failed");
         return failed == 0 ? 0 : 1;
     }
@@ -114,6 +133,13 @@ internal static class ActivationTests
     static MethodBase Loader() { return typeof(GameData).GetMethod("LoadData", BindingFlags.Instance | BindingFlags.NonPublic); }
     static bool Patched(MethodBase method) { var info = Harmony.GetPatchInfo(method); return info != null && info.Owners.Contains(Owner); }
     static void Check(bool condition, string message) { if (!condition) throw new Exception(message); }
+    static bool HelperEnabled(string name)
+    {
+        var type=typeof(RuntimeFixes).Assembly.GetType("SRBugfix."+name);
+        Check(type!=null,name+" helper is missing");
+        var field=type.GetField("Enabled",BindingFlags.Static|BindingFlags.Public|BindingFlags.NonPublic);
+        Check(field!=null,name+" activation flag is missing");return (bool)field.GetValue(null);
+    }
     static void Test(string name, Action body)
     {
         try { body(); passed++; Console.WriteLine("PASS " + name); }

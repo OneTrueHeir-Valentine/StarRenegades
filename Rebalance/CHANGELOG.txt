@@ -1,5 +1,16 @@
 Changelog
 
+0.3.3
+
+Includes Bugfix Mod 0.1.4's healing cap, temporary armor, effect cancellation,
+immunity, tether and ally guard forecast corrections. Executed combat and
+the approved character, variant, combo and camping balance values are
+unchanged. The combined loader still reports 483 fields and 61 additions.
+
+Cross-round effect expiry and other unmodeled effects still need testing.
+Shared repair details:
+https://github.com/OneTrueHeir-Valentine/StarRenegades/blob/main/CHANGELOG.txt
+
 0.3.2
 
 Includes Bugfix Mod 0.1.3's Illuminate self-deactivation, selected-partner

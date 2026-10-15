@@ -45,7 +45,7 @@ namespace SRBugfix
         {
             ValidateTargets();
             harmony.Patch(ResolveTarget(),postfix:new HarmonyMethod(typeof(ComboEffectFix).GetMethod("AfterExecution",BindingFlags.Static|BindingFlags.NonPublic)));
-            harmony.Patch(ResolveForecastTarget(),postfix:new HarmonyMethod(typeof(ComboEffectFix).GetMethod("AfterForecast",BindingFlags.Static|BindingFlags.NonPublic)));
+            harmony.Patch(ResolveForecastTarget(),postfix:new HarmonyMethod(typeof(ComboEffectFix).GetMethod("AfterForecast",BindingFlags.Static|BindingFlags.NonPublic)){priority=Priority.Last});
         }
         static Effect PartnerEffect(Combat.CombatUnitPower power,Combat.CombatUnit partner)
         {

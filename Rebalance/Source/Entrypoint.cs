@@ -44,7 +44,7 @@ namespace Doorstop
             var flags=BindingFlags.Static|BindingFlags.NonPublic;
             try{harmony.Patch(load,postfix:new HarmonyMethod(typeof(Entrypoint).GetMethod("AfterDataLoad",flags)));}
             catch{removeHooks();throw;}
-            Log("Loader ready, version 0.3.2.");
+            Log("Loader ready, version 0.3.3.");
         }
         static void AfterDataLoad(GameData __instance)
         {
@@ -53,7 +53,7 @@ namespace Doorstop
             {
                 var applied=SRRebalance.RebalanceActivation.Apply(__instance,coreManifest,balanceManifest,installHooks,removeHooks);
                 RuntimeFixes.SetEnabled(true);
-                Log("Applied version 0.3.2: "+applied.ChangedFields+" fields, "+applied.AddedRecords+" added records.");
+                Log("Applied version 0.3.3: "+applied.ChangedFields+" fields, "+applied.AddedRecords+" added records.");
             }
             catch(Exception e){Log("Rebalance not applied; original data retained: "+e);}
         }

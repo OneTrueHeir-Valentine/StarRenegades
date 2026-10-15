@@ -1,7 +1,7 @@
-Star Renegades Rebalance 0.3.2
+Star Renegades Rebalance 0.3.3
 
 Test release for the Windows x64 Steam version of Star Renegades 1.5.1.5.
-Includes every fix in Bugfix Mod 0.1.3.
+Includes every fix in Bugfix Mod 0.1.4.
 
 The aim is to make every base renegade and alternate form a strong starter
 choice on Entropy V. This build retains the approved character and variant
@@ -10,7 +10,7 @@ still needs playtesting across forms, equipment and team compositions.
 
 INSTALL
 
-1. Download Star-Renegades-Rebalance-v0.3.2.zip from:
+1. Download Star-Renegades-Rebalance-v0.3.3.zip from:
    https://github.com/OneTrueHeir-Valentine/StarRenegades/releases
 2. Extract it into its own folder. Close the game.
 3. Double-click Install.cmd. Select the Steam game folder if requested.
@@ -47,6 +47,11 @@ Enemy choices now follow their declared weights. Dragoon Overseer summon
 and Panzer repair continuations are repaired. These corrections can make
 encounters harder. Forecast, camping text and achievement repairs are also
 included. The mod does not edit saves or grant achievement progress.
+
+Version 0.3.3 corrects forecasts for capped healing, temporary armor,
+cleanses, debuff immunity and linked guard/counter/overwatch effects.
+Ally support reaches its selected recipient. These repairs change the
+forecast; executed combat and the existing balance values are unchanged.
 
 TESTING
 

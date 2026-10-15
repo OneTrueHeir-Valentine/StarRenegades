@@ -10,12 +10,12 @@ using Mdi.SRRW.Engine;
 
 namespace SRBugfix
 {
-    public static class ProjectedEffectFix
+    public static partial class ProjectedEffectFix
     {
         internal static bool Enabled=false;
         static readonly ConditionalWeakTable<Combat.CombatUnit.EstimatedState,Projection> states=new ConditionalWeakTable<Combat.CombatUnit.EstimatedState,Projection>();
         static readonly FieldInfo criticalDefense=AccessTools.Field(typeof(Unit),"criticalDefense");
-        sealed class Projection
+        sealed partial class Projection
         {
             internal readonly GameElementCollection<UnitEffect> Effects=new GameElementCollection<UnitEffect>();
             internal readonly ModifiedValue CriticalDefense;
@@ -30,6 +30,7 @@ namespace SRBugfix
                     Effects.Add(effect);
                     CancellableHits[effect]=state.Unit.Effects.Has(effect.ID)?state.Unit.Effects[effect.ID].CancellableHits:0;
                 }
+                InitializeLifecycle(state,this);
             }
         }
         sealed class PowerApplication
@@ -61,17 +62,18 @@ namespace SRBugfix
         }
         static HarmonyMethod Hook(string name){return new HarmonyMethod(typeof(ProjectedEffectFix).GetMethod(name,BindingFlags.Static|BindingFlags.NonPublic));}
         static void Initialize(Combat.CombatUnit.EstimatedState __instance){if(Enabled)Get(__instance);}
-        static bool ApplyEffect(Combat.CombatUnit.EstimatedState __instance,Effect effect)
+        static bool ApplyEffect(Combat.CombatUnit.EstimatedState __instance,Effect effect,Combat.CombatUnit source)
         {
             if(!Enabled)return true;
             var p=Get(__instance);var unit=__instance.Unit.Unit;
-            if(!unit.CanApplyEffect(effect))return false;
+            if(!CanApplyEffectForEstimate(unit,effect,__instance))return false;
             if(p.Applications.Count>0)
             {
                 var application=p.Applications.Peek();
                 if(application.Power.Power.Hostility!=Power.PowerHostility.Ally&&((!effect.EffectData.ignoreShield&&application.ThroughShield<=0)||(!effect.EffectData.ignoreArmor&&application.ThroughArmor<=0)))return false;
-                for(int i=application.VulnerabilityStart;i<__instance.exploitedVulnerabilities.Count;i++)if(effect.EffectData.tagsHash.Overlaps(__instance.exploitedVulnerabilities[i].VulnerabilityData.blockEffectsByTag))return false;
+                for(int i=application.VulnerabilityStart;i<__instance.exploitedVulnerabilities.Count;i++)if(effect.EffectData.tagsHash.Overlaps(__instance.exploitedVulnerabilities[i].VulnerabilityData.blockEffectsByTag)){RejectTargetEffect(__instance);return false;}
             }
+            if(QueueTargetEffect(__instance,effect,source))return false;
             if(!effect.EffectData.isStackable&&!String.IsNullOrEmpty(effect.EffectData.unstackableGroup))
             {
                 for(int i=0;i<p.Effects.Count&&p.Effects[i].Effect!=effect;i++)
@@ -82,8 +84,8 @@ namespace SRBugfix
                     Remove(__instance,previous);i--;
                 }
             }
-            if(!effect.EffectData.isStackable&&p.Effects.Any(e=>e.Effect==effect))return false;
-            var projected=new UnitEffect(unit,effect);p.Effects.Add(projected);p.CancellableHits[projected]=0;ModifyCriticalDefense(__instance,effect,1);
+            if(!effect.EffectData.isStackable&&p.Effects.Any(e=>e.Effect==effect)){RefreshForLifecycle(__instance,effect,source);return false;}
+            var projected=new UnitEffect(unit,effect);p.Effects.Add(projected);p.CancellableHits[projected]=0;ModifyCriticalDefense(__instance,effect,1);AddedForLifecycle(__instance,projected);
             return true;
         }
         static void ModifyCriticalDefense(Combat.CombatUnit.EstimatedState state,Effect effect,int sign)
@@ -147,7 +149,7 @@ namespace SRBugfix
         }
         static void Remove(Combat.CombatUnit.EstimatedState state,UnitEffect effect)
         {
-            Get(state).Effects.Remove(effect.ID);Get(state).CancellableHits.Remove(effect);ModifyCriticalDefense(state,effect.Effect,-1);
+            Get(state).Effects.Remove(effect.ID);Get(state).CancellableHits.Remove(effect);RemovedForLifecycle(state,effect);ModifyCriticalDefense(state,effect.Effect,-1);
             // Each reactive list has one entry per applicable stack, including projected stacks.
             foreach(var list in new[]{state.overwatchEffects,state.returnFireEffects,state.guardingEffects})
             {

@@ -13,6 +13,7 @@ namespace SRBugfix
             {
                 stage=Overlay.Stage(data,manifest);enemies=EnemyDataFix.Stage(data);combos=ComboDataFix.Stage(data);
                 stage.Commit(data);committed=true;enemies.Commit(data);enemyCommitted=true;combos.Commit(data);comboCommitted=true;
+                EffectLifecycleFix.ValidateImmunityDomain(data);
                 foreach(var hook in installHooks)hook();stage.ChangedFields+=enemies.ChangedFields+combos.ChangedFields;return stage;
             }
             catch

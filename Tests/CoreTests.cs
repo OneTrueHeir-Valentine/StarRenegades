@@ -71,13 +71,13 @@ internal static class CoreTests
             var m=Manifest();var d=Fixture(m);Overlay.Stage(d,m).Commit(d);Reject(()=>Overlay.Stage(d,m),"mismatch");
         });
         Test("RejectsDuplicateJsonProperty",()=>{
-            string dir=Temporary("duplicate");File.WriteAllText(Path.Combine(dir,"fixes.json"),"{\"version\":\"0.1.3\",\"version\":\"0.1.3\"}");Reject(()=>Bootstrap.Read(gameRoot,dir),"duplicate");
+            string dir=Temporary("duplicate");File.WriteAllText(Path.Combine(dir,"fixes.json"),"{\"version\":\"0.1.4\",\"version\":\"0.1.4\"}");Reject(()=>Bootstrap.Read(gameRoot,dir),"duplicate");
         });
         Test("RejectsModifiedManifest",()=>{
             string dir=Temporary("modified");var m=Manifest();m["changes"][336]["after"]=5;File.WriteAllText(Path.Combine(dir,"fixes.json"),m.ToString());Reject(()=>Bootstrap.Read(gameRoot,dir),"checksum");
         });
         Test("RejectsMissingManifest",()=>Reject(()=>Bootstrap.Read(gameRoot,Temporary("missing")),"missing"));
-        Test("AcceptsPinnedManifestAndGame",()=>Equal((string)Bootstrap.Read(gameRoot,sourceRoot)["version"],"0.1.3"));
+        Test("AcceptsPinnedManifestAndGame",()=>Equal((string)Bootstrap.Read(gameRoot,sourceRoot)["version"],"0.1.4"));
         Test("AddsMirroredPoolWithFreshTagsHash",()=>{
             var m=CoreManifest();var d=Fixture(m);Set(d,"TagGroupData",new Dictionary<string,TagGroupData>());
             var template=new TagGroupData{id="tagSwordElementalA3",tags=new[]{"eqp","sword","lvl3"}};((UnityEngine.ISerializationCallbackReceiver)template).OnAfterDeserialize();
@@ -130,6 +130,7 @@ internal static class CoreTests
         foreach(var field in typeof(EffectData).GetFields())if(field.FieldType==typeof(string[])&&field.GetValue(instant)==null)field.SetValue(instant,new string[0]);
         ((UnityEngine.ISerializationCallbackReceiver)instant).OnAfterDeserialize();
         Set(d,"EffectData",new Dictionary<string,EffectData>{{instant.id,instant}});
+        Set(d,"UnitModifierData",new Dictionary<string,UnitModifierData>());
         foreach(var e in (JArray)manifest["changes"])
         {
             string tn=(string)e["table"],id=(string)e["id"];var table=Table(d,tn);object row;
